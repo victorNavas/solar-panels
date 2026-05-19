@@ -1,0 +1,6 @@
+Period Start,Period End,Reading Type,Consumption m3,Energy kWh,Cost ex VAT (EUR),Invoice No,Notes
+2025-10-11,2025-10-16,Real,10,111,11.84,,Initial 6-day invoice
+2025-10-17,2025-12-12,Real,84,933,96.78,,Includes price change split 1 Nov (22m³/244kWh + 62m³/689kWh)
+2025-12-13,2026-02-16,Estimated,257,2871,294.42,1809870998,CANCELLED - replaced by real reading below
+2025-12-13,2026-03-13,Real,171,1910,195.90,711396496,Replacement invoice correcting Feb estimate (2871→1910 kWh)
+2026-03-14,2026-04-21,Real,36,401,41.13,,Last billed period

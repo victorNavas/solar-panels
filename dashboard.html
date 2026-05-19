@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Retrofit - Evanwood, Limerick</title>
+    <style>
+        :root {
+            --green: #22c55e;
+            --green-light: #dcfce7;
+            --red: #ef4444;
+            --red-light: #fee2e2;
+            --orange: #f59e0b;
+            --orange-light: #fef3c7;
+            --blue: #3b82f6;
+            --blue-light: #dbeafe;
+            --gray: #6b7280;
+            --gray-light: #f3f4f6;
+            --dark: #1f2937;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        h2 { font-size: 1.3rem; margin: 30px 0 15px; padding-bottom: 8px; border-bottom: 2px solid var(--blue); color: var(--blue); }
+        h3 { font-size: 1.05rem; margin: 15px 0 8px; }
+        .header { background: linear-gradient(135deg, #1e3a5f, #2563eb); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; position: relative; }
+        .header h1 { color: white; }
+        .header p { opacity: 0.85; margin-top: 5px; }
+        .lang-toggle { position: absolute; top: 15px; right: 20px; display: flex; gap: 5px; }
+        .lang-btn { padding: 5px 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); color: white; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+        .lang-btn.active, .lang-btn:hover { background: white; color: var(--dark); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { background: white; border-radius: 10px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 4px solid var(--blue); }
+        .card.green { border-left-color: var(--green); }
+        .card.orange { border-left-color: var(--orange); }
+        .card.red { border-left-color: var(--red); }
+        .card h3 { margin-top: 0; }
+        .card .value { font-size: 1.8rem; font-weight: 700; color: var(--dark); }
+        .card .label { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem; }
+        th { background: var(--gray-light); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3px; }
+        tr:last-child td { border-bottom: none; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .badge-green { background: var(--green-light); color: #166534; }
+        .badge-red { background: var(--red-light); color: #991b1b; }
+        .badge-orange { background: var(--orange-light); color: #92400e; }
+        .badge-blue { background: var(--blue-light); color: #1e40af; }
+        .comparison-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .comparison-row:last-child { border-bottom: none; }
+        .bar { height: 24px; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; font-size: 0.75rem; font-weight: 600; color: white; min-width: 40px; }
+        .checklist { list-style: none; }
+        .checklist li { padding: 6px 0; padding-left: 25px; position: relative; font-size: 0.9rem; }
+        .checklist li::before { content: '☐'; position: absolute; left: 0; font-size: 1.1rem; }
+        .checklist li.done::before { content: '✅'; }
+        .checklist li.progress::before { content: '🔄'; }
+        .note { background: var(--orange-light); border-left: 3px solid var(--orange); padding: 12px 15px; border-radius: 0 6px 6px 0; margin: 10px 0; font-size: 0.9rem; }
+        .section { margin-bottom: 35px; }
+        .tabs { display: flex; gap: 5px; margin-bottom: 15px; flex-wrap: wrap; }
+        .tab { padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; background: white; border: 1px solid #e5e7eb; transition: all 0.2s; }
+        .tab:hover, .tab.active { background: var(--blue); color: white; border-color: var(--blue); }
+        .timeline { position: relative; padding-left: 25px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 5px; bottom: 5px; width: 2px; background: #e5e7eb; }
+        .timeline-item { position: relative; margin-bottom: 15px; }
+        .timeline-item::before { content: ''; position: absolute; left: -21px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); border: 2px solid white; box-shadow: 0 0 0 2px var(--blue); }
+        .timeline-item.done::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+        .timeline-item.pending::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+        a { color: var(--blue); }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .container { padding: 10px; }
+            .header { padding: 20px; }
+            .lang-toggle { top: 10px; right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="lang-toggle">
+                <div class="lang-btn active" onclick="setLang('es')">ES</div>
+                <div class="lang-btn" onclick="setLang('en')">EN</div>
+            </div>
+            <h1>☀️ <span data-es="Proyecto Retrofit Energético" data-en="Energy Retrofit Project"></span></h1>
+            <p>115 Evanwood, Castletroy, Limerick (V94 FNC2) · <span data-es="Casa 2017" data-en="2017 Build"></span> · BER A3 → A1</p>
+        </div>
+
+        <!-- KPIs -->
+        <div class="grid">
+            <div class="card green">
+                <div class="label"><span data-es="Ahorro Anual Esperado" data-en="Expected Annual Savings"></span></div>
+                <div class="value">~€1,050</div>
+                <p style="font-size:0.8rem; color:var(--gray)"><span data-es="Luz (€550) + Gas→HP (€400) + CEG (€100)" data-en="Elec (€550) + Gas→HP (€400) + CEG (€100)"></span></p>
+            </div>
+            <div class="card">
+                <div class="label"><span data-es="Inversión Objetivo (Neto)" data-en="Target Investment (Net)"></span></div>
+                <div class="value">€9,000 - €11,000</div>
+                <p style="font-size:0.8rem; color:var(--gray)"><span data-es="DIY supervisado, tras ayudas SEAI" data-en="Supervised DIY, after SEAI grants"></span></p>
+            </div>
+            <div class="card orange">
+                <div class="label"><span data-es="Amortización" data-en="Payback Period"></span></div>
+                <div class="value"><span data-es="~4-5 años" data-en="~4-5 years"></span></div>
+                <p style="font-size:0.8rem; color:var(--gray)"><span data-es="Paneles: vida útil 25+ años" data-en="Panels: 25+ year lifespan"></span></p>
+            </div>
+            <div class="card green">
+                <div class="label"><span data-es="Subvenciones SEAI 2026" data-en="SEAI Grants 2026"></span></div>
+                <div class="value">€14,500</div>
+                <p style="font-size:0.8rem; color:var(--gray)">Solar €1,800 + HP €12,500 + <span data-es="IVA 0%" data-en="VAT 0%"></span></p>
+            </div>
+        </div>
+
+        <!-- CONSUMO REAL -->
+        <div class="section">
+            <h2>⚡ <span data-es="Consumo Real (Smart Meter + Facturas Gas)" data-en="Real Consumption (Smart Meter + Gas Bills)"></span></h2>
+            <p style="font-size:0.8rem; color:var(--gray); margin-bottom:15px;">MPRN: 10306472089 · <span data-es="Electricidad: Oct 25 - May 26 (226 días) · Gas: Oct 25 - Apr 26 (189 días)" data-en="Electricity: Oct 25 - May 26 (226 days) · Gas: Oct 25 - Apr 26 (189 days)"></span></p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="label"><span data-es="Electricidad Anual" data-en="Annual Electricity"></span></div>
+                    <div class="value">1,744 kWh</div>
+                    <p style="font-size:0.8rem; color:var(--gray)">4.78 kWh/<span data-es="día" data-en="day"></span> · ~€698/<span data-es="año" data-en="yr"></span></p>
+                </div>
+                <div class="card orange">
+                    <div class="label"><span data-es="Gas Anual (con 30% dto.)" data-en="Annual Gas (with 30% disc.)"></span></div>
+                    <div class="value">3,883 kWh</div>
+                    <p style="font-size:0.8rem; color:var(--gray)">€436/<span data-es="año" data-en="yr"></span> · <span data-es="Dto. expira 5 Oct 2026!" data-en="Discount expires 5 Oct 2026!"></span></p>
+                </div>
+                <div class="card red">
+                    <div class="label"><span data-es="Gas SIN Descuento (desde Oct 26)" data-en="Gas WITHOUT Discount (from Oct 26)"></span></div>
+                    <div class="value">~€623/<span data-es="año" data-en="yr"></span></div>
+                    <p style="font-size:0.8rem; color:var(--gray)"><span data-es="Tarifa estándar si no cambias" data-en="Standard rate if you don't switch"></span></p>
+                </div>
+                <div class="card green">
+                    <div class="label"><span data-es="Total Energía Actual" data-en="Total Current Energy"></span></div>
+                    <div class="value">€1,134/<span data-es="año" data-en="yr"></span></div>
+                    <p style="font-size:0.8rem; color:var(--gray)"><span data-es="Luz €698 + Gas €436 (con dto.)" data-en="Elec €698 + Gas €436 (with disc.)"></span></p>
+                </div>
+            </div>
+
+            <!-- GAS DETAIL TABLE -->
+            <h3 style="margin-top:20px;">🔥 <span data-es="Detalle Facturas Gas (Lecturas Reales)" data-en="Gas Bill Detail (Real Readings)"></span></h3>
+            <table>
+                <thead>
+                    <tr><th><span data-es="Periodo" data-en="Period"></span></th><th><span data-es="Lectura" data-en="Reading"></span></th><th>m³</th><th>kWh</th><th><span data-es="Coste" data-en="Cost"></span></th><th>kWh/<span data-es="día" data-en="day"></span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>11-16 Oct 25</td><td>Real</td><td>10</td><td>111</td><td>€11.84</td><td>22.2</td></tr>
+                    <tr><td>17 Oct - 12 Dec 25</td><td>Real</td><td>84</td><td>933</td><td>€96.78</td><td>16.7</td></tr>
+                    <tr style="background:var(--green-light);"><td>13 Dec 25 - 13 Mar 26</td><td>Real</td><td>171</td><td>1,910</td><td>€195.90</td><td>21.2</td></tr>
+                    <tr><td>14 Mar - 21 Apr 26</td><td>Real</td><td>36</td><td>401</td><td>€41.13</td><td>10.6</td></tr>
+                    <tr style="font-weight:600;"><td colspan="2">TOTAL (189 <span data-es="días" data-en="days"></span>)</td><td>301</td><td>3,355</td><td>€345.65</td><td>17.8</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.75rem; color:var(--gray); margin-top:5px;"><span data-es="Crédito a favor: €24.54. Tarifa: Gas Energy Saver (30% dto.) expira 5 Oct 2026." data-en="Credit balance: €24.54. Tariff: Gas Energy Saver (30% disc.) expires 5 Oct 2026."></span></p>
+
+            <!-- HP PAYBACK ANALYSIS -->
+            <div class="note" style="margin-top:15px; background:var(--blue-light); border-left-color:var(--blue);">
+                🧮 <strong><span data-es="¿Merece la pena la Aerotermia?" data-en="Is a Heat Pump worth it?"></span></strong>
+                <table style="margin-top:8px; box-shadow:none; background:transparent;">
+                    <tr><td><span data-es="Gas actual (con dto.)" data-en="Current gas (with disc.)"></span></td><td>€436/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr><td><span data-es="Gas sin dto. (desde Oct 26)" data-en="Gas without disc. (from Oct 26)"></span></td><td>€623/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr><td><span data-es="HP necesita (COP 3.5)" data-en="HP needs (COP 3.5)"></span>: 3,883 ÷ 3.5</td><td>1,109 kWh <span data-es="eléctricos" data-en="electric"></span></td></tr>
+                    <tr><td><span data-es="Coste HP si pago red (€0.40/kWh)" data-en="HP cost if grid (€0.40/kWh)"></span></td><td style="color:var(--orange);">€444/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr><td><span data-es="Coste HP si solar gratis (~50%)" data-en="HP cost if solar free (~50%)"></span></td><td style="color:var(--green);">~€220/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr style="font-weight:700;"><td><span data-es="Ahorro NETO vs gas sin dto." data-en="NET savings vs gas without disc."></span></td><td style="color:var(--green);">€400/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr><td><span data-es="+ SEAI grants (HP+Fossil Fuel)" data-en="+ SEAI grants (HP+Fossil Fuel)"></span></td><td style="color:var(--green); font-weight:600;">€10,500</td></tr>
+                </table>
+                <p style="font-size:0.8rem; margin-top:8px;"><span data-es="✅ La HP se justifica por los €10,500 de grants + eliminar gas permanentemente + ahorro creciente (gas sube ~8%/año). Sin grants, el payback sería +15 años." data-en="✅ HP justified by €10,500 grants + permanently eliminating gas + growing savings (gas rises ~8%/yr). Without grants, payback would be 15+ years."></span></p>
+            </div>
+
+            <!-- Monthly chart -->
+            <h3 style="margin-top:20px;"><span data-es="Consumo Mensual (kWh)" data-en="Monthly Consumption (kWh)"></span></h3>
+            <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1); margin-top:10px;">
+                <div style="display:flex; align-items:flex-end; gap:6px; height:150px; border-bottom:1px solid #e5e7eb; padding-bottom:5px;">
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">176</span><div style="width:80%; border-radius:4px 4px 0 0; background:#f97316; height:93px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">190</span><div style="width:80%; border-radius:4px 4px 0 0; background:#ef4444; height:100px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">135</span><div style="width:80%; border-radius:4px 4px 0 0; background:#f59e0b; height:71px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">85</span><div style="width:80%; border-radius:4px 4px 0 0; background:#22c55e; height:45px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">177</span><div style="width:80%; border-radius:4px 4px 0 0; background:#f97316; height:93px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">142</span><div style="width:80%; border-radius:4px 4px 0 0; background:#f59e0b; height:75px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">82</span><div style="width:80%; border-radius:4px 4px 0 0; background:#22c55e; height:43px;"></div></div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center;"><span style="font-size:0.65rem; font-weight:600;">93*</span><div style="width:80%; border-radius:4px 4px 0 0; background:#3b82f6; height:49px; opacity:0.7;"></div></div>
+                </div>
+                <div style="display:flex; gap:6px; margin-top:4px;">
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Oct</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Nov</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Dec</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Jan</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Feb</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Mar</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">Apr</div>
+                    <div style="flex:1; text-align:center; font-size:0.65rem; color:var(--gray);">May</div>
+                </div>
+                <p style="font-size:0.7rem; color:var(--gray); margin-top:8px;">* May = 18 <span data-es="días (parcial)" data-en="days (partial)"></span>. <span data-es="Meses pico: Oct-Nov (6.4 kWh/día). Meses bajos: Ene-Abr (2.7 kWh/día)" data-en="Peak months: Oct-Nov (6.4 kWh/day). Low months: Jan-Apr (2.7 kWh/day)"></span></p>
+            </div>
+
+            <!-- Time of day distribution -->
+            <h3 style="margin-top:20px;"><span data-es="Distribución por Franja Horaria" data-en="Time-of-Day Distribution"></span></h3>
+            <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1); margin-top:10px;">
+                <div style="display:flex; border-radius:8px; overflow:hidden; height:40px; margin-bottom:12px;">
+                    <div style="width:18%; background:#1e3a5f; display:flex; align-items:center; justify-content:center; color:white; font-size:0.75rem; font-weight:600;">18%</div>
+                    <div style="width:31%; background:#f59e0b; display:flex; align-items:center; justify-content:center; color:white; font-size:0.75rem; font-weight:600;">31%</div>
+                    <div style="width:51%; background:#ef4444; display:flex; align-items:center; justify-content:center; color:white; font-size:0.75rem; font-weight:600;">50%</div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#1e3a5f; border-radius:2px; vertical-align:middle; margin-right:4px;"></span> 🌙 <span data-es="Noche" data-en="Night"></span> (00-08h): 192 kWh</div>
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#f59e0b; border-radius:2px; vertical-align:middle; margin-right:4px;"></span> ☀️ <span data-es="Día" data-en="Day"></span> (08-17h): 339 kWh</div>
+                    <div><span style="display:inline-block; width:12px; height:12px; background:#ef4444; border-radius:2px; vertical-align:middle; margin-right:4px;"></span> 🌆 <span data-es="Tarde" data-en="Evening"></span> (17-00h): 544 kWh</div>
+                </div>
+                <div class="note" style="margin-top:15px; background:var(--blue-light); border-left-color:var(--blue);">
+                    💡 <strong><span data-es="Implicación:" data-en="Implication:"></span></strong> <span data-es="Solo el 31% de tu consumo ocurre en horas de sol (paneles cubren directo). El 69% restante (735 kWh) necesita batería. Con 10kWh de batería a ~2 kWh/día de noche = cubierto." data-en="Only 31% of consumption occurs during sun hours (panels cover directly). The remaining 69% (735 kWh) needs battery. With 10kWh battery at ~2 kWh/day at night = covered."></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EMPRESAS -->
+        <div class="section">
+            <h2>📋 <span data-es="Empresas y Presupuestos" data-en="Companies & Quotes"></span></h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('all')"><span data-es="Todas" data-en="All"></span></div>
+                <div class="tab" onclick="showTab('active')"><span data-es="Activas" data-en="Active"></span></div>
+                <div class="tab" onclick="showTab('discarded')"><span data-es="Descartadas" data-en="Discarded"></span></div>
+            </div>
+
+            <table id="empresas-table">
+                <thead>
+                    <tr>
+                        <th><span data-es="Empresa" data-en="Company"></span></th>
+                        <th><span data-es="Servicios" data-en="Services"></span></th>
+                        <th><span data-es="Contacto" data-en="Contact"></span></th>
+                        <th><span data-es="Precio Neto" data-en="Net Price"></span></th>
+                        <th><span data-es="Tipo" data-en="Type"></span></th>
+                        <th><span data-es="Estado" data-en="Status"></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-active">
+                        <td><strong>Treacy Solar ⭐</strong></td>
+                        <td>☀️</td>
+                        <td>Daryl Moynihan</td>
+                        <td><span data-es="Pendiente (20/05)" data-en="Pending (20/05)"></span></td>
+                        <td><span class="badge badge-blue"><span data-es="Instalador Local" data-en="Local Installer"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="📞 Hablar mañana" data-en="📞 Call tomorrow"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>Emmet Keeshan ⭐</strong></td>
+                        <td>☀️</td>
+                        <td>0834464699</td>
+                        <td>Labor: €2,150 + <strong>TBD</strong></td>
+                        <td><span class="badge badge-green"><span data-es="DIY Supervisado" data-en="Supervised DIY"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="⏳ Esperando precio materiales" data-en="⏳ Awaiting hardware price"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>Stephen Broderick ⭐</strong></td>
+                        <td>☀️</td>
+                        <td>Email</td>
+                        <td><span data-es="Pendiente (fotos enviadas 19/05)" data-en="Pending (photos sent 19/05)"></span></td>
+                        <td><span class="badge badge-green"><span data-es="Supply+Fit (crew propia)" data-en="Supply+Fit (own crew)"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="⏳ Esperando quote" data-en="⏳ Awaiting quote"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>Sean McCarthy</strong></td>
+                        <td>☀️</td>
+                        <td>Email</td>
+                        <td><span data-es="Pendiente" data-en="Pending"></span></td>
+                        <td><span class="badge badge-blue"><span data-es="Instalador Premium" data-en="Premium Installer"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="📧 Esperando propuesta" data-en="📧 Awaiting proposal"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>H&A Solar</strong></td>
+                        <td>☀️</td>
+                        <td>Carol Walsh</td>
+                        <td><span data-es="Pendiente" data-en="Pending"></span></td>
+                        <td><span class="badge badge-blue"><span data-es="Especialista Solar" data-en="Solar Specialist"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="📧 Pendiente quote" data-en="📧 Pending quote"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>Bord Gáis / Swyft</strong></td>
+                        <td>☀️</td>
+                        <td><span data-es="Vía Stephen (vecino)" data-en="Via Stephen (neighbour)"></span></td>
+                        <td>~€7,000 (<span data-es="sin bat" data-en="no bat"></span>) / ~€12,000 (<span data-es="con bat" data-en="with bat"></span>)</td>
+                        <td><span class="badge badge-blue"><span data-es="Utility (grande)" data-en="Utility (large)"></span></span></td>
+                        <td><span class="badge badge-green"><span data-es="📋 Ref. vecinos" data-en="📋 Neighbour ref"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>OHK Energy</strong></td>
+                        <td>☀️🌡️</td>
+                        <td>Cian O'Regan</td>
+                        <td>€21,240 (<span data-es="bruto" data-en="gross"></span>: €35,540!)</td>
+                        <td><span class="badge badge-orange">One-Stop-Shop</span></td>
+                        <td><span class="badge badge-orange"><span data-es="⏸️ Parado - precio HP excesivo" data-en="⏸️ Stalled - HP price too high"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td><strong>David Gardiner ⭐</strong></td>
+                        <td>🌡️</td>
+                        <td>📞 0879550493</td>
+                        <td><span data-es="Pendiente — necesita: plano casa, medidas habitaciones, medidas radiadores, BER. Recomienda Hisense (7yr warranty). Usa Unitherm para heat loss calc." data-en="Pending — needs: house plan, room sizes, radiator sizes, BER. Recommends Hisense (7yr warranty). Uses Unitherm for heat loss calc."></span></td>
+                        <td><span class="badge badge-green"><span data-es="Fontanero SEAI" data-en="SEAI Plumber"></span></span></td>
+                        <td><span class="badge badge-blue"><span data-es="📋 Enviando docs" data-en="📋 Sending docs"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
+                        <td>Alternative Energy</td>
+                        <td>☀️🌡️</td>
+                        <td>John Mullan</td>
+                        <td><span data-es="Pendiente" data-en="Pending"></span></td>
+                        <td><span class="badge badge-blue"><span data-es="Instalador" data-en="Installer"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="📧 Enviado info" data-en="📧 Info sent"></span></span></td>
+                    </tr>
+                    <tr class="row-discarded">
+                        <td><s>Activ8 Energies</s></td>
+                        <td>☀️🌡️</td>
+                        <td>Aidan Mealiffe</td>
+                        <td><s>€22,900</s></td>
+                        <td><span class="badge badge-red">One-Stop-Shop</span></td>
+                        <td><span class="badge badge-red"><span data-es="❌ Cerrado" data-en="❌ Closed"></span></span></td>
+                    </tr>
+                    <tr class="row-discarded">
+                        <td><s><span data-es="Instalador Anónimo" data-en="Anonymous Installer"></span></s></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="badge badge-red"><span data-es="❌ Grosero" data-en="❌ Rude"></span></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.8rem; color:var(--gray); margin-top:8px;">☀️ = Solar PV · 🌡️ = <span data-es="Aerotermia (Heat Pump)" data-en="Heat Pump"></span> · ☀️🌡️ = <span data-es="Ambos" data-en="Both"></span></p>
+        </div>
+
+        <!-- COMPARATIVA VISUAL -->
+        <div class="section">
+            <h2>📊 <span data-es="Comparativa de Precios (Neto tras SEAI)" data-en="Price Comparison (Net after SEAI)"></span></h2>
+            <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;"><s>Activ8</s> ❌</span>
+                    <div class="bar" style="width:100%; background:var(--red);">€22,900 (Solar+HP, <span data-es="cerrado" data-en="closed"></span>)</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;">OHK Energy ⏸️</span>
+                    <div class="bar" style="width:93%; background:var(--orange);">€21,240 (Solar+HP, <span data-es="parado" data-en="stalled"></span>)</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;">OHK <span data-es="solo Solar" data-en="Solar only"></span></span>
+                    <div class="bar" style="width:53%; background:#f97316;">€12,190 (15 pan + 10kWh bat)</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;"><s>Abhaile</s> ❌</span>
+                    <div class="bar" style="width:43%; background:#9ca3af;">€9,950 (<span data-es="fuera de área" data-en="out of area"></span>)</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;"><span data-es="Tu Objetivo" data-en="Your Target"></span></span>
+                    <div class="bar" style="width:43%; background:#10b981;">€9,000-€11,000 (Solar+HP)</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;">Emmet ⭐</span>
+                    <div class="bar" style="width:24%; background:var(--green);">€2,150 <span data-es="fijo" data-en="fixed"></span> + mat. TBD</div>
+                </div>
+                <div class="comparison-row">
+                    <span style="width:140px; font-size:0.85rem; font-weight:600;">Treacy Solar ⭐</span>
+                    <div class="bar" style="width:15%; background:#6366f1;"><span data-es="Pendiente 20/05" data-en="Pending 20/05"></span></div>
+                </div>
+                <p style="font-size:0.75rem; color:var(--gray); margin-top:10px;">* <span data-es="Emmet y Abhaile son solo Solar. OHK y Activ8 incluyen Solar + Aerotermia." data-en="Emmet and Abhaile are Solar only. OHK and Activ8 include Solar + Heat Pump."></span></p>
+            </div>
+        </div>
+
+        <!-- CALCULADORA ROI -->
+        <div class="section">
+            <h2>📈 <span data-es="Calculadora ROI por Proveedor" data-en="ROI Calculator by Supplier"></span></h2>
+            <div style="background:white; padding:25px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                <!-- System type selector -->
+                <div style="display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;">
+                    <button onclick="setSystem('solar')" id="sys-solar" class="sys-btn sys-active" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #f59e0b; background:#fffbeb; font-weight:600; cursor:pointer; font-size:0.85rem;">☀️ <span data-es="Solo Solar" data-en="Solar Only"></span></button>
+                    <button onclick="setSystem('hp')" id="sys-hp" class="sys-btn" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #e5e7eb; background:white; font-weight:600; cursor:pointer; font-size:0.85rem;">🌡️ <span data-es="Solo Aerotermia" data-en="Heat Pump Only"></span></button>
+                    <button onclick="setSystem('both')" id="sys-both" class="sys-btn" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #e5e7eb; background:white; font-weight:600; cursor:pointer; font-size:0.85rem;">☀️🌡️ <span data-es="Ambas" data-en="Both"></span></button>
+                </div>
+                <div id="system-info" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:10px 14px; margin-bottom:18px; font-size:0.8rem; color:#166534;"></div>
+
+                <div id="selectors-wrap" style="display:flex; gap:15px; flex-wrap:wrap; align-items:end; margin-bottom:20px;">
+                    <!-- Single provider (solar or hp mode) -->
+                    <div id="single-provider-wrap" style="flex:1; min-width:200px;">
+                        <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;"><span data-es="Selecciona Proveedor:" data-en="Select Supplier:"></span></label>
+                        <select id="roi-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                            <option value="emmet_solar" data-es="Emmet (Solar DIY) — €7,249" data-en="Emmet (Solar DIY) — €7,249">Emmet (Solar DIY) — €7,249</option>
+                            <option value="treacy_solar" data-es="Treacy Solar (vecino Richard) — €10,000" data-en="Treacy Solar (neighbour Richard) — €10,000">Treacy Solar (vecino Richard) — €10,000</option>
+                            <option value="broderick_solar" data-es="Stephen Broderick (Supply+Fit) — pendiente" data-en="Stephen Broderick (Supply+Fit) — pending">Stephen Broderick (Supply+Fit) — pendiente</option>
+                            <option value="bordgais_solar" data-es="Bord Gáis/Swyft (solo solar) — €12,000" data-en="Bord Gáis/Swyft (solar only) — €12,000">Bord Gáis/Swyft (solo solar) — €12,000</option>
+                            <option value="ohk_solar" data-es="OHK Energy (solo solar) — €13,990" data-en="OHK Energy (solar only) — €13,990">OHK Energy (solo solar) — €13,990</option>
+                            <option value="ohk_full" data-es="OHK Energy (Solar+HP) — €35,540" data-en="OHK Energy (Solar+HP) — €35,540">OHK Energy (Solar+HP) — €35,540</option>
+                            <option value="activ8_full" data-es="Activ8 (Solar+HP) ❌ — €31,200" data-en="Activ8 (Solar+HP) ❌ — €31,200">Activ8 (Solar+HP) ❌ — €31,200</option>
+                            <option value="david_hp" data-es="David Gardiner (HP) — pendiente" data-en="David Gardiner (HP) — pending">David Gardiner (HP) — pendiente</option>
+                            <option value="custom" data-es="✏️ Personalizado..." data-en="✏️ Custom...">✏️ Personalizado...</option>
+                        </select>
+                    </div>
+                    <!-- Dual provider (both mode) -->
+                    <div id="dual-provider-wrap" style="flex:1; min-width:200px; display:none;">
+                        <div style="margin-bottom:10px;">
+                            <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">☀️ <span data-es="Empresa Solar:" data-en="Solar Provider:"></span></label>
+                            <select id="roi-solar-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                                <option value="emmet_solar" data-es="Emmet (DIY) — €7,249" data-en="Emmet (DIY) — €7,249">Emmet (DIY) — €7,249</option>
+                                <option value="treacy_solar" data-es="Treacy Solar — €10,000" data-en="Treacy Solar — €10,000">Treacy Solar — €10,000</option>
+                                <option value="broderick_solar" data-es="S. Broderick — pendiente" data-en="S. Broderick — pending">S. Broderick — pendiente</option>
+                                <option value="bordgais_solar" data-es="Bord Gáis — €12,000" data-en="Bord Gáis — €12,000">Bord Gáis — €12,000</option>
+                                <option value="ohk_solar" data-es="OHK Energy — €13,990" data-en="OHK Energy — €13,990">OHK Energy — €13,990</option>
+                                <option value="custom_solar" data-es="✏️ Personalizado..." data-en="✏️ Custom...">✏️ Personalizado...</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">🌡️ <span data-es="Empresa Aerotermia:" data-en="Heat Pump Provider:"></span></label>
+                            <select id="roi-hp-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                                <option value="david_hp" data-es="David Gardiner — pendiente" data-en="David Gardiner — pending">David Gardiner — pendiente</option>
+                                <option value="custom_hp" data-es="✏️ Personalizado..." data-en="✏️ Custom...">✏️ Personalizado...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Custom price inputs -->
+                    <div id="custom-input" style="flex:1; min-width:200px; display:none;">
+                        <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;"><span data-es="Precio Bruto (€):" data-en="Gross Price (€):"></span></label>
+                        <input type="number" id="roi-custom-price" oninput="calcROI()" placeholder="ej: 10000" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                    </div>
+                    <div id="custom-solar-input" style="min-width:150px; display:none;">
+                        <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">☀️ <span data-es="Precio Solar (€):" data-en="Solar Price (€):"></span></label>
+                        <input type="number" id="roi-custom-solar-price" oninput="calcROI()" placeholder="ej: 8000" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                    </div>
+                    <div id="custom-hp-input" style="min-width:150px; display:none;">
+                        <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">🌡️ <span data-es="Precio HP (€):" data-en="HP Price (€):"></span></label>
+                        <input type="number" id="roi-custom-hp-price" oninput="calcROI()" placeholder="ej: 10000" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="roi-results" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:12px;">
+                    <div style="text-align:center; padding:15px; background:var(--gray-light); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Inversión Bruta" data-en="Gross Investment"></span></div>
+                        <div id="roi-gross" style="font-size:1.4rem; font-weight:700;">€7,249</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:var(--green-light); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="SEAI Grants" data-en="SEAI Grants"></span></div>
+                        <div id="roi-grants" style="font-size:1.4rem; font-weight:700; color:#166534;">-€1,800</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:var(--blue-light); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Neto a Pagar" data-en="Net to Pay"></span></div>
+                        <div id="roi-net" style="font-size:1.4rem; font-weight:700; color:#1e40af;">€5,449</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:var(--orange-light); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Ahorro Anual" data-en="Annual Savings"></span></div>
+                        <div id="roi-savings" style="font-size:1.4rem; font-weight:700; color:#92400e;">€698</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:white; border:2px solid var(--blue); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Amortización" data-en="Payback"></span></div>
+                        <div id="roi-payback" style="font-size:1.4rem; font-weight:700; color:var(--blue);">7.8 <span data-es="años" data-en="years"></span></div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:white; border:2px solid var(--green); border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Beneficio 25 años" data-en="25-Year Profit"></span></div>
+                        <div id="roi-profit25" style="font-size:1.4rem; font-weight:700; color:var(--green);">€12,001</div>
+                    </div>
+                </div>
+
+                <!-- Payback bar visual -->
+                <div style="margin-top:20px;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--gray); margin-bottom:4px;">
+                        <span><span data-es="Año 0" data-en="Year 0"></span></span>
+                        <span id="roi-payback-label"><span data-es="Amortizado año" data-en="Paid back year"></span> 7.8</span>
+                        <span><span data-es="Año 25" data-en="Year 25"></span></span>
+                    </div>
+                    <div style="height:20px; background:#fee2e2; border-radius:10px; overflow:hidden; position:relative;">
+                        <div id="roi-bar" style="height:100%; background:linear-gradient(90deg, #ef4444, #22c55e); width:31%; border-radius:10px; transition:width 0.5s;"></div>
+                        <div id="roi-bar-marker" style="position:absolute; top:-2px; height:24px; width:3px; background:var(--dark); border-radius:2px; left:31%; transition:left 0.5s;"></div>
+                    </div>
+                    <p id="roi-summary" style="font-size:0.85rem; margin-top:10px; text-align:center; color:var(--gray);"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARGEN PROVEEDORES -->
+        <div class="section">
+            <h2>🔍 <span data-es="Margen de cada Proveedor (lo que se llevan por encima del coste de materiales)" data-en="Supplier Markup (what they charge above material cost)"></span></h2>
+            <div class="note" style="background: var(--blue-light); border-left-color: var(--blue);">
+                📐 <strong><span data-es="Base de cálculo:" data-en="Calculation basis:"></span></strong> <span data-es="Hardware Solar (18 pan + inv + 10kWh bat) =" data-en="Solar hardware (18 pan + inv + 10kWh bat) ="></span> <strong>€5,099</strong> (<a href="https://midlandbatteries.com/" target="_blank">Midland Batteries</a>) · <span data-es="Hardware HP (Daikin 8kW split + 180L) =" data-en="HP hardware (Daikin 8kW split + 180L) ="></span> <strong>€8,704</strong> (<a href="https://www.plumbingproducts.ie/601-daikin./" target="_blank">plumbingproducts.ie</a>) · <span data-es="Total materiales ambos =" data-en="Total materials both ="></span> <strong>€13,803</strong>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th><span data-es="Proveedor" data-en="Supplier"></span></th>
+                        <th><span data-es="Precio Bruto" data-en="Gross Price"></span></th>
+                        <th><span data-es="Coste Materiales (est.)" data-en="Material Cost (est.)"></span></th>
+                        <th><span data-es="Margen / Servicios" data-en="Markup / Services"></span></th>
+                        <th><span data-es="% Margen" data-en="% Markup"></span></th>
+                        <th><span data-es="Incluye" data-en="Includes"></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><s>Activ8</s> ❌</td>
+                        <td>€31,200</td>
+                        <td>€10,499</td>
+                        <td style="color:var(--red); font-weight:700;">€20,701</td>
+                        <td><span class="badge badge-red">197%</span></td>
+                        <td><span data-es="Solar+HP+BER+gestión" data-en="Solar+HP+BER+management"></span></td>
+                    </tr>
+                    <tr>
+                        <td>OHK Energy</td>
+                        <td>€35,540</td>
+                        <td>€10,499</td>
+                        <td style="color:var(--red); font-weight:700;">€25,041</td>
+                        <td><span class="badge badge-red">239%</span></td>
+                        <td><span data-es="Solar+HP+BER+gestión+radiadores?" data-en="Solar+HP+BER+management+radiators?"></span></td>
+                    </tr>
+                    <tr style="background: var(--gray-light);">
+                        <td colspan="6" style="font-weight:600; text-align:center;"><span data-es="--- Solo Solar (comparación directa) ---" data-en="--- Solar Only (direct comparison) ---"></span></td>
+                    </tr>
+                    <tr>
+                        <td>OHK (<span data-es="solo solar" data-en="solar only"></span>)</td>
+                        <td>€13,990</td>
+                        <td>€5,099</td>
+                        <td style="color:var(--orange); font-weight:700;">€8,891</td>
+                        <td><span class="badge badge-orange">174%</span></td>
+                        <td><span data-es="Instalación+SEAI+montaje" data-en="Install+SEAI+mounting"></span></td>
+                    </tr>
+                    <tr>
+                        <td><s>Abhaile</s> (<span data-es="web" data-en="web"></span>)</td>
+                        <td>€11,750</td>
+                        <td>€5,099</td>
+                        <td style="color:var(--orange); font-weight:700;">€6,651</td>
+                        <td><span class="badge badge-orange">130%</span></td>
+                        <td><span data-es="Instalación+SEAI+montaje" data-en="Install+SEAI+mounting"></span></td>
+                    </tr>
+                    <tr style="background:var(--green-light);">
+                        <td><strong>Emmet ⭐</strong></td>
+                        <td>€7,249 - €7,749</td>
+                        <td>€5,099</td>
+                        <td style="color:var(--green); font-weight:700;">€2,150 - €2,650</td>
+                        <td><span class="badge badge-green">42-52%</span></td>
+                        <td><span data-es="Electricista+roofer+SEAI+RECI+NC6" data-en="Electrician+roofer+SEAI+RECI+NC6"></span></td>
+                    </tr>
+                    <tr style="background:#eff6ff;">
+                        <td><strong>Treacy Solar ⭐</strong><br><small style="color:var(--gray);"><span data-es="(dato vecino Richard)" data-en="(neighbour Richard's data)"></span></small></td>
+                        <td>€10,000</td>
+                        <td>€5,099</td>
+                        <td style="color:#2563eb; font-weight:700;">€4,901</td>
+                        <td><span class="badge badge-blue">96%</span></td>
+                        <td><span data-es="16 pan + 10kWh bat + instalación + SEAI + BER" data-en="16 pan + 10kWh bat + install + SEAI + BER"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Bord Gáis / Swyft<br><small style="color:var(--gray);"><span data-es="(dato vecino Richard)" data-en="(neighbour Richard's data)"></span></small></td>
+                        <td>€12,000</td>
+                        <td>€5,099</td>
+                        <td style="color:var(--orange); font-weight:700;">€6,901</td>
+                        <td><span class="badge badge-orange">135%</span></td>
+                        <td><span data-es="16 pan + 10kWh bat (misma spec que Treacy)" data-en="16 pan + 10kWh bat (same spec as Treacy)"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Bord Gáis / Swyft<br><small style="color:var(--gray);"><span data-es="(dato vecino Stephen)" data-en="(neighbour Stephen's data)"></span></small></td>
+                        <td>€7,000</td>
+                        <td>~€3,200</td>
+                        <td style="color:var(--orange); font-weight:700;">~€3,800</td>
+                        <td><span class="badge badge-orange">119%</span></td>
+                        <td><span data-es="14 pan Jinko 460W + Huawei inv (SIN batería)" data-en="14 pan Jinko 460W + Huawei inv (NO battery)"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px;">
+                💡 <strong><span data-es="Conclusión:" data-en="Conclusion:"></span></strong> <span data-es="Con datos reales de vecinos: Treacy cobra €4,900 por servicios (96% markup) — razonable para instalación completa + gestión. Bord Gáis cobra €3,800-€6,900 (119-135%). Las One-Stop-Shops (OHK/Activ8) se llevan €20-25k (200%+). Emmet sigue siendo el más barato con €2,150 fijo." data-en="With real neighbour data: Treacy charges €4,900 for services (96% markup) — reasonable for full install + management. Bord Gáis charges €3,800-€6,900 (119-135%). One-Stop-Shops (OHK/Activ8) charge €20-25k (200%+). Emmet remains cheapest at €2,150 fixed."></span></div>
+        </div>
+
+        <!-- SUBVENCIONES -->
+        <div class="section">
+            <h2>💰 <span data-es="Subvenciones SEAI 2026" data-en="SEAI Grants 2026"></span></h2>
+            <div class="grid">
+                <div class="card green">
+                    <h3>Solar PV Grant</h3>
+                    <div class="value">€1,800</div>
+                    <p style="font-size:0.8rem; margin-top:5px;"><span data-es="Máximo para sistemas >4kWp" data-en="Maximum for systems >4kWp"></span></p>
+                </div>
+                <div class="card green">
+                    <h3>Heat Pump Grant</h3>
+                    <div class="value">€6,500</div>
+                    <p style="font-size:0.8rem; margin-top:5px;"><span data-es="Por la instalación del equipo" data-en="For equipment installation"></span></p>
+                </div>
+                <div class="card green">
+                    <h3>Fossil Fuel Bonus</h3>
+                    <div class="value">€4,000</div>
+                    <p style="font-size:0.8rem; margin-top:5px;"><span data-es="Bono por quitar el gas" data-en="Bonus for removing gas"></span></p>
+                </div>
+                <div class="card green">
+                    <h3>Central Heating</h3>
+                    <div class="value">€2,000</div>
+                    <p style="font-size:0.8rem; margin-top:5px;"><span data-es="Adaptación radiadores (si necesario)" data-en="Radiator adaptation (if needed)"></span></p>
+                </div>
+            </div>
+            <div class="note">
+                ⚠️ <strong><span data-es="Importante:" data-en="Important:"></span></strong> <span data-es="NO firmar ni pagar depósitos antes de recibir la &quot;Letter of Offer&quot; del SEAI. Si empiezas obras antes, pierdes la subvención." data-en="DO NOT sign or pay deposits before receiving the SEAI &quot;Letter of Offer&quot;. Starting works before this voids the grant."></span>
+            </div>
+        </div>
+
+        <!-- HARDWARE -->
+        <div class="section">
+            <h2>🔧 <span data-es="Especificaciones Técnicas" data-en="Technical Specifications"></span></h2>
+            <div class="grid">
+                <div style="background:white; padding:18px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                    <h3>☀️ Solar PV</h3>
+                    <table style="box-shadow:none;">
+                        <tr><td><span data-es="Potencia" data-en="Power"></span></td><td><strong>6.6 - 7.0 kWp</strong></td></tr>
+                        <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>15-16 x 420-475W (N-Type)</td></tr>
+                        <tr><td><span data-es="Marcas" data-en="Brands"></span></td><td>Jinko, Longi, Aiko</td></tr>
+                        <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td><span data-es="Híbrido 5-6kW" data-en="Hybrid 5-6kW"></span></td></tr>
+                        <tr><td><span data-es="Batería" data-en="Battery"></span></td><td>10-12.8 kWh LFP</td></tr>
+                        <tr><td><span data-es="Tejado" data-en="Roof"></span></td><td>SE, 22.3m², 28° pitch</td></tr>
+                    </table>
+                </div>
+                <div style="background:white; padding:18px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                    <h3>🌡️ <span data-es="Aerotermia" data-en="Heat Pump"></span></h3>
+                    <table style="box-shadow:none;">
+                        <tr><td><span data-es="Tipo" data-en="Type"></span></td><td><strong>Air-to-Water</strong></td></tr>
+                        <tr><td><span data-es="Potencia" data-en="Power"></span></td><td>8 - 10 kW</td></tr>
+                        <tr><td><span data-es="Modelo objetivo" data-en="Target model"></span></td><td>Daikin Altherma 3 8kW</td></tr>
+                        <tr><td><span data-es="Precio hardware" data-en="Hardware price"></span></td><td>~€5,400 (groupsumi.ie)</td></tr>
+                        <tr><td><span data-es="Radiadores" data-en="Radiators"></span></td><td><span data-es="Tipo 22 (mantener)" data-en="Type 22 (keep existing)"></span></td></tr>
+                        <tr><td><span data-es="Pendiente" data-en="Pending"></span></td><td>Technical Assessment</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRECIO HARDWARE DIY -->
+        <div class="section">
+            <h2>🛒 <span data-es="Coste Real Hardware" data-en="Real Hardware Cost"></span> (<a href="https://midlandbatteries.com/" target="_blank">midlandbatteries.com</a>)</h2>
+            <div class="note" style="background: var(--green-light); border-left-color: var(--green);">
+                💡 <strong><span data-es="Dato clave:" data-en="Key fact:"></span></strong> <span data-es="Un kit completo de 18 paneles Jinko 440W + inversor híbrido 5kW + batería 10.24kWh cuesta" data-en="A full kit of 18 Jinko 440W panels + 5kW hybrid inverter + 10.24kWh battery costs"></span> <strong>€5,099</strong> <span data-es="en" data-en="at"></span> <a href="https://midlandbatteries.com/" target="_blank">Midland Batteries</a>. <span data-es="Las One-Stop-Shops te cobran €12,190+ por lo mismo instalado." data-en="One-Stop-Shops charge €12,190+ for the same thing installed."></span>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Bundle (<a href="https://midlandbatteries.com/" target="_blank">midlandbatteries.com</a>)</th><th><span data-es="Precio" data-en="Price"></span></th><th><span data-es="Notas" data-en="Notes"></span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>14 x Jinko 450W + 5kW Hybrid Inv + 5.12kWh Bat + <strong>Tile Mount</strong></td><td><strong>€3,999</strong></td><td><span data-es="Incluye estructura tejado teja" data-en="Includes tile roof mounting"></span></td></tr>
+                    <tr style="background:var(--green-light);"><td>18 x Jinko 440W + 5kW Hybrid Inv + <strong>10.24kWh Battery</strong></td><td><strong>€5,099</strong> ⭐</td><td><span data-es="Tu spec ideal (oferta)" data-en="Your ideal spec (on sale)"></span></td></tr>
+                    <tr><td>18 x Jinko 440W + 5kW Hybrid Inv + 5.12kWh Bat</td><td>€4,299</td><td></td></tr>
+                    <tr><td>12 x Jinko 450W + Huawei 5kW Hybrid + 5kWh Bat</td><td>€4,990</td><td>Huawei (premium)</td></tr>
+                    <tr><td>22 x Jinko 440W + 5kW Solis + 5.12kWh + Tile Mount</td><td>€5,499</td><td><span data-es="Máximo tamaño" data-en="Maximum size"></span></td></tr>
+                </tbody>
+            </table>
+            <h3 style="margin-top:20px;">💰 <span data-es="Coste Total DIY Supervisado (Solar)" data-en="Total Supervised DIY Cost (Solar)"></span></h3>
+            <table>
+                <thead>
+                    <tr><th><span data-es="Concepto" data-en="Item"></span></th><th><span data-es="Coste" data-en="Cost"></span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span data-es="Kit hardware (Midland Batteries - 18 pan + 10kWh + inv)" data-en="Hardware kit (Midland Batteries - 18 pan + 10kWh + inv)"></span></td><td>€5,099</td></tr>
+                    <tr><td><span data-es="Kit montaje tejado teja (si no incluido)" data-en="Tile roof mounting kit (if not included)"></span></td><td>€0 - €500</td></tr>
+                    <tr><td><span data-es="Emmet: electricista (1 día)" data-en="Emmet: electrician (1 day)"></span></td><td>€650</td></tr>
+                    <tr><td><span data-es="Emmet: roofer certificado (1 día)" data-en="Emmet: certified roofer (1 day)"></span></td><td>€500</td></tr>
+                    <tr><td><span data-es="Emmet: papeleo SEAI + RECI + NC6" data-en="Emmet: SEAI paperwork + RECI + NC6"></span></td><td>€1,000</td></tr>
+                    <tr style="font-weight:600;"><td>TOTAL <span data-es="BRUTO" data-en="GROSS"></span></td><td>€7,249 - €7,749</td></tr>
+                    <tr><td>SEAI Solar PV Grant</td><td>-€1,800</td></tr>
+                    <tr style="background:var(--green-light); font-weight:700; font-size:1.1rem;"><td><span data-es="NETO FINAL (solo solar)" data-en="NET FINAL (solar only)"></span></td><td>€5,449 - €5,949</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.8rem; color:var(--gray); margin-top:8px;">* <span data-es="Comparado con OHK Energy (€12,190 neto por 15 paneles + 10kWh) = ahorro de €6,000-€7,000" data-en="Compared to OHK Energy (€12,190 net for 15 panels + 10kWh) = savings of €6,000-€7,000"></span></p>
+
+            <!-- HP Hardware Pricing -->
+            <h3 style="margin-top:25px;">🌡️ <span data-es="Coste Hardware Aerotermia" data-en="Heat Pump Hardware Cost"></span> (<a href="https://www.plumbingproducts.ie/601-daikin./" target="_blank">plumbingproducts.ie</a>)</h3>
+            <table>
+                <thead>
+                    <tr><th><span data-es="Modelo" data-en="Model"></span></th><th>kW</th><th><span data-es="Depósito" data-en="Cylinder"></span></th><th><span data-es="Precio" data-en="Price"></span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Daikin Altherma3 Split Kit</td><td>4</td><td>180L</td><td>€7,059</td></tr>
+                    <tr><td>Daikin Altherma3 Split Kit</td><td>6</td><td>180L</td><td>€7,837</td></tr>
+                    <tr><td>Daikin Altherma3 Split Kit</td><td>6</td><td>230L</td><td>€8,064</td></tr>
+                    <tr style="background:var(--green-light);"><td><strong>Daikin Altherma3 Split Kit</strong></td><td><strong>8</strong></td><td><strong>180L</strong></td><td><strong>€8,704</strong> ⭐</td></tr>
+                    <tr><td>Daikin Altherma3 Split Kit</td><td>8</td><td>230L</td><td>€8,914</td></tr>
+                    <tr><td>Daikin Altherma3 Monobloc Kit</td><td>11</td><td>180L</td><td>€11,606</td></tr>
+                    <tr><td>Daikin Altherma3 Monobloc Kit</td><td>14</td><td>230L</td><td>€12,503</td></tr>
+                    <tr><td>Daikin Altherma3 Monobloc Kit</td><td>16</td><td>230L</td><td>€13,640</td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:10px; background:var(--blue-light); border-left-color:var(--blue);">
+                <span data-es="⚠️ <b>David Gardiner recomienda Hisense</b> sobre Daikin: garantía 7 años vs 3 años Daikin. Precios Hisense pendientes. Daikin solía tener 8-10 años de garantía, han ido recortando." data-en="⚠️ <b>David Gardiner recommends Hisense</b> over Daikin: 7yr warranty vs Daikin's 3yr. Hisense pricing TBC. Daikin used to have 8-10yr warranty, keeps retracting."></span>
+            </div>
+            <div class="note" style="margin-top:8px;">
+                <span data-es="💡 Para 115 Evanwood (A3, ~100m², semi-detached): tamaño probable <b>6kW o 8kW</b> (Unitherm confirmará). Estos precios son <b>solo equipo</b> — la instalación/mano de obra se añade (~€3,000-5,000)." data-en="💡 For 115 Evanwood (A3, ~100m², semi-detached): likely size <b>6kW or 8kW</b> (Unitherm will confirm). These prices are <b>equipment only</b> — installation/labour extra (~€3,000-5,000)."></span>
+            </div>
+        </div>
+
+        <!-- VECINOS -->
+        <div class="section">
+            <h2>🏘️ <span data-es="Datos Reales de Vecinos (Evanwood WhatsApp)" data-en="Real Neighbour Data (Evanwood WhatsApp)"></span></h2>
+            
+            <div class="grid">
+                <div class="card green">
+                    <h3>🏠 Richard — Treacy Solar ⭐</h3>
+                    <p style="font-size:0.85rem; margin:5px 0;"><strong>16 <span data-es="paneles" data-en="panels"></span> + 10kWh <span data-es="batería" data-en="battery"></span> = €10,000</strong></p>
+                    <p style="font-size:0.8rem; color:var(--gray); margin:3px 0;"><span data-es="Bord Gáis le cotizó €12k por lo mismo" data-en="Bord Gáis quoted him €12k for same specs"></span></p>
+                    <p style="font-size:0.8rem; margin:3px 0;">💬 <em>"Treacy Solar highly recommended. Several colleagues have used them."</em></p>
+                    <p style="font-size:0.75rem; color:var(--gray);">📅 <span data-es="Se instala en unas semanas" data-en="Installing in a few weeks"></span> (15/05/2026)</p>
+                </div>
+                <div class="card">
+                    <h3>🏠 Stephen — Bord Gáis/Swyft</h3>
+                    <p style="font-size:0.85rem; margin:5px 0;"><strong>14 x Jinko 460W + Huawei 5kW inv = ~€7,000</strong></p>
+                    <p style="font-size:0.8rem; color:var(--gray); margin:3px 0;"><span data-es="SIN batería (la añadirá después). Incluye retirada paneles viejos + BER + SEAI" data-en="NO battery (will add later). Includes removal of old panels + BER + SEAI"></span></p>
+                    <p style="font-size:0.8rem; margin:3px 0;">💬 <em>"Bord Gáis won't be going anywhere — better peace of mind for warranty/support."</em></p>
+                    <p style="font-size:0.75rem; color:var(--gray);">📅 <span data-es="Instalado" data-en="Installed"></span> 16/05/2026</p>
+                </div>
+                <div class="card green">
+                    <h3>🏠 Lina — Treacy Solar ⭐</h3>
+                    <p style="font-size:0.85rem; margin:5px 0;"><strong><span data-es="Paneles solares instalados" data-en="Solar panels installed"></span></strong></p>
+                    <p style="font-size:0.8rem; margin:3px 0;">💬 <em>"Very happy. They did same all paperwork as Bord Gáis."</em></p>
+                    <p style="font-size:0.75rem; color:var(--gray);">📅 <span data-es="Instalado hace unas semanas" data-en="Installed a few weeks ago"></span></p>
+                </div>
+            </div>
+
+            <div class="note" style="margin-top:15px;">
+                ⚠️ <strong><span data-es="Info importante de Stephen:" data-en="Important info from Stephen:"></span></strong>
+                <ul style="margin:5px 0 0 15px; font-size:0.85rem;">
+                    <li><span data-es="El sistema BER cambia este mes: A3 podría bajar a B en la nueva escala (solo 8 categorías: A0,A,B,C,D,E,F,G)" data-en="BER system changing this month: A3 could drop to B on new scale (only 8 categories: A0,A,B,C,D,E,F,G)"></span></li>
+                    <li><span data-es="Los paneles originales de Evanwood son de muy baja calidad — algunos inversores NUNCA se conectaron bien" data-en="Original Evanwood panels are very low quality — some inverters were NEVER connected correctly"></span></li>
+                    <li><span data-es="Muchas empresas de solar quiebran (sobre todo las que vienen de tejados). Bord Gáis da tranquilidad por ser grande" data-en="Many solar companies go bust (especially former roofing ones). Bord Gáis gives peace of mind as large company"></span></li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top:20px;">📊 <span data-es="Comparativa directa: Treacy vs Bord Gáis (mismo vecindario)" data-en="Direct comparison: Treacy vs Bord Gáis (same neighbourhood)"></span></h3>
+            <table>
+                <thead>
+                    <tr><th></th><th>Treacy Solar (Richard)</th><th>Bord Gáis/Swyft (Richard)</th><th>Bord Gáis/Swyft (Stephen)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>16</td><td>16</td><td>14 x Jinko 460W</td></tr>
+                    <tr><td><span data-es="Batería" data-en="Battery"></span></td><td>10 kWh ✅</td><td>10 kWh ✅</td><td><span data-es="❌ Ninguna" data-en="❌ None"></span></td></tr>
+                    <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td><span data-es="Incluido" data-en="Included"></span></td><td><span data-es="Incluido" data-en="Included"></span></td><td>Huawei 5kW Hybrid</td></tr>
+                    <tr><td><span data-es="Gestión SEAI+BER" data-en="SEAI+BER management"></span></td><td>✅</td><td>✅</td><td>✅ + ESB Micro</td></tr>
+                    <tr style="font-weight:700; font-size:1.05rem;"><td><span data-es="PRECIO" data-en="PRICE"></span></td><td style="color:var(--green);">€10,000 ⭐</td><td style="color:var(--orange);">€12,000</td><td>€7,000 (<span data-es="sin bat" data-en="no bat"></span>)</td></tr>
+                    <tr><td><span data-es="Diferencia" data-en="Difference"></span></td><td colspan="2" style="text-align:center; color:var(--green); font-weight:600;"><span data-es="Treacy ahorra €2,000 por la misma spec" data-en="Treacy saves €2,000 for same spec"></span></td><td>-</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PLAN DE ACCIÓN -->
+        <div class="section">
+            <h2>🎯 <span data-es="Plan de Acción" data-en="Action Plan"></span></h2>
+            <div class="timeline">
+                <div class="timeline-item done">
+                    <h3><span data-es="Fase 0: Investigación y contacto" data-en="Phase 0: Research & outreach"></span></h3>
+                    <p style="font-size:0.85rem; color:var(--gray);"><span data-es="Analizar consumo, investigar mercado, contactar empresas, pedir presupuestos" data-en="Analyse consumption, research market, contact companies, request quotes"></span></p>
+                </div>
+                <div class="timeline-item pending">
+                    <h3><span data-es="Fase 1: Solar PV + Batería" data-en="Phase 1: Solar PV + Battery"></span></h3>
+                    <p style="font-size:0.85rem; color:var(--gray);"><span data-es="Cerrar proveedor (Emmet/Treacy/Sean), solicitar SEAI grant, instalar" data-en="Lock in supplier (Emmet/Treacy/Sean), apply for SEAI grant, install"></span></p>
+                    <p style="font-size:0.85rem; margin-top:3px;"><strong><span data-es="Próximo:" data-en="Next:"></span></strong> <span data-es="Recibir quote de Treacy (20/05) y hardware pricing de Emmet" data-en="Receive Treacy quote (20/05) and Emmet hardware pricing"></span></p>
+                </div>
+                <div class="timeline-item">
+                    <h3><span data-es="Fase 2: Technical Assessment" data-en="Phase 2: Technical Assessment"></span></h3>
+                    <p style="font-size:0.85rem; color:var(--gray);"><span data-es="Contratar asesor independiente para confirmar radiadores Tipo 22 (HLI < 2.0)" data-en="Hire independent advisor to confirm Type 22 radiators (HLI < 2.0)"></span></p>
+                </div>
+                <div class="timeline-item">
+                    <h3><span data-es="Fase 3: Aerotermia (Heat Pump)" data-en="Phase 3: Heat Pump"></span></h3>
+                    <p style="font-size:0.85rem; color:var(--gray);"><span data-es="Con assessment aprobado, contratar fontanero SEAI para instalación + sign-off" data-en="With approved assessment, hire SEAI plumber for installation + sign-off"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENDIENTES -->
+        <div class="section">
+            <h2>✅ <span data-es="Pendientes" data-en="To-Do"></span></h2>
+            <ul class="checklist">
+                <li class="done"><span data-es="✅ Enviado a Stephen Broderick: fotos tejado + DB + eircode (19/05)" data-en="✅ Sent to Stephen Broderick: roof photos + DB + eircode (19/05)"></span></li>
+                <li class="done"><span data-es="✅ Llamada con David Gardiner — aerotermia (19/05 noche)" data-en="✅ Call with David Gardiner — heat pump (19/05 evening)"></span></li>
+                <li class="progress"><span data-es="📋 Enviar a David: plano casa + medidas habitaciones + medidas radiadores + BER report" data-en="📋 Send David: house plan + room sizes + radiator sizes + BER report"></span></li>
+                <li class="progress"><span data-es="Esperar heat loss calc de Unitherm → quote de David" data-en="Await Unitherm heat loss calc → David's quote"></span></li>
+                <li class="progress"><span data-es="Recibir quote de Stephen Broderick (supply+fit completo)" data-en="Receive Stephen Broderick quote (full supply+fit)"></span></li>
+                <li class="progress"><span data-es="Recibir quote de Treacy Solar (Daryl, 20/05)" data-en="Receive Treacy Solar quote (Daryl, 20/05)"></span></li>
+                <li class="progress"><span data-es="Recibir pricing hardware de Emmet Keeshan" data-en="Receive Emmet Keeshan hardware pricing"></span></li>
+                <li><span data-es="Recibir propuesta desktop de Sean McCarthy" data-en="Receive Sean McCarthy desktop proposal"></span></li>
+                <li><span data-es="Recibir quote de H&A Solar" data-en="Receive H&A Solar quote"></span></li>
+                <li><span data-es="Respuestas de campaña fontaneros (17 emails enviados)" data-en="Responses from plumber campaign (17 emails sent)"></span></li>
+                <li class="done"><span data-es="✅ Respuestas del grupo WhatsApp de Evanwood (Richard, Stephen, Lina)" data-en="✅ Responses from Evanwood WhatsApp group (Richard, Stephen, Lina)"></span></li>
+                <li><span data-es="Buscar Technical Advisor independiente (Limerick)" data-en="Find independent Technical Advisor (Limerick)"></span></li>
+                <li><span data-es="Confirmar si radiadores Tipo 22 valen para HP" data-en="Confirm if Type 22 radiators work for HP"></span></li>
+                <li><span data-es="Decidir proveedor solar y solicitar SEAI Letter of Offer" data-en="Choose solar supplier and apply for SEAI Letter of Offer"></span></li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="text-align:center; padding:20px; color:var(--gray); font-size:0.8rem;">
+            <span data-es="Última actualización:" data-en="Last updated:"></span> 19 <span data-es="Mayo" data-en="May"></span> 2026 · Victor Navas · Evanwood, Limerick
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'es';
+        let currentSystem = 'solar'; // 'solar', 'hp', 'both'
+
+        // Provider data: [grossPrice, type ('solar'|'hp'|'both'), label]
+        const providers = {
+            emmet_solar: [7249, 'solar', 'Emmet (Solar DIY)'],
+            treacy_solar: [10000, 'solar', 'Treacy Solar'],
+            broderick_solar: [null, 'solar', 'Stephen Broderick'],
+            bordgais_solar: [12000, 'solar', 'Bord Gáis/Swyft'],
+            ohk_solar: [13990, 'solar', 'OHK (Solar)'],
+            ohk_full: [35540, 'both', 'OHK (Solar+HP)'],
+            activ8_full: [31200, 'both', 'Activ8 (Solar+HP)'],
+            david_hp: [null, 'hp', 'David Gardiner (HP)'],
+            custom: [null, 'solar', 'Custom']
+        };
+
+        // Constants from real consumption data
+        const ANNUAL_ELEC_COST = 698;       // €/year electricity
+        const ANNUAL_GAS_COST_DISC = 436;   // €/year gas with 30% discount
+        const ANNUAL_GAS_COST_FULL = 623;   // €/year gas without discount
+        const HP_ELEC_COST_GRID = 444;      // €/year to run HP from grid
+        const HP_ELEC_COST_SOLAR = 220;     // €/year to run HP with ~50% solar
+        const SOLAR_SAVINGS = 550;          // €/year saved on electricity with solar+battery
+        const CEG_INCOME = 100;             // €/year from exporting surplus
+        const SEAI_SOLAR = 1800;
+        const SEAI_HP = 6500;
+        const SEAI_FOSSIL = 4000;
+        const SEAI_HEATING = 2000;
+
+        function setSystem(sys) {
+            currentSystem = sys;
+            // Update button styles
+            document.querySelectorAll('.sys-btn').forEach(b => {
+                b.style.border = '2px solid #e5e7eb';
+                b.style.background = 'white';
+            });
+            const active = document.getElementById('sys-' + sys);
+            const colors = { solar: '#f59e0b', hp: '#6366f1', both: '#10b981' };
+            const bgs = { solar: '#fffbeb', hp: '#eef2ff', both: '#ecfdf5' };
+            active.style.border = '2px solid ' + colors[sys];
+            active.style.background = bgs[sys];
+
+            // Update info box
+            const info = document.getElementById('system-info');
+            const infoBg = { solar: '#fffbeb', hp: '#eef2ff', both: '#ecfdf5' };
+            const infoBorder = { solar: '#fde68a', hp: '#c7d2fe', both: '#bbf7d0' };
+            const infoColor = { solar: '#92400e', hp: '#3730a3', both: '#166534' };
+            info.style.background = infoBg[sys];
+            info.style.borderColor = infoBorder[sys];
+            info.style.color = infoColor[sys];
+
+            if (currentLang === 'es') {
+                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Ahorro ~€650/año (electricidad + CEG)';
+                else if (sys === 'hp') info.innerHTML = '🌡️ <b>Aerotermia:</b> Grants €12,500 (HP+Fossil+Heating) | Ahorro ~€179/año (eliminas gas, HP desde red)';
+                else info.innerHTML = '☀️🌡️ <b>Ambas:</b> Grants €14,300 | Ahorro ~€1,053/año (eliminas gas, HP con solar gratis)';
+            } else {
+                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Savings ~€650/yr (electricity + CEG)';
+                else if (sys === 'hp') info.innerHTML = '🌡️ <b>Heat Pump:</b> Grants €12,500 (HP+Fossil+Heating) | Savings ~€179/yr (eliminate gas, HP from grid)';
+                else info.innerHTML = '☀️🌡️ <b>Both:</b> Grants €14,300 | Savings ~€1,053/yr (eliminate gas, HP powered by solar)';
+            }
+
+            // Show/hide appropriate selectors
+            const singleWrap = document.getElementById('single-provider-wrap');
+            const dualWrap = document.getElementById('dual-provider-wrap');
+            if (sys === 'both') {
+                singleWrap.style.display = 'none';
+                dualWrap.style.display = 'block';
+            } else {
+                singleWrap.style.display = 'block';
+                dualWrap.style.display = 'none';
+                // Filter single provider dropdown
+                const select = document.getElementById('roi-provider');
+                const opts = select.querySelectorAll('option');
+                opts.forEach(opt => {
+                    const val = opt.value;
+                    if (val === 'custom') { opt.style.display = ''; return; }
+                    const p = providers[val];
+                    if (!p) return;
+                    const pType = p[1];
+                    if (sys === 'solar') opt.style.display = (pType === 'solar') ? '' : 'none';
+                    else opt.style.display = (pType === 'hp') ? '' : 'none';
+                });
+                const currentOpt = select.options[select.selectedIndex];
+                if (currentOpt && currentOpt.style.display === 'none') {
+                    const visible = Array.from(opts).find(o => o.style.display !== 'none');
+                    if (visible) select.value = visible.value;
+                    else select.value = 'custom';
+                }
+            }
+
+            calcROI();
+        }
+
+        function calcROI() {
+            let gross;
+
+            // Hide all custom inputs first
+            document.getElementById('custom-input').style.display = 'none';
+            document.getElementById('custom-solar-input').style.display = 'none';
+            document.getElementById('custom-hp-input').style.display = 'none';
+
+            if (currentSystem === 'both') {
+                // Dual mode: get solar price + HP price
+                const solSel = document.getElementById('roi-solar-provider').value;
+                const hpSel = document.getElementById('roi-hp-provider').value;
+
+                let solarGross, hpGross;
+                if (solSel === 'custom_solar') {
+                    document.getElementById('custom-solar-input').style.display = 'block';
+                    solarGross = parseFloat(document.getElementById('roi-custom-solar-price').value) || 0;
+                } else {
+                    solarGross = providers[solSel] ? providers[solSel][0] : 0;
+                }
+                if (hpSel === 'custom_hp') {
+                    document.getElementById('custom-hp-input').style.display = 'block';
+                    hpGross = parseFloat(document.getElementById('roi-custom-hp-price').value) || 0;
+                } else {
+                    hpGross = providers[hpSel] ? providers[hpSel][0] : 0;
+                }
+
+                if (!solarGross && !hpGross) { showPending(); return; }
+                gross = (solarGross || 0) + (hpGross || 0);
+
+                // If one is pending, show partial info
+                if (!solarGross || !hpGross) {
+                    const missing = !solarGross ? 'solar' : 'HP';
+                    document.getElementById('roi-gross').innerHTML = '€' + gross.toLocaleString() + ' <span style="font-size:0.7rem; color:var(--gray);">(' + missing + ' pending)</span>';
+                } else {
+                    document.getElementById('roi-gross').textContent = '€' + gross.toLocaleString();
+                }
+            } else {
+                // Single mode
+                const sel = document.getElementById('roi-provider').value;
+                if (sel === 'custom') {
+                    document.getElementById('custom-input').style.display = 'block';
+                    gross = parseFloat(document.getElementById('roi-custom-price').value) || 0;
+                } else {
+                    gross = providers[sel] ? providers[sel][0] : 0;
+                }
+                if (!gross) { showPending(); return; }
+                document.getElementById('roi-gross').textContent = '€' + gross.toLocaleString();
+            }
+
+            // Calculate grants & savings based on system type
+            let grants, annualSavings;
+            if (currentSystem === 'solar') {
+                grants = SEAI_SOLAR;
+                annualSavings = SOLAR_SAVINGS + CEG_INCOME;
+            } else if (currentSystem === 'hp') {
+                grants = SEAI_HP + SEAI_FOSSIL + SEAI_HEATING;
+                annualSavings = ANNUAL_GAS_COST_FULL - HP_ELEC_COST_GRID;
+            } else {
+                grants = SEAI_SOLAR + SEAI_HP + SEAI_FOSSIL + SEAI_HEATING;
+                annualSavings = SOLAR_SAVINGS + CEG_INCOME + ANNUAL_GAS_COST_FULL - HP_ELEC_COST_SOLAR;
+            }
+
+            const net = gross - grants;
+            const payback = net > 0 ? net / annualSavings : 0;
+            const profit25 = (annualSavings * 25) - net;
+            const paybackPct = Math.min((payback / 25) * 100, 100);
+
+            document.getElementById('roi-grants').textContent = '-€' + grants.toLocaleString();
+            document.getElementById('roi-net').textContent = net > 0 ? '€' + net.toLocaleString() : '-€' + Math.abs(net).toLocaleString();
+            document.getElementById('roi-savings').textContent = '€' + annualSavings.toLocaleString() + (currentLang === 'es' ? '/año' : '/yr');
+            document.getElementById('roi-payback').innerHTML = net <= 0 
+                ? (currentLang === 'es' ? '✅ ¡Gratis!' : '✅ Free!') 
+                : payback.toFixed(1) + ' ' + (currentLang === 'es' ? 'años' : 'years');
+            document.getElementById('roi-profit25').textContent = '€' + profit25.toLocaleString();
+            
+            document.getElementById('roi-bar').style.width = paybackPct + '%';
+            document.getElementById('roi-bar-marker').style.left = paybackPct + '%';
+            document.getElementById('roi-payback-label').textContent = net <= 0 
+                ? (currentLang === 'es' ? '¡Grant > Coste!' : 'Grant > Cost!') 
+                : (currentLang === 'es' ? 'Amortizado año ' : 'Paid back year ') + payback.toFixed(1);
+
+            const profitEl = document.getElementById('roi-profit25');
+            profitEl.style.color = profit25 > 0 ? 'var(--green)' : 'var(--red)';
+            const netEl = document.getElementById('roi-net');
+            netEl.style.color = net <= 0 ? 'var(--green)' : '';
+
+            const summaryEl = document.getElementById('roi-summary');
+            if (net <= 0) {
+                if (currentLang === 'es') {
+                    summaryEl.textContent = `💰 Las grants cubren todo el coste (+€${Math.abs(net).toLocaleString()} a tu favor) → ganas €${annualSavings.toLocaleString()}/año → en 25 años ganas €${profit25.toLocaleString()} netos`;
+                } else {
+                    summaryEl.textContent = `💰 Grants cover full cost (+€${Math.abs(net).toLocaleString()} in your favour) → save €${annualSavings.toLocaleString()}/yr → in 25 years you profit €${profit25.toLocaleString()} net`;
+                }
+            } else {
+                if (currentLang === 'es') {
+                    summaryEl.textContent = `Pagas €${net.toLocaleString()} de tu bolsillo → recuperas en ${payback.toFixed(1)} años → en 25 años ganas €${profit25.toLocaleString()} netos`;
+                } else {
+                    summaryEl.textContent = `You pay €${net.toLocaleString()} out of pocket → recover in ${payback.toFixed(1)} years → in 25 years you profit €${profit25.toLocaleString()} net`;
+                }
+            }
+        }
+
+        function showPending() {
+            document.getElementById('roi-gross').textContent = '—';
+            document.getElementById('roi-grants').textContent = '—';
+            document.getElementById('roi-net').textContent = currentLang === 'es' ? 'Pendiente' : 'Pending';
+            document.getElementById('roi-savings').textContent = '—';
+            document.getElementById('roi-payback').textContent = '—';
+            document.getElementById('roi-profit25').textContent = '—';
+            document.getElementById('roi-summary').textContent = currentLang === 'es' 
+                ? '⏳ Esperando quote de este proveedor' 
+                : '⏳ Awaiting quote from this supplier';
+            document.getElementById('roi-bar').style.width = '0%';
+            document.getElementById('roi-bar-marker').style.left = '0%';
+        }
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            // Update select options language
+            document.querySelectorAll('#roi-provider option, #roi-solar-provider option, #roi-hp-provider option').forEach(opt => {
+                const translated = opt.getAttribute(`data-${lang}`);
+                if (translated) opt.textContent = translated;
+            });
+            localStorage.setItem('dashLang', lang);
+            setSystem(currentSystem); // Refresh info box + recalculate
+        }
+
+        function showTab(filter) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            const rows = document.querySelectorAll('#empresas-table tbody tr');
+            rows.forEach(row => {
+                if (filter === 'all') { row.style.display = ''; }
+                else if (filter === 'active') { row.style.display = row.classList.contains('row-discarded') ? 'none' : ''; }
+                else if (filter === 'discarded') { row.style.display = row.classList.contains('row-discarded') ? '' : 'none'; }
+            });
+        }
+
+        // Restore saved language & init calculator
+        const saved = localStorage.getItem('dashLang');
+        if (saved) setLang(saved); else setLang('es');
+        setSystem('solar');
+    </script>
+</body>
+</html>
