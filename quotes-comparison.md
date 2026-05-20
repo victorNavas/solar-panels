@@ -289,16 +289,17 @@ Not listed in proposal.
 
 - Mitsubishi Ecodan 8kW monobloc unit
 - Integrated 200L hot water cylinder
+- **Heating controls** (confirmed 20/05)
 - Installation & labour
 - SEAI paperwork
 
 ### NOT Included
 
 - **Replacing radiators** (may be needed if existing rads are undersized for low-temp HP operation)
-- Heating controls upgrade (unclear if included in price or separate — SEAI grants it at €2,000)
 
 ### Key Notes
 
+- **Confirmed 20 May 2026:** €14,850 is gross (before SEAI grants). Includes heating controls.
 - **Mitsubishi Ecodan** is one of the most established HP brands in Ireland (competitor to Daikin)
 - **Monobloc** = simpler installation (single outdoor unit, no indoor unit), less pipework
 - Integrated tank simplifies install vs split systems
