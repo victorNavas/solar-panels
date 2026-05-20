@@ -307,11 +307,73 @@ Not listed in proposal.
 - Net €2,350 makes the combined Solar+HP project very affordable
 - **Question:** Does the €14,850 include heating controls? If not, who supplies them?
 
-### Combined Scenario: Solar (Treacy/Hardiman) + HP (Horgan)
+---
+
+## Quote 4: Stephen Broderick Electrical (Solar Only)
+
+| Field | Detail |
+|-------|--------|
+| **Company** | Stephen Broderick Electrical |
+| **Contact** | Stephen Broderick — 0834021408 — s.broderickelectric@gmail.com |
+| **Address** | Derrybrien, Loughrea, Galway |
+| **Quote Ref** | EST0034 |
+| **Date** | 20 May 2026 |
+
+### System Specification
+
+| Component | Spec |
+|-----------|------|
+| Panels | 14× Jinko 450W All Black N-Type |
+| Total capacity | 6.3 kWp |
+| Inverter | Solis 5kW Hybrid |
+| Battery | Dyness Powerbox 10.24 kWh G2 |
+| Monitoring | Solis Wi-Fi Dongle |
+| Mounting | Clenergy Rails (10× 3500mm) + 30 Adjustable Roof Brackets |
+| Roof sealing | 30× Genius Solar Flash |
+| Metering | Onyx Energy Meter |
+| Safety | DC Isolator 1000V 4-Pole (IP65), AC Isolator, Firefighter Safety Switch |
+| Cable | Kuka 4mm Single Core (100m) + 30m 6 Sq T+E |
+
+### Pricing
+
+| Item | Price |
+|------|-------|
+| Complete Solar PV system installed | €12,450 |
+| SEAI Solar PV Grant | -€1,800 |
+| **NET TOTAL** | **€10,650** |
+
+### Payment Terms
+
+- 60% before works begin: €7,470
+- 40% once commissioned: €4,980
+- SEAI grant (€1,800) must be approved BEFORE work begins; paid to homeowner AFTER commissioning
+
+### Key Notes
+
+- **Smallest system quoted:** 6.3 kWp vs 6.75 kWp (Hardiman) vs 7.36 kWp (Treacy)
+- **Solis inverter** — well-known brand but below Sigenergy (Treacy) in smart battery management
+- **Dyness battery** — 10.24 kWh, comparable capacity to competitors (vs Sigenergy 10kWh, Pylon 12.8kWh)
+- **Higher deposit** required (60% vs 50% at Treacy/Hardiman)
+- No mention of smart export guarantee (CEG), monitoring app details, or warranty terms in quote
+- Price is mid-range: more than Hardiman (€10,800), less than Treacy (€12,600)
+- **Net €10,650** — most expensive of the 3 comparable quotes after grant
+
+### Comparison Position
+
+| Provider | kWp | Battery | Gross | Net | €/kWp gross |
+|----------|-----|---------|-------|-----|-------------|
+| Hardiman | 6.75 | 12.8 kWh Pylon | €10,800 | €9,000 | €1,600 |
+| **Broderick** | **6.3** | **10.24 kWh Dyness** | **€12,450** | **€10,650** | **€1,976** |
+| Treacy | 7.36 | 10 kWh Sigenergy | €12,600 | €10,800 | €1,712 |
+
+---
+
+### Combined Scenario: Solar + HP (Horgan)
 
 | Combination | Solar Net | HP Net | Total Net | Payback |
 |-------------|-----------|--------|-----------|---------|
 | Hardiman + Horgan | €9,000 | €2,350 | **€11,350** | **10.8 years** |
+| Broderick + Horgan | €10,650 | €2,350 | **€13,000** | **12.4 years** |
 | Treacy + Horgan | €10,800 | €2,350 | **€13,150** | **12.5 years** |
 | Treacy + Horgan + smart tariff arbitrage | €10,800 | €2,350 | **€13,150** | **~7.5 years** |
 
@@ -321,7 +383,6 @@ Not listed in proposal.
 
 | Company | Contact | Status | Expected |
 |---------|---------|--------|----------|
-| Stephen Broderick | Email | Photos sent 19/05, awaiting quote | This week |
 | Sean McCarthy | Email | Awaiting proposal | TBD |
 | H&A Solar | Carol Walsh | Pending quote | TBD |
 | David Gardiner (HP only) | 0879550493 | Needs house plan + room sizes + radiator sizes + BER | After survey |
