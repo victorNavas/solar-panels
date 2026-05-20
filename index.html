@@ -293,6 +293,14 @@
                         <td><span class="badge badge-green"><span data-es="📋 Ref. vecinos" data-en="📋 Neighbour ref"></span></span></td>
                     </tr>
                     <tr class="row-active">
+                        <td><strong>Donal Horgan ⭐</strong></td>
+                        <td>🌡️</td>
+                        <td>Donal Horgan</td>
+                        <td><strong>€14,850</strong> <small>(neto €2,350)</small></td>
+                        <td><span class="badge badge-green"><span data-es="Instalador HP" data-en="HP Installer"></span></span></td>
+                        <td><span class="badge badge-green"><span data-es="✅ Quote recibido 20/05" data-en="✅ Quote received 20/05"></span></span></td>
+                    </tr>
+                    <tr class="row-active">
                         <td><strong>OHK Energy</strong></td>
                         <td>☀️🌡️</td>
                         <td>Cian O'Regan</td>
@@ -403,6 +411,7 @@
                             <option value="ohk_full" data-es="OHK Energy (Solar+HP) — €35,540" data-en="OHK Energy (Solar+HP) — €35,540">OHK Energy (Solar+HP) — €35,540</option>
                             <option value="activ8_full" data-es="Activ8 (Solar+HP) ❌ — €31,200" data-en="Activ8 (Solar+HP) ❌ — €31,200">Activ8 (Solar+HP) ❌ — €31,200</option>
                             <option value="david_hp" data-es="David Gardiner (HP) — pendiente" data-en="David Gardiner (HP) — pending">David Gardiner (HP) — pendiente</option>
+                            <option value="horgan_hp" data-es="Donal Horgan (HP Mitsubishi 8kW) — €14,850" data-en="Donal Horgan (HP Mitsubishi 8kW) — €14,850">Donal Horgan (HP Mitsubishi 8kW) — €14,850</option>
                             <option value="custom" data-es="✏️ Personalizado..." data-en="✏️ Custom...">✏️ Personalizado...</option>
                         </select>
                     </div>
@@ -423,6 +432,7 @@
                         <div>
                             <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">🌡️ <span data-es="Empresa Aerotermia:" data-en="Heat Pump Provider:"></span></label>
                             <select id="roi-hp-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                                <option value="horgan_hp" data-es="Donal Horgan (Mitsubishi 8kW) — €14,850" data-en="Donal Horgan (Mitsubishi 8kW) — €14,850">Donal Horgan (Mitsubishi 8kW) — €14,850</option>
                                 <option value="david_hp" data-es="David Gardiner — pendiente" data-en="David Gardiner — pending">David Gardiner — pendiente</option>
                                 <option value="custom_hp" data-es="✏️ Personalizado..." data-en="✏️ Custom...">✏️ Personalizado...</option>
                             </select>
@@ -824,6 +834,7 @@
             ohk_full: [35540, 'both', 'OHK (Solar+HP)'],
             activ8_full: [31200, 'both', 'Activ8 (Solar+HP)'],
             david_hp: [null, 'hp', 'David Gardiner (HP)'],
+            horgan_hp: [14850, 'hp', 'Donal Horgan (HP)'],
             custom: [null, 'solar', 'Custom']
         };
 

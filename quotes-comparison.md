@@ -257,6 +257,65 @@ Not listed in proposal.
 
 ---
 
+## Quote 3: Donal Horgan (Heat Pump Only)
+
+| Field | Detail |
+|-------|--------|
+| **Company** | Donal Horgan |
+| **Contact** | Donal Horgan (email) |
+| **Date** | 20 May 2026 |
+| **Type** | Budget estimate |
+
+### System Specification
+
+| Component | Spec |
+|-----------|------|
+| Heat Pump | Mitsubishi Electric Ecodan 8kW Monobloc Air-to-Water |
+| Hot Water Tank | Integrated 200L cylinder |
+| Type | Monobloc (outdoor unit only, no indoor unit) |
+
+### Pricing
+
+| Item | Price |
+|------|-------|
+| HP system + installation + SEAI paperwork | €14,850 |
+| SEAI Heat Pump Grant | -€6,500 |
+| SEAI Fossil Fuel Boiler Replacement | -€4,000 |
+| SEAI Heating Controls Upgrade | -€2,000 |
+| **Total SEAI Grants** | **-€12,500** |
+| **NET TOTAL** | **€2,350** |
+
+### Included
+
+- Mitsubishi Ecodan 8kW monobloc unit
+- Integrated 200L hot water cylinder
+- Installation & labour
+- SEAI paperwork
+
+### NOT Included
+
+- **Replacing radiators** (may be needed if existing rads are undersized for low-temp HP operation)
+- Heating controls upgrade (unclear if included in price or separate — SEAI grants it at €2,000)
+
+### Key Notes
+
+- **Mitsubishi Ecodan** is one of the most established HP brands in Ireland (competitor to Daikin)
+- **Monobloc** = simpler installation (single outdoor unit, no indoor unit), less pipework
+- Integrated tank simplifies install vs split systems
+- €14,850 is very close to our estimated HP cost (€15,000) — validates our ROI calculations
+- Net €2,350 makes the combined Solar+HP project very affordable
+- **Question:** Does the €14,850 include heating controls? If not, who supplies them?
+
+### Combined Scenario: Solar (Treacy/Hardiman) + HP (Horgan)
+
+| Combination | Solar Net | HP Net | Total Net | Payback |
+|-------------|-----------|--------|-----------|---------|
+| Hardiman + Horgan | €9,000 | €2,350 | **€11,350** | **10.8 years** |
+| Treacy + Horgan | €10,800 | €2,350 | **€13,150** | **12.5 years** |
+| Treacy + Horgan + smart tariff arbitrage | €10,800 | €2,350 | **€13,150** | **~7.5 years** |
+
+---
+
 ## Pending Quotes
 
 | Company | Contact | Status | Expected |
