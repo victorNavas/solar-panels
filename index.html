@@ -553,11 +553,24 @@
                         <input type="range" id="gas-escalation" min="0" max="15" value="8" step="1" oninput="updateEscalationLabel(); calcROI();" style="flex:1; min-width:120px;">
                         <span id="gas-escalation-label" style="font-size:0.85rem; font-weight:700; min-width:35px;">8%</span>
                         <label style="font-size:0.75rem; display:flex; align-items:center; gap:4px; cursor:pointer;">
-                            <input type="checkbox" id="smart-tariff-toggle" onchange="calcROI()" style="cursor:pointer;">
-                            <span data-es="Smart tariff (arbitraje batería)" data-en="Smart tariff (battery arbitrage)"></span>
+                            <input type="checkbox" id="smart-tariff-toggle" onchange="toggleArbitrageInfo(); calcROI()" style="cursor:pointer;">
+                            <span data-es="Smart tariff (arbitraje batería €700/año)" data-en="Smart tariff (battery arbitrage €700/yr)"></span>
                         </label>
                     </div>
                     <p style="font-size:0.7rem; color:#92400e; margin-top:6px;"><span data-es="Gas en Irlanda subió ~8%/año de media (2019-2026). Con escalada, el ahorro anual crece cada año → payback más rápido." data-en="Irish gas rose ~8%/yr average (2019-2026). With escalation, annual savings grow each year → faster payback."></span></p>
+                    <!-- Arbitrage explanation (hidden by default) -->
+                    <div id="arbitrage-info" style="display:none; margin-top:10px; background:white; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px; font-size:0.75rem;">
+                        <p style="font-weight:600; margin-bottom:6px;">🔋 <span data-es="¿Cómo funciona el arbitraje de batería?" data-en="How does battery arbitrage work?"></span></p>
+                        <table style="box-shadow:none; background:transparent; font-size:0.75rem; margin:0;">
+                            <tr><td><span data-es="Compras de noche (smart tariff ~6c/kWh)" data-en="Buy at night (smart tariff ~6c/kWh)"></span></td><td style="text-align:right;">10kWh × €0.06 = <strong>€0.60</strong></td></tr>
+                            <tr><td><span data-es="Evitas pagar de día (~40c/kWh)" data-en="Avoid paying peak rate (~40c/kWh)"></span></td><td style="text-align:right;">10kWh × €0.40 = <strong>€4.00</strong></td></tr>
+                            <tr style="color:var(--green); font-weight:600;"><td><span data-es="Ahorro diario" data-en="Daily saving"></span></td><td style="text-align:right;">€4.00 - €0.60 = <strong>€3.40/día</strong></td></tr>
+                            <tr><td><span data-es="Teórico anual (365 días)" data-en="Theoretical annual (365 days)"></span></td><td style="text-align:right;">€1,241</td></tr>
+                            <tr><td><span data-es="Realista (~55% ciclos útiles)" data-en="Realistic (~55% useful cycles)"></span></td><td style="text-align:right;"><strong>~€700/año</strong></td></tr>
+                        </table>
+                        <p style="margin-top:8px; color:var(--gray);"><span data-es="⚠️ Requiere: (1) Smart tariff con noche barata (Pinergy/Energia Night Boost), (2) Batería ≥10kWh, (3) Inversor híbrido con modo arbitraje (Sigenergy lo tiene). No compatible al 100% con almacenar solar — compiten por ciclos de batería." data-en="⚠️ Requires: (1) Smart tariff with cheap night rate (Pinergy/Energia Night Boost), (2) Battery ≥10kWh, (3) Hybrid inverter with arbitrage mode (Sigenergy has it). Not 100% compatible with solar storage — they compete for battery cycles."></span></p>
+                        <p style="margin-top:4px; color:var(--orange); font-weight:600;"><span data-es="🔑 Pregunta clave para Treacy (21/05): ¿Qué tarifa usáis? ¿El Sigenergy lo gestiona automáticamente?" data-en="🔑 Key question for Treacy (21/05): Which tariff do you use? Does Sigenergy manage it automatically?"></span></p>
+                    </div>
                 </div>
 
                 <!-- Results -->
@@ -962,6 +975,11 @@
         function updateEscalationLabel() {
             const val = document.getElementById('gas-escalation').value;
             document.getElementById('gas-escalation-label').textContent = val + '%';
+        }
+
+        function toggleArbitrageInfo() {
+            const show = document.getElementById('smart-tariff-toggle').checked;
+            document.getElementById('arbitrage-info').style.display = show ? 'block' : 'none';
         }
 
         function setSystem(sys) {
