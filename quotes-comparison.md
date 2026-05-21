@@ -379,69 +379,122 @@ Not listed in proposal.
 | Treacy + Horgan | €10,800 | €2,350 | **€13,150** | **12.5 years** |
 | Treacy + Horgan + smart tariff arbitrage | €10,800 | €2,350 | **€13,150** | **~7.5 years** |
 
+⚠️ **Note on PV Gen combos:** Their system has only 15% self-consumption without battery, so actual savings would be much lower than other options. The payback figures above assume similar savings ratios, which is misleading for PV Gen without battery.
+
 ---
 
 ## Quote 5: PV Gen (Solar Only — In-Person Visit)
 
 | Field | Detail |
 |-------|--------|
-| **Company** | PV Gen |
+| **Company** | PV Generation (pvgeneration.ie) |
+| **Contact** | Damian Ruddy — damian.ruddy@pvgeneration.ie — 0870371947 |
+| **Address** | Brooklodge Business Park, Glanmire, Cork T45 VP02 |
 | **Date** | 21 May 2026 |
-| **Type** | In-person site visit + quote |
+| **Valid** | 30 days |
+| **Lead time** | 10-12 weeks (survey to install) |
+| **Type** | In-person site visit + detailed proposal |
 
 ### System Specification
 
 | Component | Spec |
 |-----------|------|
-| Panels | 10× 460W (brand TBC) |
-| Total capacity | 4.6 kWp |
-| Inverter | Huawei 7kW |
-| Battery | None recommended (optional +€3,000) |
-| BER | Included |
+| Panels | 9× Bauer 460W German (BS-460-108M10HBW-GG) |
+| Total capacity | 4.14 kWp |
+| Annual generation | 3,317 kWh/year |
+| Inverter | Huawei SUN2000-5K-LB0 (5kW Hybrid, battery-ready) |
+| Battery | None (optional +€3,000 later) |
+| Mounting | Van Der Valk (lifetime warranty) |
+| BER | Included (post-installation) |
+| Panel warranty | 30 years (product + performance) |
+| Inverter warranty | 15 years |
+| Orientation | Azimuth 138°, Slope 20° |
 
 ### Pricing
 
 | Item | Price |
 |------|-------|
-| Option A: 10 panels + Huawei 7kW + BER (no battery) | €8,800 |
+| Original system price | ~€9,300 |
+| Discount applied | -€500 |
+| **System cost (gross)** | **€8,800** |
 | SEAI Solar PV Grant | -€1,800 |
-| **NET TOTAL (Option A)** | **€7,000** |
+| **NET TOTAL** | **€7,000** |
 | | |
-| Option B: Add battery | +€3,000 |
-| **NET TOTAL (Option B)** | **€10,000** |
+| Optional: Add battery later | +€3,000 |
+| **NET with battery** | **€10,000** |
 
-### Key Notes
+### Payment Terms
 
-- **Smallest & cheapest system quoted:** 4.6 kWp vs 6.3-7.36 kWp from others
-- **Their recommendation:** No battery, no heat pump — say consumption is too low to justify
-- **Only 10 panels** — less roof coverage, less generation
-- **No battery = limited self-consumption** — excess solar goes to grid (CEG only ~€100/yr)
-- **Huawei 7kW inverter** — good brand, oversized for 4.6 kWp (leaves room for expansion)
-- Price per kWp: €8,800 / 4.6 = **€1,913/kWp** (vs Hardiman €1,600/kWp with 12.8kWh battery!)
-- Their "no HP" advice contradicts the €10,500 in SEAI grants available for replacing gas boiler
+- Stage 1: €500 deposit to book installation
+- Remaining balance on completion
+- SEAI grant handled by PV Gen (deducted from price)
 
-### Comparison Position
+### Their Financial Projections
 
-| Provider | kWp | Battery | Gross | Net | €/kWp gross |
-|----------|-----|---------|-------|-----|-------------|
-| **PV Gen (no bat.)** | **4.6** | **None** | **€8,800** | **€7,000** | **€1,913** |
-| PV Gen (+ bat.) | 4.6 | ~5kWh? | €11,800 | €10,000 | €2,565 |
-| Hardiman | 6.75 | 12.8 kWh | €10,800 | €9,000 | €1,600 |
-| Broderick | 6.3 | 10.24 kWh | €12,450 | €10,650 | €1,976 |
-| Treacy | 7.36 | 10 kWh | €12,600 | €10,800 | €1,712 |
+| Metric | Value |
+|--------|-------|
+| First year savings | €409 |
+| Lifetime (20yr) savings | €11,483 |
+| Net savings (after system cost) | €3,883 |
+| **Their payback estimate** | **15 years** |
+| Total ROI | 51% |
+| Annual ROI | 3.9% |
+| Self-consumption | **15%** ⚠️ |
+| Export to grid | **85%** |
+
+### Self-Consumption Analysis (from their own data!)
+
+| Period | Generation | Consumed in-house | Exported | Export credit |
+|--------|-----------|-------------------|----------|--------------|
+| Jan-Feb | 235 kWh | 67 kWh | 168 kWh | €33 |
+| Mar-Apr | 670 kWh | 101 kWh | 569 kWh | €111 |
+| May-Jun | 941 kWh | 105 kWh | 836 kWh | €163 |
+| Jul-Aug | 826 kWh | 95 kWh | 731 kWh | €143 |
+| Sep-Oct | 465 kWh | 77 kWh | 388 kWh | €76 |
+| Nov-Dec | 181 kWh | 57 kWh | 124 kWh | €24 |
+| **TOTAL** | **3,317 kWh** | **~502 kWh (15%)** | **2,816 kWh (85%)** | **€550** |
+
+### Key Notes & Red Flags
+
+- **Only 15% self-consumption without battery** — this is terrible. 85% of generation goes to grid at 20-29c instead of saving you 41c/kWh
+- **Their own payback: 15 years** — worst of all quotes received
+- **9 panels not 10** — may not fit more; 10th only "if possible on install day"
+- **Smallest system: 4.14 kWp** — vs 6.3-7.36 kWp from competitors
+- **Export rate:** 29c with Youno Energy (PV Gen deal) vs standard 18-20c elsewhere
+- **Battery-ready inverter** — can add battery later, but that's another €3,000+ expense
+- **Good equipment quality:** Bauer German panels (30yr), Huawei hybrid (15yr), Van Der Valk mounting (lifetime)
+- **They advise against HP:** Say switching to HP would increase consumption to ~7,000 kWh/yr and solar only covers 4,600 kWh at peak
+- **No subcontracting:** All in-house installation
+- **Established:** 6,000+ systems installed since 2015, work with Meta/PepsiCo/Intersport
 
 ### Assessment
 
-❌ **Not competitive.** For just €2,000 more net (Hardiman = €9,000), you get:
-- 47% more panels (15 vs 10)
-- 47% more capacity (6.75 kWp vs 4.6 kWp)
-- 12.8 kWh battery INCLUDED (vs none or +€3,000 extra)
-- More self-consumption = more savings per year
+❌ **Worst value proposition of all quotes.**
 
-Their advice against HP/battery is **questionable** given:
-- Gas bill €436-€623/year (eliminable with HP + €10,500 grants)
-- Battery enables night shifting (69% of consumption is outside sun hours)
-- Without battery, only ~31% of generation is self-consumed directly
+The numbers speak for themselves:
+- **15% self-consumption** = you're basically a micro power station selling cheap electricity to the grid
+- Even with Youno's 29c export rate, you save far less than consuming the electricity yourself (41c)
+- **15 year payback** (their own estimate!) vs ~8-13 years for competitors with battery
+- For just €2,000 more net (Hardiman = €9,000), you get 63% more capacity AND a 12.8kWh battery
+- Their HP advice ignores €10,500 in free SEAI grants
+
+| What €7,000 buys at PV Gen | What €9,000 buys at Hardiman |
+|---|---|
+| 9 panels, 4.14 kWp | 15 panels, 6.75 kWp |
+| No battery | 12.8 kWh Pylon battery |
+| 15% self-consumption | ~70-80% self-consumption |
+| 15yr payback (their estimate) | ~8-11yr payback |
+| Export 85% at 20-29c | Store & use at 41c |
+
+### Comparison Position
+
+| Provider | kWp | Battery | Gross | Net | €/kWp gross | Self-consumption |
+|----------|-----|---------|-------|-----|-------------|-----------------|
+| **PV Gen** | **4.14** | **None** | **€8,800** | **€7,000** | **€2,126** | **15%** ⚠️ |
+| PV Gen (+ bat.) | 4.14 | TBD | €11,800 | €10,000 | €2,850 | ~70%? |
+| Hardiman | 6.75 | 12.8 kWh | €10,800 | €9,000 | €1,600 | ~70-80% |
+| Broderick | 6.3 | 10.24 kWh | €12,450 | €10,650 | €1,976 | ~70% |
+| Treacy | 7.36 | 10 kWh | €12,600 | €10,800 | €1,712 | ~80% |
 
 ---
 
