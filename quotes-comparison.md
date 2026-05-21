@@ -372,10 +372,76 @@ Not listed in proposal.
 
 | Combination | Solar Net | HP Net | Total Net | Payback |
 |-------------|-----------|--------|-----------|---------|
+| PV Gen (no bat.) + Horgan | €7,000 | €2,350 | **€9,350** | **8.9 years** |
 | Hardiman + Horgan | €9,000 | €2,350 | **€11,350** | **10.8 years** |
+| PV Gen (+ bat.) + Horgan | €10,000 | €2,350 | **€12,350** | **11.8 years** |
 | Broderick + Horgan | €10,650 | €2,350 | **€13,000** | **12.4 years** |
 | Treacy + Horgan | €10,800 | €2,350 | **€13,150** | **12.5 years** |
 | Treacy + Horgan + smart tariff arbitrage | €10,800 | €2,350 | **€13,150** | **~7.5 years** |
+
+---
+
+## Quote 5: PV Gen (Solar Only — In-Person Visit)
+
+| Field | Detail |
+|-------|--------|
+| **Company** | PV Gen |
+| **Date** | 21 May 2026 |
+| **Type** | In-person site visit + quote |
+
+### System Specification
+
+| Component | Spec |
+|-----------|------|
+| Panels | 10× 460W (brand TBC) |
+| Total capacity | 4.6 kWp |
+| Inverter | Huawei 7kW |
+| Battery | None recommended (optional +€3,000) |
+| BER | Included |
+
+### Pricing
+
+| Item | Price |
+|------|-------|
+| Option A: 10 panels + Huawei 7kW + BER (no battery) | €8,800 |
+| SEAI Solar PV Grant | -€1,800 |
+| **NET TOTAL (Option A)** | **€7,000** |
+| | |
+| Option B: Add battery | +€3,000 |
+| **NET TOTAL (Option B)** | **€10,000** |
+
+### Key Notes
+
+- **Smallest & cheapest system quoted:** 4.6 kWp vs 6.3-7.36 kWp from others
+- **Their recommendation:** No battery, no heat pump — say consumption is too low to justify
+- **Only 10 panels** — less roof coverage, less generation
+- **No battery = limited self-consumption** — excess solar goes to grid (CEG only ~€100/yr)
+- **Huawei 7kW inverter** — good brand, oversized for 4.6 kWp (leaves room for expansion)
+- Price per kWp: €8,800 / 4.6 = **€1,913/kWp** (vs Hardiman €1,600/kWp with 12.8kWh battery!)
+- Their "no HP" advice contradicts the €10,500 in SEAI grants available for replacing gas boiler
+
+### Comparison Position
+
+| Provider | kWp | Battery | Gross | Net | €/kWp gross |
+|----------|-----|---------|-------|-----|-------------|
+| **PV Gen (no bat.)** | **4.6** | **None** | **€8,800** | **€7,000** | **€1,913** |
+| PV Gen (+ bat.) | 4.6 | ~5kWh? | €11,800 | €10,000 | €2,565 |
+| Hardiman | 6.75 | 12.8 kWh | €10,800 | €9,000 | €1,600 |
+| Broderick | 6.3 | 10.24 kWh | €12,450 | €10,650 | €1,976 |
+| Treacy | 7.36 | 10 kWh | €12,600 | €10,800 | €1,712 |
+
+### Assessment
+
+❌ **Not competitive.** For just €2,000 more net (Hardiman = €9,000), you get:
+- 47% more panels (15 vs 10)
+- 47% more capacity (6.75 kWp vs 4.6 kWp)
+- 12.8 kWh battery INCLUDED (vs none or +€3,000 extra)
+- More self-consumption = more savings per year
+
+Their advice against HP/battery is **questionable** given:
+- Gas bill €436-€623/year (eliminable with HP + €10,500 grants)
+- Battery enables night shifting (69% of consumption is outside sun hours)
+- Without battery, only ~31% of generation is self-consumed directly
 
 ---
 
