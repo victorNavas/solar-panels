@@ -46,10 +46,26 @@
 - **Estado:** 📧 Pendiente de presupuesto solar
 - **Notas:** Ideal para el plan de "hacerlo por separado". Se les pidió quote para 6.6-7kW + 10kWh batería.
 
-### 4. Alternative Energy Ireland
-- **Contacto:** John Mullan (john@alternativeenergy.ie)
-- **Estado:** 📧 Se le envió info técnica + número de teléfono
-- **Notas:** Pidió llamar. Se le envió resumen por mail prefiriendo email. Pendiente respuesta.
+### 4. Alternative Energy Ireland ⭐
+- **Contacto:** John Mullan (john@alternativeenergy.ie) / Tel: 015267450
+- **Dirección:** Carmanhall Road/Level 1, The Chase, Glencullen, Dublin D18 Y3X2
+- **CRN:** NI606360 | **VAT:** IE3443712NH
+- **Propuesta (26/05):** 7.99kW Solar (17× Jinko 470W) + Solis 5kW hybrid inverter + Solis 10.2kWh battery + removal old panels + BER = **€9,600 neto**
+  - Gross: €11,400 - SEAI €1,800 = **€9,600 neto**
+  - Ref: ALT-7811-5007-1
+  - Válida hasta: 9 junio 2026 ⚠️ (14 días)
+  - Propuesta preliminar — sujeta a site survey
+- **Depósito:** 25% = €2,850 | Resto 75% = €8,550 al completar
+- **Estado:** 📋 PRESUPUESTO RECIBIDO - Pendiente de decisión
+- **Link propuesta:** https://app.getpylon.com/proposals/aI4g8vQQsp
+- **Notas:**
+  - Mejor €/kWp de todos los presupuestos: €1,427/kWp
+  - Sistema más grande cotizado: 7.99 kWp (17 paneles)
+  - ⚠️ Asumen consumo de 5,000 kWh/año (real: ~1,742 kWh). Sus proyecciones financieras son incorrectas.
+  - ⚠️ Empresa registrada en Northern Ireland — verificar protecciones al consumidor irlandés
+  - Incluye: removal paneles viejos (€300), BER post-works (€300), 5yr workmanship warranty
+  - Credenciales: MCS, NICEIC, SEAI, Safe Electric, ISO 9001, Constructionline Gold
+  - Solis battery/inverter = gama media (no premium como Sigenergy de Treacy)
 
 ### 5. Emmet Keeshan (Electricista Independiente SEAI) ⭐
 - **Contacto:** emmetkeeshanelectrical@ / Tel: 0834464699
@@ -86,6 +102,20 @@
   - Le pidió quote desglosada (gross + net after SEAI)
   - Daryl respondió positivamente: "Glad to hear the good words! Let's chat in the morning"
   - Se le dejó claro que se prefiere email (navas.v7@gmail.com) para documentar todo
+
+### 9. EnergyWise Ireland (One-Stop-Shop — limitado)
+- **Contacto:** Shauna Dalton (sdalton@energywiseireland.ie)
+- **Fecha contacto:** 25 mayo 2026
+- **Problema OSS:** Casa NO cualifica para One-Stop-Shop (requiere BER B3 o peor + construida pre-2011). Victor tiene A3.
+- **Pueden ofrecer:**
+  - ✅ Solar PV quote (net of grants — deducido directamente)
+  - ⚠️ Heat Pump quote (pero grant se cobra DESPUÉS de instalación, no descontado)
+- **Necesitan para cotizar solar:** Roof drawings + copia de factura electricidad
+- **Estado:** 📧 PENDIENTE — Victor no ha enviado documentación aún
+- **Notas:**
+  - Limitación OSS es por BER A3 de la casa — no aplica el formato "paga neto" para HP
+  - Para HP habría que adelantar el coste total y reclamar grant después
+  - Útil solo para solar si dan buen precio; HP format menos conveniente que Horgan (que sí descuenta)
 
 ---
 

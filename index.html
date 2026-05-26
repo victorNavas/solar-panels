@@ -19,6 +19,7 @@
             --dark: #1f2937;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-padding-top: 20px; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: var(--dark); line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         h1 { font-size: 1.8rem; margin-bottom: 5px; }
@@ -56,7 +57,8 @@
         .checklist li.done::before { content: '✅'; }
         .checklist li.progress::before { content: '🔄'; }
         .note { background: var(--orange-light); border-left: 3px solid var(--orange); padding: 12px 15px; border-radius: 0 6px 6px 0; margin: 10px 0; font-size: 0.9rem; }
-        .section { margin-bottom: 35px; }
+        .section { margin-bottom: 35px; display: none; }
+        .section.visible { display: block; }
         .tabs { display: flex; gap: 5px; margin-bottom: 15px; flex-wrap: wrap; }
         .tab { padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; background: white; border: 1px solid #e5e7eb; transition: all 0.2s; }
         .tab:hover, .tab.active { background: var(--blue); color: white; border-color: var(--blue); }
@@ -67,15 +69,65 @@
         .timeline-item.done::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
         .timeline-item.pending::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
         a { color: var(--blue); }
+        /* Sidebar navigation */
+        .page-wrap { display: flex; min-height: 100vh; }
+        .sidebar { position: sticky; top: 0; height: 100vh; width: 220px; min-width: 220px; background: white; border-right: 1px solid #e5e7eb; padding: 15px 0; overflow-y: auto; z-index: 100; }
+        .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+        .sidebar a { display: block; padding: 8px 16px; font-size: 0.78rem; color: var(--gray); text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .sidebar a:hover { color: var(--dark); background: var(--gray-light); }
+        .sidebar a.active { color: var(--blue); border-left-color: var(--blue); background: var(--blue-light); font-weight: 600; }
+        .sidebar .nav-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 12px 16px 4px; font-weight: 700; }
+        .main-content { flex: 1; min-width: 0; }
+        /* Mobile: hide sidebar, show hamburger */
+        .mobile-nav-toggle { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 200; width: 48px; height: 48px; border-radius: 50%; background: var(--blue); color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .container { padding: 10px; }
             .header { padding: 20px; }
             .lang-toggle { top: 10px; right: 10px; }
+            .sidebar { position: fixed; left: -260px; width: 250px; min-width: 250px; top: 0; height: 100vh; transition: left 0.3s; box-shadow: 2px 0 12px rgba(0,0,0,0.15); }
+            .sidebar.open { left: 0; }
+            .mobile-nav-toggle { display: block; }
+            .page-wrap { display: block; }
         }
     </style>
 </head>
 <body>
+    <div class="page-wrap">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="nav-title"><span data-es="Navegación" data-en="Navigation"></span></div>
+            <nav>
+                <a href="#sec-kpis" data-es="📊 KPIs" data-en="📊 KPIs">📊 KPIs</a>
+                <a href="#sec-consumo" data-es="⚡ Consumo Real" data-en="⚡ Consumption">⚡ Consumo Real</a>
+                <a href="#sec-empresas" data-es="📋 Empresas" data-en="📋 Companies">📋 Empresas</a>
+                <a href="#sec-precios" data-es="📊 Comparativa Precios" data-en="📊 Price Comparison">📊 Comparativa Precios</a>
+                <a href="#sec-materiales" data-es="🔧 Materiales" data-en="🔧 Equipment">🔧 Materiales</a>
+                <a href="#sec-roi" data-es="📈 Calculadora ROI" data-en="📈 ROI Calculator">📈 Calculadora ROI</a>
+                <a href="#sec-donothing" data-es="💸 Coste No Hacer Nada" data-en="💸 Cost of Inaction">💸 Coste No Hacer Nada</a>
+                <a href="#sec-margen" data-es="🔍 Márgenes" data-en="🔍 Markups">🔍 Márgenes</a>
+                <a href="#sec-seai" data-es="💰 SEAI Grants" data-en="💰 SEAI Grants">💰 SEAI Grants</a>
+                <a href="#sec-specs" data-es="🔧 Especificaciones" data-en="🔧 Specs">🔧 Especificaciones</a>
+                <a href="#sec-hardware" data-es="🛒 Hardware" data-en="🛒 Hardware">🛒 Hardware</a>
+                <a href="#sec-vecinos" data-es="🏘️ Vecinos" data-en="🏘️ Neighbours">🏘️ Vecinos</a>
+                <a href="#sec-plan" data-es="🎯 Plan Acción" data-en="🎯 Action Plan">🎯 Plan Acción</a>
+                <a href="#sec-todo" data-es="✅ Pendientes" data-en="✅ To-Do">✅ Pendientes</a>
+            </nav>
+            <div class="nav-title"><span data-es="Presupuestos" data-en="Quotes"></span></div>
+            <nav>
+                <a href="#sec-prov-treacy" data-es="☀️ Treacy Solar" data-en="☀️ Treacy Solar">☀️ Treacy Solar</a>
+                <a href="#sec-prov-hardiman" data-es="☀️ Hardiman" data-en="☀️ Hardiman">☀️ Hardiman</a>
+                <a href="#sec-prov-horgan" data-es="🌡️ Horgan HP" data-en="🌡️ Horgan HP">🌡️ Horgan HP</a>
+                <a href="#sec-prov-broderick" data-es="☀️ Broderick" data-en="☀️ Broderick">☀️ Broderick</a>
+                <a href="#sec-prov-pvgen" data-es="☀️ PV Gen" data-en="☀️ PV Gen">☀️ PV Gen</a>
+            </nav>
+        </aside>
+
+        <!-- Mobile nav button -->
+        <button class="mobile-nav-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Menu">☰</button>
+
+        <!-- Main content -->
+        <div class="main-content">
     <div class="container">
         <div class="header">
             <div class="lang-toggle">
@@ -87,6 +139,7 @@
         </div>
 
         <!-- KPIs -->
+        <div id="sec-kpis" class="section visible" style="margin-bottom:35px;">
         <div class="grid">
             <div class="card green">
                 <div class="label"><span data-es="Ahorro Anual Esperado" data-en="Expected Annual Savings"></span></div>
@@ -109,9 +162,10 @@
                 <p style="font-size:0.8rem; color:var(--gray)">Solar €1,800 + HP €12,500 + <span data-es="IVA 0%" data-en="VAT 0%"></span></p>
             </div>
         </div>
+        </div>
 
         <!-- CONSUMO REAL -->
-        <div class="section">
+        <div class="section" id="sec-consumo">
             <h2>⚡ <span data-es="Consumo Real (Smart Meter + Facturas Gas)" data-en="Real Consumption (Smart Meter + Gas Bills)"></span></h2>
             <p style="font-size:0.8rem; color:var(--gray); margin-bottom:15px;">MPRN: 10306472089 · <span data-es="Electricidad: Oct 25 - May 26 (226 días) · Gas: Oct 25 - Apr 26 (189 días)" data-en="Electricity: Oct 25 - May 26 (226 days) · Gas: Oct 25 - Apr 26 (189 days)"></span></p>
             
@@ -284,7 +338,7 @@
         </div>
 
         <!-- EMPRESAS -->
-        <div class="section">
+        <div class="section" id="sec-empresas">
             <h2>📋 <span data-es="Empresas y Presupuestos" data-en="Companies & Quotes"></span></h2>
             
             <div class="tabs">
@@ -328,14 +382,14 @@
                         <td><span class="badge badge-green"><span data-es="✅ Quote 20/05" data-en="✅ Quote 20/05"></span></span></td>
                     </tr>
                     <tr class="row-active">
-                        <td><strong>Donal Horgan ⭐</strong></td>
+                        <td><strong>Horgan Renewables ⭐</strong></td>
                         <td>🌡️</td>
                         <td>Donal Horgan</td>
                         <td><strong>€14,850</strong></td>
-                        <td>-€12,500</td>
-                        <td style="color:var(--green); font-weight:700;">€2,350</td>
+                        <td>-€10,500 ~ -€12,500</td>
+                        <td style="color:var(--green); font-weight:700;">€2,350–€4,350</td>
                         <td><span class="badge badge-green"><span data-es="Instalador HP" data-en="HP Installer"></span></span></td>
-                        <td><span class="badge badge-green"><span data-es="✅ Quote 20/05" data-en="✅ Quote 20/05"></span></span></td>
+                        <td><span class="badge badge-yellow"><span data-es="⏳ DEAP pendiente" data-en="⏳ DEAP pending"></span></span></td>
                     </tr>
                     <tr class="row-active">
                         <td><strong>Emmet Keeshan ⭐</strong></td>
@@ -419,13 +473,13 @@
                     </tr>
                     <tr class="row-active">
                         <td>Alternative Energy</td>
-                        <td>☀️🌡️</td>
+                        <td>☀️</td>
                         <td>John Mullan</td>
                         <td><span data-es="Pendiente" data-en="Pending"></span></td>
-                        <td>-€14,300</td>
+                        <td>-€1,800</td>
                         <td style="color:var(--gray);">TBD</td>
-                        <td><span class="badge badge-blue"><span data-es="Instalador" data-en="Installer"></span></span></td>
-                        <td><span class="badge badge-orange"><span data-es="📧 Enviado" data-en="📧 Sent"></span></span></td>
+                        <td><span class="badge badge-blue"><span data-es="Solo Solar" data-en="Solar Only"></span></span></td>
+                        <td><span class="badge badge-orange"><span data-es="⏳ Esperando quote" data-en="⏳ Awaiting quote"></span></span></td>
                     </tr>
                     <tr class="row-discarded">
                         <td><s>Activ8 Energies</s></td>
@@ -449,7 +503,7 @@
         </div>
 
         <!-- COMPARATIVA VISUAL -->
-        <div class="section">
+        <div class="section" id="sec-precios">
             <h2>📊 <span data-es="Comparativa de Precios (Neto tras SEAI)" data-en="Price Comparison (Net after SEAI)"></span></h2>
             <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1)">
                 <div class="comparison-row">
@@ -488,8 +542,99 @@
             </div>
         </div>
 
+        <!-- COMPARATIVA MATERIALES -->
+        <div class="section" id="sec-materiales">
+            <h2>🔧 <span data-es="Comparativa de Materiales" data-en="Equipment Comparison"></span></h2>
+            <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+                
+                <!-- Panels -->
+                <h3 style="margin-bottom:10px;">☀️ <span data-es="Paneles" data-en="Panels"></span></h3>
+                <div style="overflow-x:auto;">
+                <table style="font-size:0.75rem;">
+                    <thead>
+                        <tr><th></th><th>Treacy</th><th>Hardiman</th><th>Broderick</th><th>PV Gen</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-weight:600;"><span data-es="Marca" data-en="Brand"></span></td><td>TW Solar</td><td>Jinko Tiger Neo</td><td>Jinko</td><td>Bauer</td></tr>
+                        <tr><td style="font-weight:600;">Tier</td><td>Tier 1</td><td>Tier 1</td><td>Tier 1</td><td>Tier 2 (DE)</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Potencia" data-en="Power"></span></td><td>460W</td><td>455W</td><td>450W</td><td>460W</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Cantidad" data-en="Qty"></span></td><td><strong>16</strong></td><td>15</td><td>14</td><td style="color:var(--red);">9</td></tr>
+                        <tr><td style="font-weight:600;">kWp</td><td><strong>7.36</strong></td><td>6.83</td><td>6.30</td><td style="color:var(--red);">4.14</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Garantía" data-en="Warranty"></span></td><td>25 <span data-es="años" data-en="yr"></span></td><td><strong>30 <span data-es="años" data-en="yr"></span></strong></td><td>—</td><td><strong>30 <span data-es="años" data-en="yr"></span></strong></td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Tecnología" data-en="Tech"></span></td><td>N-Type Mono</td><td>N-Type Mono</td><td>N-Type Mono</td><td>N-Type Mono</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="font-size:0.7rem; color:var(--gray); margin-top:5px;">💡 <span data-es="Jinko y TW son Tier 1 global (miles de GW instalados). Bauer es alemán nicho, buena calidad pero menor volumen." data-en="Jinko and TW are global Tier 1 (thousands of GW installed). Bauer is German niche, good quality but lower volume."></span></p>
+
+                <!-- Inverters -->
+                <h3 style="margin-top:20px; margin-bottom:10px;">⚡ <span data-es="Inversores" data-en="Inverters"></span></h3>
+                <div style="overflow-x:auto;">
+                <table style="font-size:0.75rem;">
+                    <thead>
+                        <tr><th></th><th>Treacy</th><th>Hardiman</th><th>Broderick</th><th>PV Gen</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-weight:600;"><span data-es="Marca" data-en="Brand"></span></td><td style="color:var(--green); font-weight:700;">Sigenergy</td><td>Solis</td><td>Solis</td><td style="font-weight:600;">Huawei</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Modelo" data-en="Model"></span></td><td>Sigenstor 5.0kW</td><td>S5-EH1P5K-L</td><td>5kW Hybrid</td><td>SUN2000-5K-LB0</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Potencia" data-en="Power"></span></td><td>5.0 kW</td><td>5.5 kW</td><td>5.0 kW</td><td>5.0 kW</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Garantía" data-en="Warranty"></span></td><td>10 <span data-es="años" data-en="yr"></span></td><td style="color:var(--red);">5 <span data-es="años" data-en="yr"></span> ⚠️</td><td>—</td><td style="color:var(--green); font-weight:700;">15 <span data-es="años" data-en="yr"></span></td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Eficiencia" data-en="Efficiency"></span></td><td>~97%</td><td>97.1%</td><td>~97%</td><td>97.5%</td></tr>
+                        <tr><td style="font-weight:600;">Smart AI</td><td style="color:var(--green);">✅ <span data-es="Arbitraje auto" data-en="Auto arbitrage"></span></td><td>❌</td><td>❌</td><td><span data-es="Parcial" data-en="Partial"></span></td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style="font-size:0.7rem; color:var(--gray); margin-top:5px;">🏆 <span data-es="Sigenergy (Treacy) = lo más avanzado (IA, arbitraje automático). Huawei (PV Gen) = fiable con gran garantía. Solis (Hardiman) = correcto pero solo 5yr garantía." data-en="Sigenergy (Treacy) = most advanced (AI, auto arbitrage). Huawei (PV Gen) = reliable with great warranty. Solis (Hardiman) = decent but only 5yr warranty."></span></p>
+
+                <!-- Batteries -->
+                <h3 style="margin-top:20px; margin-bottom:10px;">🔋 <span data-es="Baterías" data-en="Batteries"></span></h3>
+                <div style="overflow-x:auto;">
+                <table style="font-size:0.75rem;">
+                    <thead>
+                        <tr><th></th><th>Treacy</th><th>Hardiman</th><th>Broderick</th><th>PV Gen</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-weight:600;"><span data-es="Marca" data-en="Brand"></span></td><td>Sigenergy</td><td>Green Solutions</td><td>Dyness</td><td style="color:var(--red);">❌ <span data-es="Ninguna" data-en="None"></span></td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Capacidad" data-en="Capacity"></span></td><td>10 kWh</td><td style="color:var(--green); font-weight:700;">12.8 kWh</td><td>10.24 kWh</td><td>—</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Usable" data-en="Usable"></span></td><td>~9 kWh</td><td style="color:var(--green); font-weight:700;">12.1 kWh</td><td>~9.2 kWh</td><td>—</td></tr>
+                        <tr><td style="font-weight:600;">DoD</td><td>~90%</td><td style="font-weight:600;">95%</td><td>~90%</td><td>—</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Expandible" data-en="Expandable"></span></td><td style="color:var(--green);">✅ Modular</td><td>❌</td><td>❌</td><td>—</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Garantía" data-en="Warranty"></span></td><td>10 <span data-es="años" data-en="yr"></span></td><td>10 <span data-es="años" data-en="yr"></span></td><td>—</td><td>—</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <!-- Mounting -->
+                <h3 style="margin-top:20px; margin-bottom:10px;">🏗️ <span data-es="Montaje" data-en="Mounting"></span></h3>
+                <div style="overflow-x:auto;">
+                <table style="font-size:0.75rem;">
+                    <thead>
+                        <tr><th></th><th>Treacy</th><th>Hardiman</th><th>Broderick</th><th>PV Gen</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-weight:600;"><span data-es="Sistema" data-en="System"></span></td><td>Solar Mount Pro</td><td><span data-es="No espec." data-en="Not spec."></span></td><td>Clenergy Rails</td><td style="font-weight:600;">Van Der Valk</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Garantía" data-en="Warranty"></span></td><td>10 <span data-es="años techo" data-en="yr roofing"></span></td><td>—</td><td>—</td><td style="color:var(--green); font-weight:700;"><span data-es="De por vida" data-en="Lifetime"></span></td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <!-- Summary verdict -->
+                <div class="note" style="margin-top:20px; background:#f0fdf4; border-left-color:var(--green);">
+                    <p style="font-weight:700; margin-bottom:8px;">🏆 <span data-es="Veredicto Materiales:" data-en="Equipment Verdict:"></span></p>
+                    <table style="box-shadow:none; background:transparent; font-size:0.75rem; margin:0;">
+                        <tr><td style="font-weight:600;"><span data-es="Mejor inversor" data-en="Best inverter"></span></td><td>Treacy (Sigenergy AI)</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Mejor batería" data-en="Best battery"></span></td><td>Hardiman (12.8kWh, 95% DoD)</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Mejor garantía inversor" data-en="Best inverter warranty"></span></td><td>PV Gen (Huawei 15yr)</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Mejor montaje" data-en="Best mounting"></span></td><td>PV Gen (Van Der Valk, lifetime)</td></tr>
+                        <tr><td style="font-weight:600;"><span data-es="Mejor relación global" data-en="Best overall value"></span></td><td style="color:var(--green); font-weight:700;">Hardiman (Tier 1 todo, €1,582/kWp)</td></tr>
+                    </table>
+                    <p style="font-size:0.7rem; color:var(--gray); margin-top:8px;"><span data-es="PV Gen tiene los mejores componentes individuales pero en un sistema demasiado pequeño (4.14kWp, sin batería). Hardiman ofrece el mejor balance precio/calidad/tamaño." data-en="PV Gen has the best individual components but in a system too small (4.14kWp, no battery). Hardiman offers the best price/quality/size balance."></span></p>
+                </div>
+            </div>
+        </div>
+
         <!-- CALCULADORA ROI -->
-        <div class="section">
+        <div class="section" id="sec-roi">
             <h2>📈 <span data-es="Calculadora ROI por Proveedor" data-en="ROI Calculator by Supplier"></span></h2>
             <div style="background:white; padding:25px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
                 <!-- System type selector -->
@@ -504,11 +649,12 @@
                     <!-- Single provider (solar or hp mode) -->
                     <div id="single-provider-wrap" style="flex:1; min-width:200px;">
                         <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;"><span data-es="Selecciona Proveedor:" data-en="Select Supplier:"></span></label>
-                        <select id="roi-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                        <select id="roi-provider" onchange="autoToggles(); calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
                             <option value="emmet_solar" data-es="Emmet (Solar DIY) — €7,249" data-en="Emmet (Solar DIY) — €7,249">Emmet (Solar DIY) — €7,249</option>
                             <option value="treacy_solar" data-es="Treacy Solar — €12,600 (16 pan + 10kWh Sigenergy)" data-en="Treacy Solar — €12,600 (16 pan + 10kWh Sigenergy)">Treacy Solar — €12,600 (16 pan + 10kWh Sigenergy)</option>
                             <option value="hardiman_solar" data-es="David Hardiman — €10,800 (15 Jinko + 12.8kWh)" data-en="David Hardiman — €10,800 (15 Jinko + 12.8kWh)">David Hardiman — €10,800 (15 Jinko + 12.8kWh)</option>
                             <option value="broderick_solar" data-es="Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)" data-en="Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)">Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)</option>
+                            <option value="altenergy_solar" data-es="Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)" data-en="Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)">Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)</option>
                             <option value="pvgen_solar" data-es="PV Gen — €8,800 (9 Bauer 460W + Huawei 5kW, SIN batería)" data-en="PV Gen — €8,800 (9 Bauer 460W + Huawei 5kW, NO battery)">PV Gen — €8,800 (9 Bauer 460W + Huawei 5kW, SIN batería)</option>
                             <option value="pvgen_bat" data-es="PV Gen + Batería — €11,800 (9 Bauer + Huawei + bat.)" data-en="PV Gen + Battery — €11,800 (9 Bauer + Huawei + bat.)">PV Gen + Batería — €11,800 (9 Bauer + Huawei + bat.)</option>
                             <option value="bordgais_solar" data-es="Bord Gáis/Swyft (solo solar) — €12,000" data-en="Bord Gáis/Swyft (solar only) — €12,000">Bord Gáis/Swyft (solo solar) — €12,000</option>
@@ -524,11 +670,12 @@
                     <div id="dual-provider-wrap" style="flex:1; min-width:200px; display:none;">
                         <div style="margin-bottom:10px;">
                             <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">☀️ <span data-es="Empresa Solar:" data-en="Solar Provider:"></span></label>
-                            <select id="roi-solar-provider" onchange="calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
+                            <select id="roi-solar-provider" onchange="autoToggles(); calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
                                 <option value="emmet_solar" data-es="Emmet (DIY) — €7,249" data-en="Emmet (DIY) — €7,249">Emmet (DIY) — €7,249</option>
                                 <option value="treacy_solar" data-es="Treacy Solar — €12,600" data-en="Treacy Solar — €12,600">Treacy Solar — €12,600</option>
                                 <option value="hardiman_solar" data-es="D. Hardiman — €10,800" data-en="D. Hardiman — €10,800">D. Hardiman — €10,800</option>
                                 <option value="broderick_solar" data-es="S. Broderick — €12,450" data-en="S. Broderick — €12,450">S. Broderick — €12,450</option>
+                                <option value="altenergy_solar" data-es="Alt. Energy — €11,400" data-en="Alt. Energy — €11,400">Alt. Energy — €11,400</option>
                                 <option value="pvgen_solar" data-es="PV Gen — €8,800 (sin bat.)" data-en="PV Gen — €8,800 (no bat.)">PV Gen — €8,800 (sin bat.)</option>
                                 <option value="pvgen_bat" data-es="PV Gen + bat. — €11,800" data-en="PV Gen + bat. — €11,800">PV Gen + bat. — €11,800</option>
                                 <option value="bordgais_solar" data-es="Bord Gáis — €12,000" data-en="Bord Gáis — €12,000">Bord Gáis — €12,000</option>
@@ -560,18 +707,46 @@
                     </div>
                 </div>
 
-                <!-- Gas price escalation -->
+                <!-- Price escalation -->
                 <div id="escalation-wrap" style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:12px 16px; margin-bottom:18px;">
                     <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
                         <label style="font-size:0.8rem; font-weight:600;">📈 <span data-es="Subida anual del gas:" data-en="Annual gas price rise:"></span></label>
                         <input type="range" id="gas-escalation" min="0" max="15" value="8" step="1" oninput="updateEscalationLabel(); calcROI();" style="flex:1; min-width:120px;">
                         <span id="gas-escalation-label" style="font-size:0.85rem; font-weight:700; min-width:35px;">8%</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:8px;">
+                        <label style="font-size:0.8rem; font-weight:600;">⚡ <span data-es="Subida anual electricidad:" data-en="Annual electricity price rise:"></span></label>
+                        <input type="range" id="elec-escalation" min="0" max="12" value="4" step="1" oninput="updateElecEscalationLabel(); calcROI();" style="flex:1; min-width:120px;">
+                        <span id="elec-escalation-label" style="font-size:0.85rem; font-weight:700; min-width:35px;">4%</span>
+                    </div>
+                    <p style="font-size:0.7rem; color:#92400e; margin-top:6px;"><span data-es="Eurostat: electricidad Irlanda +4.2%/año (2007-2025, de 18c a 38c). Gas +8%/año (2019-2026). A mayor subida → más ahorro → payback más rápido." data-en="Eurostat: Irish electricity +4.2%/yr (2007-2025, 18c→38c). Gas +8%/yr (2019-2026). Higher inflation → more savings → faster payback."></span></p>
+                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:8px;">
+                        <label style="font-size:0.75rem; display:flex; align-items:center; gap:4px; cursor:pointer;">
+                            <input type="checkbox" id="ceg-toggle" checked onchange="toggleCEGInfo(); calcROI()" style="cursor:pointer;">
+                            <span data-es="⚡ Vender excedente (CEG ~22c/kWh)" data-en="⚡ Sell surplus (CEG ~22c/kWh)"></span>
+                        </label>
                         <label style="font-size:0.75rem; display:flex; align-items:center; gap:4px; cursor:pointer;">
                             <input type="checkbox" id="smart-tariff-toggle" onchange="toggleArbitrageInfo(); calcROI()" style="cursor:pointer;">
                             <span data-es="Smart tariff (arbitraje batería €700/año)" data-en="Smart tariff (battery arbitrage €700/yr)"></span>
                         </label>
+                        <label style="font-size:0.75rem; display:flex; align-items:center; gap:4px; cursor:pointer;">
+                            <input type="checkbox" id="ev-toggle" onchange="toggleEVInfo(); calcROI()" style="cursor:pointer;">
+                            <span data-es="🚗 Coche eléctrico" data-en="🚗 Electric vehicle"></span>
+                        </label>
                     </div>
-                    <p style="font-size:0.7rem; color:#92400e; margin-top:6px;"><span data-es="Gas en Irlanda subió ~8%/año de media (2019-2026). Con escalada, el ahorro anual crece cada año → payback más rápido." data-en="Irish gas rose ~8%/yr average (2019-2026). With escalation, annual savings grow each year → faster payback."></span></p>
+                    <!-- CEG explanation (visible by default since toggle is on) -->
+                    <div id="ceg-info" style="margin-top:10px; background:white; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px; font-size:0.75rem;">
+                        <p style="font-weight:600; margin-bottom:6px;">⚡ <span data-es="Venta de excedente solar a la red (CEG)" data-en="Selling solar surplus to grid (CEG)"></span></p>
+                        <table style="box-shadow:none; background:transparent; font-size:0.75rem; margin:0;">
+                            <tr><td><span data-es="Producción anual estimada" data-en="Estimated annual production"></span></td><td style="text-align:right;"><strong>~5,100 kWh</strong></td></tr>
+                            <tr><td><span data-es="Autoconsumo con batería (~30%)" data-en="Self-consumption with battery (~30%)"></span></td><td style="text-align:right;">~1,530 kWh</td></tr>
+                            <tr><td><span data-es="Excedente exportado a la red" data-en="Surplus exported to grid"></span></td><td style="text-align:right;">~3,570 kWh</td></tr>
+                            <tr><td><span data-es="Precio CEG garantizado" data-en="CEG guaranteed price"></span></td><td style="text-align:right;">€0.22/kWh</td></tr>
+                            <tr style="color:var(--green); font-weight:700;"><td><span data-es="Ingreso anual por exportación" data-en="Annual export income"></span></td><td style="text-align:right;"><strong>~€785/<span data-es="año" data-en="yr"></span></strong></td></tr>
+                            <tr><td><span data-es="Conservador usado en cálculo (~50%)" data-en="Conservative used in calc (~50%)"></span></td><td style="text-align:right; font-weight:600; color:var(--green);"><strong>€400/<span data-es="año" data-en="yr"></span></strong></td></tr>
+                        </table>
+                        <p style="margin-top:8px; color:var(--gray);"><span data-es="📋 El CEG (Clean Export Guarantee) es obligatorio para proveedores con >200k clientes. SSE Airtricity, Electric Ireland y Bord Gáis ofrecen ~21-24c/kWh. Usamos 22c como referencia. El cálculo conservador asume que solo exportas ~50% del excedente teórico (pérdidas, días nublados, etc.)." data-en="📋 CEG (Clean Export Guarantee) is mandatory for suppliers with >200k customers. SSE Airtricity, Electric Ireland and Bord Gáis offer ~21-24c/kWh. We use 22c as reference. Conservative calc assumes you only export ~50% of theoretical surplus (losses, cloudy days, etc.)."></span></p>
+                    </div>
                     <!-- Arbitrage explanation (hidden by default) -->
                     <div id="arbitrage-info" style="display:none; margin-top:10px; background:white; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px; font-size:0.75rem;">
                         <p style="font-weight:600; margin-bottom:6px;">🔋 <span data-es="¿Cómo funciona el arbitraje de batería?" data-en="How does battery arbitrage work?"></span></p>
@@ -584,6 +759,20 @@
                         </table>
                         <p style="margin-top:8px; color:var(--gray);"><span data-es="⚠️ Requiere: (1) Smart tariff con noche barata (Pinergy/Energia Night Boost), (2) Batería ≥10kWh, (3) Inversor híbrido con modo arbitraje (Sigenergy lo tiene). No compatible al 100% con almacenar solar — compiten por ciclos de batería." data-en="⚠️ Requires: (1) Smart tariff with cheap night rate (Pinergy/Energia Night Boost), (2) Battery ≥10kWh, (3) Hybrid inverter with arbitrage mode (Sigenergy has it). Not 100% compatible with solar storage — they compete for battery cycles."></span></p>
                         <p style="margin-top:4px; color:var(--orange); font-weight:600;"><span data-es="🔑 Pregunta clave para Treacy (21/05): ¿Qué tarifa usáis? ¿El Sigenergy lo gestiona automáticamente?" data-en="🔑 Key question for Treacy (21/05): Which tariff do you use? Does Sigenergy manage it automatically?"></span></p>
+                    </div>
+                    <!-- EV explanation (hidden by default) -->
+                    <div id="ev-info" style="display:none; margin-top:10px; background:white; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px; font-size:0.75rem;">
+                        <p style="font-weight:600; margin-bottom:6px;">🚗 <span data-es="¿Cuánto ahorras con coche eléctrico?" data-en="How much do you save with an EV?"></span></p>
+                        <table style="box-shadow:none; background:transparent; font-size:0.75rem; margin:0;">
+                            <tr><td><span data-es="Km/año medio Irlanda" data-en="Avg km/year Ireland"></span></td><td style="text-align:right;"><strong>17,000 km</strong></td></tr>
+                            <tr><td><span data-es="Coste gasolina (~€0.14/km)" data-en="Petrol cost (~€0.14/km)"></span></td><td style="text-align:right;">€2,380/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr><td><span data-es="Coste EV cargando de red (~€0.06/km)" data-en="EV cost from grid (~€0.06/km)"></span></td><td style="text-align:right;">€1,020/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr style="color:var(--green); font-weight:600;"><td><span data-es="Ahorro vs gasolina (solo red)" data-en="Saving vs petrol (grid only)"></span></td><td style="text-align:right;"><strong>€1,360/<span data-es="año" data-en="yr"></span></strong></td></tr>
+                            <tr><td><span data-es="Coste EV cargando de solar (~€0.03/km)" data-en="EV cost from solar (~€0.03/km)"></span></td><td style="text-align:right;">€510/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr style="color:var(--green); font-weight:700;"><td><span data-es="Ahorro vs gasolina (con solar)" data-en="Saving vs petrol (with solar)"></span></td><td style="text-align:right;"><strong>€1,870/<span data-es="año" data-en="yr"></span></strong></td></tr>
+                        </table>
+                        <p style="margin-top:8px; color:var(--gray);"><span data-es="⚠️ Cálculo conservador: 17.000 km/año, consumo EV ~15kWh/100km, tarifa día ~€0.40/kWh, solar excedente ~€0.03/kWh. No incluye ahorro en impuestos (motor tax €120 vs €500+), ni mantenimiento. Ahorro extra con smart tariff nocturna: cargar a €0.06/kWh." data-en="⚠️ Conservative calc: 17,000 km/yr, EV consumption ~15kWh/100km, day rate ~€0.40/kWh, solar surplus ~€0.03/kWh. Excludes motor tax savings (€120 vs €500+) and lower maintenance. Extra savings with night smart tariff: charge at €0.06/kWh."></span></p>
+                        <p style="margin-top:4px; font-weight:600; color:#166534;"><span data-es="💡 En la calculadora añadimos €600/año (conservador: ~30% de carga solar + ahorro parcial vs gasolina)" data-en="💡 In the calculator we add €600/yr (conservative: ~30% solar charging + partial savings vs petrol)"></span></p>
                     </div>
                 </div>
 
@@ -631,8 +820,56 @@
             </div>
         </div>
 
+        <!-- COSTE DE NO HACER NADA -->
+        <div class="section" id="sec-donothing">
+            <h2>💸 <span data-es="Coste de NO hacer nada (quedarte con la caldera de gas)" data-en="Cost of Doing NOTHING (keeping your gas boiler)"></span></h2>
+            <div style="background:white; padding:25px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                <div class="note" style="background:#fef2f2; border-left-color:var(--red);">
+                    <span data-es="⚠️ Tu caldera tiene <b>10 años</b>. Vida útil típica: 15-20 años. En 5-10 años necesitarás una nueva (€3.500-€5.000) y seguirás pagando gas." data-en="⚠️ Your boiler is <b>10 years old</b>. Typical lifespan: 15-20 years. In 5-10 years you'll need a new one (€3,500-€5,000) and keep paying for gas."></span>
+                </div>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:15px; margin-top:15px;">
+                    <!-- Annual running costs -->
+                    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:15px;">
+                        <div style="font-size:0.8rem; font-weight:700; margin-bottom:10px; color:#991b1b;"><span data-es="📅 Costes anuales (si no haces nada)" data-en="📅 Annual costs (if you do nothing)"></span></div>
+                        <table style="box-shadow:none; background:transparent; font-size:0.8rem; margin:0;">
+                            <tr><td><span data-es="Gas (sin descuento)" data-en="Gas (no discount)"></span></td><td style="text-align:right; font-weight:600;">€623/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr><td><span data-es="Servicio caldera anual" data-en="Annual boiler service"></span></td><td style="text-align:right; font-weight:600;">€120/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr><td><span data-es="Electricidad" data-en="Electricity"></span></td><td style="text-align:right; font-weight:600;">€698/<span data-es="año" data-en="yr"></span></td></tr>
+                            <tr style="border-top:2px solid #fecaca; font-weight:700; color:#991b1b;"><td><span data-es="Total anual" data-en="Annual total"></span></td><td style="text-align:right;">€1,441/<span data-es="año" data-en="yr"></span></td></tr>
+                        </table>
+                    </div>
+                    <!-- 10 year cost -->
+                    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:15px;">
+                        <div style="font-size:0.8rem; font-weight:700; margin-bottom:10px; color:#991b1b;"><span data-es="📊 Coste en 10 años (gas +8%/año)" data-en="📊 Cost over 10 years (gas +8%/yr)"></span></div>
+                        <table style="box-shadow:none; background:transparent; font-size:0.8rem; margin:0;">
+                            <tr><td><span data-es="Gas acumulado (con subidas)" data-en="Cumulative gas (with rises)"></span></td><td style="text-align:right; font-weight:600;">~€9,030</td></tr>
+                            <tr><td><span data-es="Servicio caldera (10 años)" data-en="Boiler service (10 years)"></span></td><td style="text-align:right; font-weight:600;">€1,200</td></tr>
+                            <tr><td><span data-es="Caldera nueva (año ~7)" data-en="New boiler (year ~7)"></span></td><td style="text-align:right; font-weight:600;">€4,000</td></tr>
+                            <tr><td><span data-es="Electricidad (10 años)" data-en="Electricity (10 years)"></span></td><td style="text-align:right; font-weight:600;">€6,980</td></tr>
+                            <tr style="border-top:2px solid #fecaca; font-weight:700; color:#991b1b;"><td><span data-es="TOTAL 10 años" data-en="TOTAL 10 years"></span></td><td style="text-align:right;">~€21,210</td></tr>
+                        </table>
+                    </div>
+                    <!-- Comparison: do nothing vs solar+HP -->
+                    <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:15px;">
+                        <div style="font-size:0.8rem; font-weight:700; margin-bottom:10px; color:#166534;"><span data-es="✅ Si pones Solar + HP (10 años)" data-en="✅ If you install Solar + HP (10 years)"></span></div>
+                        <table style="box-shadow:none; background:transparent; font-size:0.8rem; margin:0;">
+                            <tr><td><span data-es="Inversión neta (Hardiman+Horgan)" data-en="Net investment (Hardiman+Horgan)"></span></td><td style="text-align:right; font-weight:600;">€13,350</td></tr>
+                            <tr><td><span data-es="Electricidad restante (10 años)" data-en="Remaining electricity (10 yr)"></span></td><td style="text-align:right; font-weight:600;">~€1,480</td></tr>
+                            <tr><td><span data-es="Gas" data-en="Gas"></span></td><td style="text-align:right; font-weight:600; color:var(--green);">€0</td></tr>
+                            <tr><td><span data-es="Mantenimiento caldera" data-en="Boiler maintenance"></span></td><td style="text-align:right; font-weight:600; color:var(--green);">€0</td></tr>
+                            <tr style="border-top:2px solid #bbf7d0; font-weight:700; color:#166534;"><td><span data-es="TOTAL 10 años" data-en="TOTAL 10 years"></span></td><td style="text-align:right;">~€14,830</td></tr>
+                        </table>
+                        <p style="font-size:0.75rem; margin-top:10px; color:#166534; font-weight:700;"><span data-es="💰 Te ahorras ~€6,380 en 10 años vs no hacer nada" data-en="💰 You save ~€6,380 over 10 years vs doing nothing"></span></p>
+                    </div>
+                </div>
+                <div class="note" style="margin-top:15px; background:#fffbeb; border-left-color:var(--orange);">
+                    <span data-es="💡 <b>Dato clave:</b> Si tu caldera se rompe en 5 años, pagarás ~€4,000 por otra caldera de gas ADEMÁS de seguir pagando gas caro. Con la aerotermia, pagas ahora y eliminas el gas para siempre. El gas en Irlanda ha subido ~8%/año de media — en 10 años tu factura de gas podría ser €1,345/año (más del doble de hoy)." data-en="💡 <b>Key fact:</b> If your boiler breaks in 5 years, you'll pay ~€4,000 for another gas boiler AND keep paying expensive gas. With a heat pump, you pay now and eliminate gas forever. Irish gas rose ~8%/yr avg — in 10 years your gas bill could be €1,345/yr (more than double today)."></span>
+                </div>
+            </div>
+        </div>
+
         <!-- MARGEN PROVEEDORES -->
-        <div class="section">
+        <div class="section" id="sec-margen">
             <h2>🔍 <span data-es="Margen de cada Proveedor (lo que se llevan por encima del coste de materiales)" data-en="Supplier Markup (what they charge above material cost)"></span></h2>
             <div class="note" style="background: var(--blue-light); border-left-color: var(--blue);">
                 📐 <strong><span data-es="Base de cálculo:" data-en="Calculation basis:"></span></strong> <span data-es="Hardware Solar (18 pan + inv + 10kWh bat) =" data-en="Solar hardware (18 pan + inv + 10kWh bat) ="></span> <strong>€5,099</strong> (<a href="https://midlandbatteries.com/" target="_blank">Midland Batteries</a>) · <span data-es="Hardware HP (Daikin 8kW split + 180L) =" data-en="HP hardware (Daikin 8kW split + 180L) ="></span> <strong>€8,704</strong> (<a href="https://www.plumbingproducts.ie/601-daikin./" target="_blank">plumbingproducts.ie</a>) · <span data-es="Total materiales ambos =" data-en="Total materials both ="></span> <strong>€13,803</strong>
@@ -731,7 +968,7 @@
         </div>
 
         <!-- SUBVENCIONES -->
-        <div class="section">
+        <div class="section" id="sec-seai">
             <h2>💰 <span data-es="Subvenciones SEAI 2026" data-en="SEAI Grants 2026"></span></h2>
             <div class="grid">
                 <div class="card green">
@@ -761,7 +998,7 @@
         </div>
 
         <!-- HARDWARE -->
-        <div class="section">
+        <div class="section" id="sec-specs">
             <h2>🔧 <span data-es="Especificaciones Técnicas" data-en="Technical Specifications"></span></h2>
             <div class="grid">
                 <div style="background:white; padding:18px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
@@ -790,7 +1027,7 @@
         </div>
 
         <!-- PRECIO HARDWARE DIY -->
-        <div class="section">
+        <div class="section" id="sec-hardware">
             <h2>🛒 <span data-es="Coste Real Hardware" data-en="Real Hardware Cost"></span> (<a href="https://midlandbatteries.com/" target="_blank">midlandbatteries.com</a>)</h2>
             <div class="note" style="background: var(--green-light); border-left-color: var(--green);">
                 💡 <strong><span data-es="Dato clave:" data-en="Key fact:"></span></strong> <span data-es="Un kit completo de 18 paneles Jinko 440W + inversor híbrido 5kW + batería 10.24kWh cuesta" data-en="A full kit of 18 Jinko 440W panels + 5kW hybrid inverter + 10.24kWh battery costs"></span> <strong>€5,099</strong> <span data-es="en" data-en="at"></span> <a href="https://midlandbatteries.com/" target="_blank">Midland Batteries</a>. <span data-es="Las One-Stop-Shops te cobran €12,190+ por lo mismo instalado." data-en="One-Stop-Shops charge €12,190+ for the same thing installed."></span>
@@ -851,7 +1088,7 @@
         </div>
 
         <!-- VECINOS -->
-        <div class="section">
+        <div class="section" id="sec-vecinos">
             <h2>🏘️ <span data-es="Datos Reales de Vecinos (Evanwood WhatsApp)" data-en="Real Neighbour Data (Evanwood WhatsApp)"></span></h2>
             
             <div class="grid">
@@ -903,7 +1140,7 @@
         </div>
 
         <!-- PLAN DE ACCIÓN -->
-        <div class="section">
+        <div class="section" id="sec-plan">
             <h2>🎯 <span data-es="Plan de Acción" data-en="Action Plan"></span></h2>
             <div class="timeline">
                 <div class="timeline-item done">
@@ -927,7 +1164,7 @@
         </div>
 
         <!-- PENDIENTES -->
-        <div class="section">
+        <div class="section" id="sec-todo">
             <h2>✅ <span data-es="Pendientes" data-en="To-Do"></span></h2>
             <ul class="checklist">
                 <li class="done"><span data-es="✅ Enviado a Stephen Broderick: fotos tejado + DB + eircode (19/05)" data-en="✅ Sent to Stephen Broderick: roof photos + DB + eircode (19/05)"></span></li>
@@ -947,31 +1184,270 @@
             </ul>
         </div>
 
+        <!-- ========== PROVIDER DETAIL PAGES ========== -->
+
+        <!-- TREACY SOLAR -->
+        <div class="section" id="sec-prov-treacy">
+            <h2>☀️ Treacy Solar — <span data-es="Detalle Quote" data-en="Quote Detail"></span></h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:20px;">
+                <div class="card green"><div class="label"><span data-es="Precio Bruto" data-en="Gross Price"></span></div><div class="value">€12,600</div></div>
+                <div class="card"><div class="label">SEAI Grant</div><div class="value" style="color:#166534;">-€1,800</div></div>
+                <div class="card green"><div class="label"><span data-es="Neto" data-en="Net"></span></div><div class="value">€10,800</div></div>
+                <div class="card orange"><div class="label">€/kWp</div><div class="value">€1,712</div></div>
+            </div>
+            <table>
+                <thead><tr><th><span data-es="Componente" data-en="Component"></span></th><th><span data-es="Especificación" data-en="Spec"></span></th></tr></thead>
+                <tbody>
+                    <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>16× TW 460W N-Type All Black (Tier 1)</td></tr>
+                    <tr><td><span data-es="Capacidad" data-en="Capacity"></span></td><td>7.36 kWp</td></tr>
+                    <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td>Sigenergy Sigenstor 5.0kW Hybrid (AI)</td></tr>
+                    <tr><td><span data-es="Batería" data-en="Battery"></span></td><td>Sigenergy 10.0 kWh</td></tr>
+                    <tr><td><span data-es="Montaje" data-en="Mounting"></span></td><td>Solar Mount Pro All Black</td></tr>
+                    <tr><td><span data-es="Monitoreo" data-en="Monitoring"></span></td><td>Sigenergy App + AI battery management</td></tr>
+                </tbody>
+            </table>
+            <h3><span data-es="Incluido en el precio" data-en="Included in price"></span></h3>
+            <ul style="font-size:0.85rem; padding-left:20px; margin:10px 0;">
+                <li>RECI electrical sign-off</li>
+                <li>BER assessment</li>
+                <li>SEAI grant paperwork</li>
+                <li>WiFi monitoring setup</li>
+                <li>Network pre-approval</li>
+                <li>24/7 WhatsApp support</li>
+                <li><span data-es="Visita formación (app + sistema)" data-en="Demo visit (app + system training)"></span></li>
+                <li><span data-es="Retirada panel solar 1kW existente" data-en="Removal of existing 1kW PV panel"></span></li>
+                <li><span data-es="5 años garantía call-out sin preguntas" data-en="5-year no-questions call-out guarantee"></span></li>
+                <li><span data-es="10 años garantía tejado" data-en="10-year roofing warranty"></span></li>
+            </ul>
+            <h3><span data-es="Extras opcionales" data-en="Optional Extras"></span></h3>
+            <table>
+                <tbody>
+                    <tr><td><span data-es="Batería extra 10kWh" data-en="Extra 10kWh battery"></span></td><td>€3,100</td></tr>
+                    <tr><td><span data-es="Batería extra 6kWh" data-en="Extra 6kWh battery"></span></td><td>€2,500</td></tr>
+                    <tr><td>Off-Grid Gateway</td><td>€2,500–€2,700</td></tr>
+                    <tr><td>EV Charger 7kW AC (<span data-es="tras grant" data-en="after grant"></span>)</td><td>€1,200</td></tr>
+                    <tr><td>EV Charger 12kW DC (<span data-es="tras grant" data-en="after grant"></span>)</td><td>€1,950</td></tr>
+                    <tr><td><span data-es="Panel extra (máx 24)" data-en="Extra panel (max 24)"></span></td><td>€200/<span data-es="unidad" data-en="each"></span></td></tr>
+                </tbody>
+            </table>
+            <h3><span data-es="Garantías" data-en="Warranties"></span></h3>
+            <table>
+                <tbody>
+                    <tr><td><span data-es="Paneles (TW)" data-en="Panels (TW)"></span></td><td>25 <span data-es="años rendimiento" data-en="yr performance"></span></td></tr>
+                    <tr><td><span data-es="Inversor (Sigenergy)" data-en="Inverter (Sigenergy)"></span></td><td><span data-es="Garantía fabricante" data-en="Manufacturer warranty"></span></td></tr>
+                    <tr><td><span data-es="Batería (Sigenergy)" data-en="Battery (Sigenergy)"></span></td><td><span data-es="Garantía fabricante" data-en="Manufacturer warranty"></span></td></tr>
+                    <tr><td><span data-es="Tejado" data-en="Roof"></span></td><td>10 <span data-es="años" data-en="years"></span></td></tr>
+                    <tr><td>Call-out</td><td>5 <span data-es="años" data-en="years"></span></td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px; background:#f0fdf4; border-left-color:var(--green);">
+                <strong>✅ <span data-es="Puntos fuertes:" data-en="Strengths:"></span></strong>
+                <span data-es="Price-match guarantee · Sigenergy AI (arbitraje €700/año) · Expandible · 24/7 soporte · Experiencia en Evanwood · Visita 21/05" data-en="Price-match guarantee · Sigenergy AI (arbitrage €700/yr) · Expandable · 24/7 support · Evanwood experience · Visit 21/05"></span>
+            </div>
+            <div class="note" style="background:#fef2f2; border-left-color:var(--red);">
+                <strong>⚠️ <span data-es="A verificar:" data-en="To verify:"></span></strong>
+                <span data-es="Garantía exacta inversor/batería · ¿Price-match Hardiman €10,800? · Smart tariff: ¿qué proveedor usan?" data-en="Exact inverter/battery warranty · Price-match Hardiman €10,800? · Smart tariff: which provider?"></span>
+            </div>
+            <p style="font-size:0.8rem; margin-top:10px;"><strong><span data-es="Pago:" data-en="Payment:"></span></strong> 50% <span data-es="al firmar" data-en="on sign-off"></span> (€5,400) + 50% <span data-es="al instalar" data-en="on install"></span> (€5,400). SEAI → Treacy.</p>
+            <p style="font-size:0.8rem;"><strong><span data-es="Plazo:" data-en="Lead time:"></span></strong> 8 <span data-es="semanas" data-en="weeks"></span> · <strong><span data-es="Caduca:" data-en="Expires:"></span></strong> 18 Aug 2026</p>
+        </div>
+
+        <!-- DAVID HARDIMAN -->
+        <div class="section" id="sec-prov-hardiman">
+            <h2>☀️ David Hardiman — <span data-es="Detalle Quote" data-en="Quote Detail"></span></h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:20px;">
+                <div class="card green"><div class="label"><span data-es="Precio Bruto" data-en="Gross Price"></span></div><div class="value">€10,800</div></div>
+                <div class="card"><div class="label">SEAI Grant</div><div class="value" style="color:#166534;">-€1,800</div></div>
+                <div class="card green"><div class="label"><span data-es="Neto" data-en="Net"></span></div><div class="value">€9,000</div></div>
+                <div class="card orange"><div class="label">€/kWp</div><div class="value">€1,582</div></div>
+            </div>
+            <table>
+                <thead><tr><th><span data-es="Componente" data-en="Component"></span></th><th><span data-es="Especificación" data-en="Spec"></span></th></tr></thead>
+                <tbody>
+                    <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>15× Jinko Tiger Neo 455W (N-Type Mono)</td></tr>
+                    <tr><td><span data-es="Capacidad" data-en="Capacity"></span></td><td>6.825 kWp</td></tr>
+                    <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td>Solis S5-EH1P5K-L (5.5kW, 97.1% eff.)</td></tr>
+                    <tr><td><span data-es="Batería" data-en="Battery"></span></td><td>Green Solutions E10 — 12.8 kWh (12.1 usable, 95% DoD)</td></tr>
+                    <tr><td><span data-es="Producción anual" data-en="Annual production"></span></td><td>5,143 kWh</td></tr>
+                    <tr><td><span data-es="Orientación" data-en="Orientation"></span></td><td>Array 1: SE 136° (2.275kW) · Array 2: NW 315° (4.55kW)</td></tr>
+                </tbody>
+            </table>
+            <h3><span data-es="Incluido" data-en="Included"></span></h3>
+            <ul style="font-size:0.85rem; padding-left:20px; margin:10px 0;">
+                <li><span data-es="Paneles + inversor + batería + instalación" data-en="Panels + inverter + battery + installation"></span></li>
+                <li>Balance of system</li>
+                <li>Network pre-approval</li>
+            </ul>
+            <h3><span data-es="Garantías" data-en="Warranties"></span></h3>
+            <table>
+                <tbody>
+                    <tr><td>Jinko Tiger Neo</td><td>25yr product + 30yr performance</td></tr>
+                    <tr><td>Solis Inverter</td><td>5 <span data-es="años" data-en="years"></span></td></tr>
+                    <tr><td>Green Solutions E10</td><td>10 <span data-es="años" data-en="years"></span></td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px; background:#f0fdf4; border-left-color:var(--green);">
+                <strong>✅ <span data-es="Puntos fuertes:" data-en="Strengths:"></span></strong>
+                <span data-es="Mejor precio neto (€9,000) · Batería más grande (12.8kWh) · 30 años rendimiento paneles · €1,800 más barato que Treacy" data-en="Best net price (€9,000) · Largest battery (12.8kWh) · 30yr panel performance · €1,800 cheaper than Treacy"></span>
+            </div>
+            <div class="note" style="background:#fef2f2; border-left-color:var(--red);">
+                <strong>⚠️ <span data-es="Debilidades:" data-en="Weaknesses:"></span></strong>
+                <span data-es="Sin mención de BER, RECI, soporte post-venta · Garantía inversor solo 5 años · Sin expandibilidad · Cálculos financieros INCORRECTOS (asumían €250/mes facturas)" data-en="No mention of BER, RECI, aftercare · Inverter warranty only 5yr · Not expandable · Financial projections WRONG (assumed €250/mo bills)"></span>
+            </div>
+            <div class="note" style="background:#fffbeb; border-left-color:var(--orange);">
+                <strong>📧 <span data-es="Pendiente:" data-en="Pending:"></span></strong>
+                <span data-es="Email enviado preguntando: SEAI grant handling, NC6 form, RECI cert, BER, soporte, paneles existentes" data-en="Email sent asking: SEAI grant handling, NC6 form, RECI cert, BER, support, existing panels"></span>
+            </div>
+        </div>
+
+        <!-- HORGAN HP -->
+        <div class="section" id="sec-prov-horgan">
+            <h2>🌡️ Horgan Renewables — <span data-es="Detalle Quote (Heat Pump)" data-en="Quote Detail (Heat Pump)"></span></h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:20px;">
+                <div class="card"><div class="label"><span data-es="Precio Bruto" data-en="Gross Price"></span></div><div class="value">€14,850</div></div>
+                <div class="card green"><div class="label">SEAI Grants</div><div class="value" style="color:#166534;">-€10,500 ~ -€12,500</div></div>
+                <div class="card green"><div class="label"><span data-es="Neto" data-en="Net"></span></div><div class="value">€2,350–€4,350</div></div>
+                <div class="card orange"><div class="label">Status</div><div class="value" style="font-size:1rem;"><span data-es="DEAP pendiente" data-en="DEAP pending"></span></div></div>
+            </div>
+            <table>
+                <thead><tr><th><span data-es="Componente" data-en="Component"></span></th><th><span data-es="Especificación" data-en="Spec"></span></th></tr></thead>
+                <tbody>
+                    <tr><td>Heat Pump</td><td>Mitsubishi Electric Ecodan 8kW Monobloc Air-to-Water</td></tr>
+                    <tr><td><span data-es="Depósito ACS" data-en="Hot Water Tank"></span></td><td><span data-es="Integrado 200L" data-en="Integrated 200L"></span></td></tr>
+                    <tr><td><span data-es="Tipo" data-en="Type"></span></td><td>Monobloc (<span data-es="solo unidad exterior" data-en="outdoor unit only"></span>)</td></tr>
+                    <tr><td><span data-es="Controles" data-en="Controls"></span></td><td><span data-es="Incluidos" data-en="Included"></span></td></tr>
+                </tbody>
+            </table>
+            <h3><span data-es="Grants Aplicables" data-en="Applicable Grants"></span></h3>
+            <table>
+                <tbody>
+                    <tr><td>Heat Pump System (<span data-es="inc. controles" data-en="inc. controls"></span>)</td><td style="color:#166534; font-weight:700;">€6,500 ✅</td></tr>
+                    <tr><td>Fossil Fuel Boiler Replacement</td><td style="color:#166534; font-weight:700;">€4,000 ✅</td></tr>
+                    <tr><td>Central Heating Upgrade (<span data-es="radiadores" data-en="radiators"></span>)</td><td style="color:var(--orange); font-weight:700;">€2,000 ⚠️</td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px;">
+                <strong>⚠️ <span data-es="Situación radiadores:" data-en="Radiator situation:"></span></strong>
+                <span data-es="Horgan revisó fotos (20/05) y dice: 'Podría hacer falta cambiar algunos radiadores simples por dobles'. Necesita hacer DEAP para confirmar. Si se cambian → €2,000 grant aplica. Coste extra de radiadores pendiente." data-en="Horgan reviewed photos (20/05) and says: 'Might need to change some single radiators to doubles'. Needs DEAP to confirm. If changed → €2,000 grant applies. Extra radiator cost TBD."></span>
+            </div>
+            <h3><span data-es="Incluido" data-en="Included"></span></h3>
+            <ul style="font-size:0.85rem; padding-left:20px; margin:10px 0;">
+                <li>Mitsubishi Ecodan 8kW monobloc</li>
+                <li><span data-es="Depósito 200L integrado" data-en="Integrated 200L tank"></span></li>
+                <li><span data-es="Controles de calefacción" data-en="Heating controls"></span></li>
+                <li><span data-es="Instalación + mano de obra" data-en="Installation + labour"></span></li>
+                <li><span data-es="Papeleo SEAI (gestiona grant)" data-en="SEAI paperwork (handles grant)"></span></li>
+            </ul>
+            <h3><span data-es="NO Incluido" data-en="NOT Included"></span></h3>
+            <ul style="font-size:0.85rem; padding-left:20px; margin:10px 0; color:var(--red);">
+                <li><span data-es="Cambio de radiadores (si se necesita)" data-en="Radiator replacement (if needed)"></span></li>
+            </ul>
+            <div class="note" style="background:#f0fdf4; border-left-color:var(--green);">
+                <strong>✅ <span data-es="Puntos fuertes:" data-en="Strengths:"></span></strong>
+                <span data-es="Mitsubishi (marca top) · Monobloc (instalación simple) · Gestiona SEAI · Precio alineado con estimación (€15k) · Neto desde €2,350" data-en="Mitsubishi (top brand) · Monobloc (simple install) · Handles SEAI · Price aligned with estimate (€15k) · Net from €2,350"></span>
+            </div>
+            <p style="font-size:0.8rem; margin-top:10px;"><strong><span data-es="Contacto:" data-en="Contact:"></span></strong> Donal Horgan · 087-2053864 · Newcastle West, Limerick</p>
+            <p style="font-size:0.8rem;"><strong><span data-es="Siguiente paso:" data-en="Next step:"></span></strong> <span data-es="DEAP assessment → confirma radiadores → presupuesto final cerrado" data-en="DEAP assessment → confirms radiators → final all-in quote"></span></p>
+        </div>
+
+        <!-- BRODERICK -->
+        <div class="section" id="sec-prov-broderick">
+            <h2>☀️ Stephen Broderick — <span data-es="Detalle Quote" data-en="Quote Detail"></span></h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:20px;">
+                <div class="card"><div class="label"><span data-es="Precio Bruto" data-en="Gross Price"></span></div><div class="value">€12,450</div></div>
+                <div class="card"><div class="label">SEAI Grant</div><div class="value" style="color:#166534;">-€1,800</div></div>
+                <div class="card"><div class="label"><span data-es="Neto" data-en="Net"></span></div><div class="value">€10,650</div></div>
+                <div class="card red"><div class="label">€/kWp</div><div class="value">€1,976</div></div>
+            </div>
+            <table>
+                <thead><tr><th><span data-es="Componente" data-en="Component"></span></th><th><span data-es="Especificación" data-en="Spec"></span></th></tr></thead>
+                <tbody>
+                    <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>14× Jinko 450W All Black N-Type</td></tr>
+                    <tr><td><span data-es="Capacidad" data-en="Capacity"></span></td><td>6.3 kWp</td></tr>
+                    <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td>Solis 5kW Hybrid</td></tr>
+                    <tr><td><span data-es="Batería" data-en="Battery"></span></td><td>Dyness Powerbox 10.24 kWh G2</td></tr>
+                    <tr><td><span data-es="Montaje" data-en="Mounting"></span></td><td>Clenergy Rails + 30 Adjustable Brackets</td></tr>
+                    <tr><td><span data-es="Monitoreo" data-en="Monitoring"></span></td><td>Solis Wi-Fi Dongle</td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px; background:#fef2f2; border-left-color:var(--red);">
+                <strong>❌ <span data-es="Veredicto:" data-en="Verdict:"></span></strong>
+                <span data-es="Peor €/kWp de todos los sistemas con batería. Menos paneles (14) y menor kWp (6.3) que Hardiman por €1,650 más. Sin mencionar garantías, CEG, ni soporte. Depósito alto (60%)." data-en="Worst €/kWp of all battery systems. Fewer panels (14) and lower kWp (6.3) than Hardiman for €1,650 more. No warranties, CEG, or support mentioned. High deposit (60%)."></span>
+            </div>
+            <p style="font-size:0.8rem; margin-top:10px;"><strong><span data-es="Pago:" data-en="Payment:"></span></strong> 60% <span data-es="antes" data-en="before works"></span> (€7,470) + 40% <span data-es="al comisionar" data-en="on commissioning"></span> (€4,980)</p>
+            <p style="font-size:0.8rem;"><strong><span data-es="Contacto:" data-en="Contact:"></span></strong> Stephen Broderick · 0834021408 · Derrybrien, Galway</p>
+        </div>
+
+        <!-- PV GEN -->
+        <div class="section" id="sec-prov-pvgen">
+            <h2>☀️ PV Gen — <span data-es="Detalle Quote" data-en="Quote Detail"></span></h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:20px;">
+                <div class="card"><div class="label"><span data-es="Precio Bruto" data-en="Gross Price"></span></div><div class="value">€8,800</div></div>
+                <div class="card"><div class="label">SEAI Grant</div><div class="value" style="color:#166534;">-€1,800</div></div>
+                <div class="card"><div class="label"><span data-es="Neto" data-en="Net"></span></div><div class="value">€7,000</div></div>
+                <div class="card red"><div class="label">€/kWp</div><div class="value">€2,126</div></div>
+            </div>
+            <table>
+                <thead><tr><th><span data-es="Componente" data-en="Component"></span></th><th><span data-es="Especificación" data-en="Spec"></span></th></tr></thead>
+                <tbody>
+                    <tr><td><span data-es="Paneles" data-en="Panels"></span></td><td>9× Bauer 460W (German, BS-460-108M10HBW-GG)</td></tr>
+                    <tr><td><span data-es="Capacidad" data-en="Capacity"></span></td><td>4.14 kWp</td></tr>
+                    <tr><td><span data-es="Inversor" data-en="Inverter"></span></td><td>Huawei SUN2000-5K-LB0 (5kW Hybrid, battery-ready)</td></tr>
+                    <tr><td><span data-es="Batería" data-en="Battery"></span></td><td style="color:var(--red); font-weight:600;"><span data-es="NINGUNA (opcional +€3,000)" data-en="NONE (optional +€3,000)"></span></td></tr>
+                    <tr><td><span data-es="Producción" data-en="Production"></span></td><td>3,317 kWh/<span data-es="año" data-en="yr"></span></td></tr>
+                    <tr><td><span data-es="Autoconsumo" data-en="Self-consumption"></span></td><td style="color:var(--red); font-weight:600;">15% ⚠️</td></tr>
+                    <tr><td><span data-es="Montaje" data-en="Mounting"></span></td><td>Van Der Valk (<span data-es="garantía de por vida" data-en="lifetime warranty"></span>)</td></tr>
+                </tbody>
+            </table>
+            <h3><span data-es="Su propia proyección financiera" data-en="Their own financial projection"></span></h3>
+            <table>
+                <tbody>
+                    <tr><td><span data-es="Ahorro año 1" data-en="Year 1 savings"></span></td><td>€409</td></tr>
+                    <tr><td><span data-es="Payback (su estimación)" data-en="Payback (their estimate)"></span></td><td style="font-weight:700; color:var(--red);">15 <span data-es="años" data-en="years"></span></td></tr>
+                    <tr><td>ROI (20yr)</td><td>51% / 3.9% <span data-es="anual" data-en="annual"></span></td></tr>
+                    <tr><td><span data-es="Exportado a red" data-en="Exported to grid"></span></td><td>85% (2,816 kWh)</td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:15px; background:#fef2f2; border-left-color:var(--red);">
+                <strong>❌ <span data-es="Veredicto:" data-en="Verdict:"></span></strong>
+                <span data-es="Peor propuesta. Solo 15% autoconsumo = eres una mini central eléctrica vendiendo barato a la red. 15 años de payback (¡su propia estimación!). Por solo €2,000 más, Hardiman da 63% más capacidad + batería 12.8kWh." data-en="Worst proposal. Only 15% self-consumption = you're a mini power plant selling cheap to grid. 15yr payback (their own estimate!). For just €2,000 more, Hardiman gives 63% more capacity + 12.8kWh battery."></span>
+            </div>
+            <div class="note" style="background:#f0fdf4; border-left-color:var(--green);">
+                <strong>✅ <span data-es="Punto positivo:" data-en="Positive:"></span></strong>
+                <span data-es="Equipamiento premium (Bauer German 30yr, Huawei 15yr, Van Der Valk lifetime) — pero en un sistema demasiado pequeño sin batería." data-en="Premium equipment (Bauer German 30yr, Huawei 15yr, Van Der Valk lifetime) — but in a system too small without battery."></span>
+            </div>
+            <p style="font-size:0.8rem; margin-top:10px;"><strong><span data-es="Contacto:" data-en="Contact:"></span></strong> Damian Ruddy · 0870371947 · Cork</p>
+            <p style="font-size:0.8rem;"><strong><span data-es="Plazo:" data-en="Lead time:"></span></strong> 10-12 <span data-es="semanas" data-en="weeks"></span> · <strong><span data-es="Válido:" data-en="Valid:"></span></strong> 30 <span data-es="días" data-en="days"></span></p>
+        </div>
+
         <!-- FOOTER -->
         <div style="text-align:center; padding:20px; color:var(--gray); font-size:0.8rem;">
-            <span data-es="Última actualización:" data-en="Last updated:"></span> 20 <span data-es="Mayo" data-en="May"></span> 2026 · Victor Navas · Evanwood, Limerick
+            <span data-es="Última actualización:" data-en="Last updated:"></span> 22 <span data-es="Mayo" data-en="May"></span> 2026 · Victor Navas · Evanwood, Limerick
         </div>
-    </div>
+    </div><!-- /.container -->
+    </div><!-- /.main-content -->
+    </div><!-- /.page-wrap -->
 
     <script>
         let currentLang = 'es';
         let currentSystem = 'solar'; // 'solar', 'hp', 'both'
 
-        // Provider data: [grossPrice, type ('solar'|'hp'|'both'), label]
+        // Provider data: price, type, label, kWp, batteryKWh, supportsArbitrage
         const providers = {
-            emmet_solar: [7249, 'solar', 'Emmet (Solar DIY)'],
-            treacy_solar: [12600, 'solar', 'Treacy Solar'],
-            hardiman_solar: [10800, 'solar', 'David Hardiman'],
-            broderick_solar: [12450, 'solar', 'Stephen Broderick'],
-            pvgen_solar: [8800, 'solar', 'PV Gen (9 pan, no bat.)'],
-            pvgen_bat: [11800, 'solar', 'PV Gen (9 pan + bat.)'],
-            bordgais_solar: [12000, 'solar', 'Bord Gáis/Swyft'],
-            ohk_solar: [13990, 'solar', 'OHK (Solar)'],
-            ohk_full: [35540, 'both', 'OHK (Solar+HP)'],
-            activ8_full: [31200, 'both', 'Activ8 (Solar+HP)'],
-            david_hp: [null, 'hp', 'David Gardiner (HP)'],
-            horgan_hp: [14850, 'hp', 'Donal Horgan (HP)'],
-            custom: [null, 'solar', 'Custom']
+            emmet_solar:    { price: 7249,  type: 'solar', label: 'Emmet (Solar DIY)', kWp: 7.25, battery: 10, arbitrage: false },
+            treacy_solar:   { price: 12600, type: 'solar', label: 'Treacy Solar', kWp: 7.36, battery: 10, arbitrage: true },
+            hardiman_solar: { price: 10800, type: 'solar', label: 'David Hardiman', kWp: 6.825, battery: 12.8, arbitrage: false },
+            broderick_solar:{ price: 12450, type: 'solar', label: 'Stephen Broderick', kWp: 6.3, battery: 10.24, arbitrage: false },
+            altenergy_solar:{ price: 11400, type: 'solar', label: 'Alternative Energy', kWp: 7.99, battery: 10.2, arbitrage: false },
+            pvgen_solar:    { price: 8800,  type: 'solar', label: 'PV Gen (9 pan, no bat.)', kWp: 4.14, battery: 0, arbitrage: false },
+            pvgen_bat:      { price: 11800, type: 'solar', label: 'PV Gen (9 pan + bat.)', kWp: 4.14, battery: 10, arbitrage: false },
+            bordgais_solar: { price: 12000, type: 'solar', label: 'Bord Gáis/Swyft', kWp: 6.0, battery: 10, arbitrage: false },
+            ohk_solar:      { price: 13990, type: 'solar', label: 'OHK (Solar)', kWp: 6.0, battery: 10, arbitrage: false },
+            ohk_full:       { price: 35540, type: 'both',  label: 'OHK (Solar+HP)', kWp: 6.0, battery: 10, arbitrage: false },
+            activ8_full:    { price: 31200, type: 'both',  label: 'Activ8 (Solar+HP)', kWp: 6.0, battery: 10, arbitrage: false },
+            david_hp:       { price: null,  type: 'hp',    label: 'David Gardiner (HP)', kWp: 0, battery: 0, arbitrage: false },
+            horgan_hp:      { price: 14850, type: 'hp',    label: 'Donal Horgan (HP)', kWp: 0, battery: 0, arbitrage: false },
+            custom:         { price: null,  type: 'solar', label: 'Custom', kWp: 6.8, battery: 10, arbitrage: false }
         };
 
         // Constants from real consumption data
@@ -980,9 +1456,10 @@
         const ANNUAL_GAS_COST_FULL = 623;   // €/year gas without discount
         const HP_ELEC_COST_GRID = 444;      // €/year to run HP from grid
         const HP_ELEC_COST_SOLAR = 220;     // €/year to run HP with ~50% solar
-        const SOLAR_SAVINGS = 550;          // €/year saved on electricity with solar+battery
-        const CEG_INCOME = 100;             // €/year from exporting surplus
+        const SOLAR_SAVINGS = 550;          // €/year saved on electricity with solar+battery (self-consumption)
+        const CEG_INCOME = 400;             // €/year from exporting surplus at ~22c/kWh (conservative)
         const BATTERY_ARBITRAGE = 700;      // €/year per 10kWh battery with smart tariff (6c night → 40c day)
+        const EV_SAVINGS_SOLAR = 600;       // €/year conservative EV savings with solar (~30% solar charge + partial petrol offset)
         const SEAI_SOLAR = 1800;
         const SEAI_HP = 6500;
         const SEAI_FOSSIL = 4000;
@@ -993,9 +1470,24 @@
             document.getElementById('gas-escalation-label').textContent = val + '%';
         }
 
+        function updateElecEscalationLabel() {
+            const val = document.getElementById('elec-escalation').value;
+            document.getElementById('elec-escalation-label').textContent = val + '%';
+        }
+
         function toggleArbitrageInfo() {
             const show = document.getElementById('smart-tariff-toggle').checked;
             document.getElementById('arbitrage-info').style.display = show ? 'block' : 'none';
+        }
+
+        function toggleCEGInfo() {
+            const show = document.getElementById('ceg-toggle').checked;
+            document.getElementById('ceg-info').style.display = show ? 'block' : 'none';
+        }
+
+        function toggleEVInfo() {
+            const show = document.getElementById('ev-toggle').checked;
+            document.getElementById('ev-info').style.display = show ? 'block' : 'none';
         }
 
         function setSystem(sys) {
@@ -1021,13 +1513,13 @@
             info.style.color = infoColor[sys];
 
             if (currentLang === 'es') {
-                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Ahorro ~€650/año (electricidad + CEG)';
+                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Ahorro ~€950/año (autoconsumo €550 + CEG €400)';
                 else if (sys === 'hp') info.innerHTML = '🌡️ <b>Aerotermia:</b> Grants €12,500 (HP+Fossil+Heating) | Ahorro ~€179/año (eliminas gas, HP desde red)';
-                else info.innerHTML = '☀️🌡️ <b>Ambas:</b> Grants €14,300 | Ahorro ~€1,053/año (eliminas gas, HP con solar gratis)';
+                else info.innerHTML = '☀️🌡️ <b>Ambas:</b> Grants €14,300 | Ahorro ~€1,353/año (eliminas gas + autoconsumo + CEG)';
             } else {
-                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Savings ~€650/yr (electricity + CEG)';
+                if (sys === 'solar') info.innerHTML = '☀️ <b>Solar:</b> Grant €1,800 | Savings ~€950/yr (self-consumption €550 + CEG €400)';
                 else if (sys === 'hp') info.innerHTML = '🌡️ <b>Heat Pump:</b> Grants €12,500 (HP+Fossil+Heating) | Savings ~€179/yr (eliminate gas, HP from grid)';
-                else info.innerHTML = '☀️🌡️ <b>Both:</b> Grants €14,300 | Savings ~€1,053/yr (eliminate gas, HP powered by solar)';
+                else info.innerHTML = '☀️🌡️ <b>Both:</b> Grants €14,300 | Savings ~€1,353/yr (eliminate gas + self-consumption + CEG)';
             }
 
             // Show/hide appropriate selectors
@@ -1047,7 +1539,7 @@
                     if (val === 'custom') { opt.style.display = ''; return; }
                     const p = providers[val];
                     if (!p) return;
-                    const pType = p[1];
+                    const pType = p.type;
                     if (sys === 'solar') opt.style.display = (pType === 'solar') ? '' : 'none';
                     else opt.style.display = (pType === 'hp') ? '' : 'none';
                 });
@@ -1059,7 +1551,54 @@
                 }
             }
 
+            autoToggles();
             calcROI();
+        }
+
+        // Get the active solar provider metadata
+        function getActiveSolarProvider() {
+            if (currentSystem === 'both') {
+                const sel = document.getElementById('roi-solar-provider').value;
+                return providers[sel] || null;
+            } else if (currentSystem === 'solar') {
+                const sel = document.getElementById('roi-provider').value;
+                return providers[sel] || null;
+            }
+            return null;
+        }
+
+        // Auto-set toggles based on selected provider capabilities
+        function autoToggles() {
+            const solar = getActiveSolarProvider();
+            const cegToggle = document.getElementById('ceg-toggle');
+            const arbitrageToggle = document.getElementById('smart-tariff-toggle');
+
+            if (solar && solar.kWp > 0) {
+                // Has solar — enable CEG
+                cegToggle.checked = true;
+                // Arbitrage: only if inverter supports it AND has battery
+                arbitrageToggle.checked = solar.arbitrage && solar.battery > 0;
+            } else if (currentSystem === 'hp') {
+                // HP only — no solar export possible
+                cegToggle.checked = false;
+                arbitrageToggle.checked = false;
+            }
+            toggleCEGInfo();
+            toggleArbitrageInfo();
+        }
+
+        // Calculate dynamic CEG income based on system kWp and battery
+        function calcCEG(solar) {
+            if (!solar || solar.kWp === 0) return 0;
+            // Production estimate: ~750 kWh per kWp in Ireland
+            const annualProd = solar.kWp * 750;
+            // Self-consumption depends on battery
+            const selfConsRate = solar.battery > 0 ? 0.30 : 0.15; // with battery vs without
+            const selfConsKWh = Math.min(annualProd * selfConsRate, 1750); // capped by actual consumption
+            const exportKWh = annualProd - selfConsKWh;
+            // Conservative: 60% of theoretical export (cloudy days, curtailment)
+            const conservativeExport = exportKWh * 0.6;
+            return Math.round(conservativeExport * 0.22); // at 22c/kWh
         }
 
         function calcROI() {
@@ -1080,13 +1619,13 @@
                     document.getElementById('custom-solar-input').style.display = 'block';
                     solarGross = parseFloat(document.getElementById('roi-custom-solar-price').value) || 0;
                 } else {
-                    solarGross = providers[solSel] ? providers[solSel][0] : 0;
+                    solarGross = providers[solSel] ? providers[solSel].price : 0;
                 }
                 if (hpSel === 'custom_hp') {
                     document.getElementById('custom-hp-input').style.display = 'block';
                     hpGross = parseFloat(document.getElementById('roi-custom-hp-price').value) || 0;
                 } else {
-                    hpGross = providers[hpSel] ? providers[hpSel][0] : 0;
+                    hpGross = providers[hpSel] ? providers[hpSel].price : 0;
                 }
 
                 if (!solarGross && !hpGross) { showPending(); return; }
@@ -1106,7 +1645,7 @@
                     document.getElementById('custom-input').style.display = 'block';
                     gross = parseFloat(document.getElementById('roi-custom-price').value) || 0;
                 } else {
-                    gross = providers[sel] ? providers[sel][0] : 0;
+                    gross = providers[sel] ? providers[sel].price : 0;
                 }
                 if (!gross) { showPending(); return; }
                 document.getElementById('roi-gross').textContent = '€' + gross.toLocaleString();
@@ -1124,20 +1663,27 @@
 
             const net = gross - grants;
             const gasEscalation = parseFloat(document.getElementById('gas-escalation').value) / 100;
+            const elecEscalation = parseFloat(document.getElementById('elec-escalation').value) / 100;
             const smartTariff = document.getElementById('smart-tariff-toggle').checked;
+            const cegEnabled = document.getElementById('ceg-toggle').checked;
+            const evEnabled = document.getElementById('ev-toggle').checked;
+            const solar = getActiveSolarProvider();
+            const dynamicCEG = calcCEG(solar);
             const arbitrageBonus = smartTariff ? BATTERY_ARBITRAGE : 0;
+            const cegBonus = cegEnabled ? dynamicCEG : 0;
+            const evBonus = evEnabled ? EV_SAVINGS_SOLAR : 0;
 
             // Calculate payback with escalating gas prices (NPV approach)
             // Year 1 savings are base; gas component grows each year
             let baseSolarSavings = 0, baseGasSavings = 0;
             if (currentSystem === 'solar') {
-                baseSolarSavings = SOLAR_SAVINGS + CEG_INCOME + arbitrageBonus;
+                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus + evBonus;
                 baseGasSavings = 0;
             } else if (currentSystem === 'hp') {
-                baseSolarSavings = 0;
+                baseSolarSavings = evBonus;
                 baseGasSavings = ANNUAL_GAS_COST_FULL - HP_ELEC_COST_GRID;
             } else {
-                baseSolarSavings = SOLAR_SAVINGS + CEG_INCOME + arbitrageBonus;
+                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus + evBonus;
                 baseGasSavings = ANNUAL_GAS_COST_FULL - HP_ELEC_COST_SOLAR;
             }
 
@@ -1147,7 +1693,8 @@
             let profit25 = 0;
             for (let y = 1; y <= 25; y++) {
                 const gasSavingsThisYear = baseGasSavings * Math.pow(1 + gasEscalation, y - 1);
-                const totalSavingsThisYear = baseSolarSavings + gasSavingsThisYear;
+                const elecSavingsThisYear = baseSolarSavings * Math.pow(1 + elecEscalation, y - 1);
+                const totalSavingsThisYear = elecSavingsThisYear + gasSavingsThisYear;
                 cumulative += totalSavingsThisYear;
                 if (cumulative >= net && payback === 25) {
                     // Interpolate within the year
@@ -1164,8 +1711,18 @@
 
             document.getElementById('roi-grants').textContent = '-€' + grants.toLocaleString();
             document.getElementById('roi-net').textContent = net > 0 ? '€' + net.toLocaleString() : '-€' + Math.abs(net).toLocaleString();
-            const savingsLabel = gasEscalation > 0 && baseGasSavings > 0 
-                ? '€' + annualSavings.toLocaleString() + (currentLang === 'es' ? '/año (año 1, sube con gas)' : '/yr (yr 1, rises with gas)')
+
+            // Update CEG toggle label with dynamic value
+            const cegLabel = document.querySelector('#ceg-toggle').closest('label').querySelector('span');
+            if (cegLabel) {
+                const cegText = currentLang === 'es' 
+                    ? `⚡ Vender excedente (CEG ~22c → €${dynamicCEG}/año)` 
+                    : `⚡ Sell surplus (CEG ~22c → €${dynamicCEG}/yr)`;
+                cegLabel.textContent = cegText;
+            }
+
+            const savingsLabel = (elecEscalation > 0 || (gasEscalation > 0 && baseGasSavings > 0))
+                ? '€' + annualSavings.toLocaleString() + (currentLang === 'es' ? '/año (año 1, sube)' : '/yr (yr 1, rising)')
                 : '€' + annualSavings.toLocaleString() + (currentLang === 'es' ? '/año' : '/yr');
             document.getElementById('roi-savings').textContent = savingsLabel;
             document.getElementById('roi-payback').innerHTML = net <= 0 
@@ -1185,23 +1742,31 @@
             netEl.style.color = net <= 0 ? 'var(--green)' : '';
 
             const summaryEl = document.getElementById('roi-summary');
-            const escNote = gasEscalation > 0 && baseGasSavings > 0 
-                ? (currentLang === 'es' ? ` (gas +${(gasEscalation*100).toFixed(0)}%/año)` : ` (gas +${(gasEscalation*100).toFixed(0)}%/yr)`)
+            const escNote = (gasEscalation > 0 && baseGasSavings > 0) || elecEscalation > 0
+                ? (currentLang === 'es' 
+                    ? ` (elec +${(elecEscalation*100).toFixed(0)}%` + (baseGasSavings > 0 ? `, gas +${(gasEscalation*100).toFixed(0)}%` : '') + `/año)`
+                    : ` (elec +${(elecEscalation*100).toFixed(0)}%` + (baseGasSavings > 0 ? `, gas +${(gasEscalation*100).toFixed(0)}%` : '') + `/yr)`)
                 : '';
             const smartNote = smartTariff 
                 ? (currentLang === 'es' ? ' + arbitraje batería' : ' + battery arbitrage')
                 : '';
+            const cegNote = cegEnabled
+                ? (currentLang === 'es' ? ' + CEG 22c' : ' + CEG 22c')
+                : '';
+            const evNote = evEnabled
+                ? (currentLang === 'es' ? ' + EV' : ' + EV')
+                : '';
             if (net <= 0) {
                 if (currentLang === 'es') {
-                    summaryEl.textContent = `💰 Las grants cubren todo el coste (+€${Math.abs(net).toLocaleString()} a tu favor) → ganas €${annualSavings.toLocaleString()}/año${escNote}${smartNote} → en 25 años ganas €${Math.round(profit25).toLocaleString()} netos`;
+                    summaryEl.textContent = `💰 Las grants cubren todo el coste (+€${Math.abs(net).toLocaleString()} a tu favor) → ganas €${annualSavings.toLocaleString()}/año${escNote}${cegNote}${smartNote}${evNote} → en 25 años ganas €${Math.round(profit25).toLocaleString()} netos`;
                 } else {
-                    summaryEl.textContent = `💰 Grants cover full cost (+€${Math.abs(net).toLocaleString()} in your favour) → save €${annualSavings.toLocaleString()}/yr${escNote}${smartNote} → in 25 years you profit €${Math.round(profit25).toLocaleString()} net`;
+                    summaryEl.textContent = `💰 Grants cover full cost (+€${Math.abs(net).toLocaleString()} in your favour) → save €${annualSavings.toLocaleString()}/yr${escNote}${cegNote}${smartNote}${evNote} → in 25 years you profit €${Math.round(profit25).toLocaleString()} net`;
                 }
             } else {
                 if (currentLang === 'es') {
-                    summaryEl.textContent = `Pagas €${net.toLocaleString()} de tu bolsillo → recuperas en ${payback.toFixed(1)} años${escNote}${smartNote} → en 25 años ganas €${Math.round(profit25).toLocaleString()} netos`;
+                    summaryEl.textContent = `Pagas €${net.toLocaleString()} de tu bolsillo → recuperas en ${payback.toFixed(1)} años${escNote}${cegNote}${smartNote}${evNote} → en 25 años ganas €${Math.round(profit25).toLocaleString()} netos`;
                 } else {
-                    summaryEl.textContent = `You pay €${net.toLocaleString()} out of pocket → recover in ${payback.toFixed(1)} years${escNote}${smartNote} → in 25 years you profit €${Math.round(profit25).toLocaleString()} net`;
+                    summaryEl.textContent = `You pay €${net.toLocaleString()} out of pocket → recover in ${payback.toFixed(1)} years${escNote}${cegNote}${smartNote}${evNote} → in 25 years you profit €${Math.round(profit25).toLocaleString()} net`;
                 }
             }
         }
@@ -1251,6 +1816,40 @@
         const saved = localStorage.getItem('dashLang');
         if (saved) setLang(saved); else setLang('es');
         setSystem('solar');
+
+        // SPA navigation: show only selected section
+        function showSection(id) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+            // Show target section (sec-kpis is always visible, so clicking it just clears others)
+            const target = document.getElementById(id);
+            if (target && target.classList.contains('section')) {
+                target.classList.add('visible');
+            }
+            // Update active nav link
+            document.querySelectorAll('.sidebar a[href^="#"]').forEach(l => l.classList.remove('active'));
+            const activeLink = document.querySelector('.sidebar a[href="#' + id + '"]');
+            if (activeLink) activeLink.classList.add('active');
+            // Close mobile sidebar
+            document.getElementById('sidebar').classList.remove('open');
+            // Scroll to top of main content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Save state
+            localStorage.setItem('dashSection', id);
+        }
+
+        // Sidebar click handlers
+        document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const id = link.getAttribute('href').slice(1);
+                showSection(id);
+            });
+        });
+
+        // Restore last section or show default
+        const savedSection = localStorage.getItem('dashSection');
+        showSection(savedSection || 'sec-kpis');
     </script>
 </body>
 </html>
