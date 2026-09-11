@@ -118,3 +118,22 @@
   - 10 años garantía de mano de obra
   - 5 años garantía de asistencia sin preguntas
   - Visita de demostración/formación (app Sigenergy) + BER incluido.
+
+---
+
+## Confirmación Final de Instalación y Cargador EV — Treacy Solar (04/09 - 09/09/2026) ⭐
+
+- **Contacto Operaciones & Cumplimiento:** Kieron Bolt (`kieron@treacysolar.com`) — Head of Systems and Compliance
+- **Fecha de Instalación:** **Jueves 10 de Septiembre de 2026** (Llegada 8:00–8:30 AM)
+- **Mejora de Paneles Confirmada (04/09):**
+  - Se sustituyen los paneles originales TW 460W por **Jinko 470W N-Type** de mayor potencia sin coste extra.
+  - Potencia total del sistema: **16x 470W = 7.52 kWp** (inversor Sigenstor 5kW + batería Sigenergy 10.0 kWh).
+- **Negociación e Instalación Cargador EV (04/09 - 09/09):**
+  - **04/09 (Kieron):** Ofreció instalar cargador EV el mismo día con 0% IVA por €1,300 bruto - €300 grant SEAI = €1,000 neto.
+  - **09/09 (Víctor):** Solicitó modelo **Tethered** (con cable integrado) e intentó cerrar en €850 neto. Kieron ofreció su mejor precio a **€950 neto**.
+  - **09/09 (Víctor):** Aceptó la oferta de **€950 neto** (€1,250 bruto - €300 grant SEAI) para añadirlo al trabajo del 10/09.
+- **Resumen Financiero Final Treacy Solar:**
+  - Solar PV (7.52 kWp) + Batería 10kWh: €12,100 - €1,800 SEAI = **€10,300 neto**
+  - Cargador EV SigEnergy 7kW Tethered: €1,250 - €300 SEAI = **€950 neto**
+  - **TOTAL INSTALADO TREACY SOLAR:** **€11,250 NETO** 🏆
+- **Estado:** 🎉 **INSTALADO EL 10/09/2026**

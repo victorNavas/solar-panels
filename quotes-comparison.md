@@ -6,66 +6,41 @@
 
 ---
 
-## Quote 1: Treacy Solar ⭐ *(UPDATED OFFICIAL QUOTE 17 AUG 2026)*
+## Quote 1: Treacy Solar 🏆 *(INSTALADO 10 SEPTIEMBRE 2026)*
 
 | Field | Detail |
 |-------|--------|
 | **Company** | Treacy Solar (Pepti Limerick Ltd) |
-| **Contact / Advisor** | Eddie Cooney — eddie@treacysolar.com |
+| **Contacts** | Eddie Cooney / Kieron Bolt (`kieron@treacysolar.com`) |
 | **Quote Ref** | **20260817-110611511** *(Doc ID: 0f6becc24124f691cae25ae78c48aa36fcd0b3c5)* |
-| **Issue Date** | 17 August 2026 |
-| **Expires** | **15 November 2026** (3 months validity) |
-| **Lead time** | **6 weeks** *(with €10/day discount for any delay past 6 weeks)* |
+| **Installation Date** | **Thursday, 10 September 2026** 🎉 |
+| **Status** | ✅ **INSTALADO Y EN FUNCIONAMIENTO** |
 
-### System Specification
+### System Specification (As Installed)
 
 | Component | Spec |
 |-----------|------|
-| Panels | 16× TW 460W N-Type All Black (Tier 1) |
-| Total capacity | 7.36 kWp |
+| Panels | **16× Jinko Solar Tiger Neo 470W N-Type All Black** *(Upgraded from 460W at no extra charge!)* |
+| Total capacity | **7.52 kWp** |
 | Inverter | Sigenstor Energy Controller 5.0kW Single Phase Hybrid |
-| Battery | Sigenergy Sigenstor 10.0 Module with LED (10 kWh) |
+| Battery | Sigenergy Sigenstor 10.0 Module with LED (10 kWh nominal / 10 kWh usable) |
+| EV Charger | **SigEnergy 7kW AC Charger (Tethered)** *(Installed same day, 0% VAT)* |
 | Mounting | Solar Mount Pro All Black |
 | Monitoring | Sigenergy app + AI-driven battery management |
-| Installation kit | Sigenstor Wall or Ground Mount kit |
-| Power sensor | Sigenstor Single Phase External CT DH |
 
-### Pricing
+### Final Installed Pricing
 
-| Item | Unit Price | Discount | Net Price |
-|------|------------|----------|-----------|
-| 7.36kW Solar PV Installation (16 panels + inverter + mounting + services) | €9,500.00 | -€500.00 | **€9,000.00** |
-| Sigenergy Sigenstor Battery 10.0 Module | €3,100.00 | — | **€3,100.00** |
-| **Subtotal (Gross)** | | | **€12,100.00** |
-| Upfront SEAI Solar PV Grant | -€1,800.00 | — | **-€1,800.00** |
-| **NET TOTAL TO YOU** | | | **€10,300.00** 🏆 |
+| Item | Gross Price | SEAI Grant | Net Price Paid |
+|------|-------------|------------|----------------|
+| 7.52kW Solar PV (16x Jinko 470W + Sigenstor 5kW Inverter + mounting) | €9,000.00 | | |
+| Sigenergy Sigenstor Battery 10.0 Module | €3,100.00 | | |
+| **Subtotal Solar + Battery** | **€12,100.00** | **-€1,800.00** | **€10,300.00** |
+| **SigEnergy 7kW EV Charger (Tethered)** | **€1,250.00** | **-€300.00** | **€950.00** 🏆 |
+| **TOTAL INSTALADO A TREACY SOLAR** | **€13,350.00** | **-€2,100.00** | **€11,250.00** 🏆 |
 
 > [!TIP]
-> **€500 Price Drop!** Treacy Solar applied a €500 direct unit discount to the 7.36kW Solar PV installation, bringing the gross price from €12,600 down to **€12,100**, and the net cost to **€10,300**!
-
-### Payment Terms
-
-- 50% Booking Deposit on Order Sign-Off: **€5,150.00**
-- 50% Due on Installation Completion: **€5,150.00**
-- SEAI Grant (€1,800): Paid directly to Treacy Solar by SEAI on your behalf
-- **Guarantee clause:** If installation is delayed past the 6-week lead time, Treacy discounts **€10 per day** from your bill to cover electricity costs!
-- **Deposit protection:** If technical inspection discovers an issue preventing installation, deposit returned within 48 hours.
-
-### Included Services
-
-- Full supply & structural roof mounting
-- All ancillary cabling & switch gear
-- AC/DC wiring & RECI electrical sign-off
-- BER assessment (included to claim grant)
-- SEAI grant paperwork management (deducted upfront)
-- WiFi monitoring setup
-- Network pre-approval (NC6)
-- 24/7 private WhatsApp support
-- Regular performance & maximisation check-ins
-- Demonstration visit (teach operation of app & system)
-- 5-year no-questions-asked call-out guarantee
-- 10-year industry exclusive roofing works warranty
-- 10-year workmanship warranty
+> **Upgrade de Paneles y Cargador EV Añadido:**
+> Treacy actualizó gratuitamente los paneles a **Jinko 470W (7.52 kWp total)**. Además, se negoció e instaló el cargador EV Tethered de SigEnergy por solo **€950 neto** (€1,250 - €300 SEAI), aprovechando la instalación simultánea con 0% IVA.
 
 ### Terms & Optional Upgrades
 

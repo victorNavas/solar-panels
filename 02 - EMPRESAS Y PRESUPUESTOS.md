@@ -91,17 +91,19 @@
 ### 7. Instalador Anónimo (Mala experiencia)
 - **Estado:** ❌ DESCARTADO - Respondió de forma grosera ("Mr Cheapskate"). No quería modelo DIY.
 
-### 8. Treacy Solar (Nenagh) ⭐
-- **Contacto:** Daryl Moynihan (WhatsApp, pidió chat mañana 20/05)
-- **Propuesta:** Pendiente - se le envió spec completa por WhatsApp
-- **Estado:** 📞 Daryl responde mañana 20/05 - MUY receptivo
-- **Lo que se pidió:** 6.6kWp + 10kWh LFP + inversor híbrido. Supply + roof mount + cabling + RECI + SEAI paperwork
-- **Notas:**
-  - Vecinos de Evanwood los recomiendan (ya han hecho instalaciones en la calle)
-  - Victor le mencionó que está benchmarking varias propuestas esta semana
-  - Le pidió quote desglosada (gross + net after SEAI)
-  - Daryl respondió positivamente: "Glad to hear the good words! Let's chat in the morning"
-  - Se le dejó claro que se prefiere email (navas.v7@gmail.com) para documentar todo
+### 8. Treacy Solar (Nenagh) ⭐ 🏆 (INSTALADO 10/09/2026)
+- **Contactos:** Eddie Cooney (`eddie@treacysolar.com`) / Kieron Bolt (`kieron@treacysolar.com`) / Daryl Moynihan
+- **Fecha Instalación:** **Jueves 10 de Septiembre de 2026** 🎉
+- **Especificación Final Instalada:**
+  - 16× Jinko 470W N-Type All Black = **7.52 kWp** *(Upgrade gratuito respecto a los 460W cotizados inicialmente)*
+  - Inversor Sigenergy Sigenstor 5.0kW híbrido
+  - Batería Sigenergy Sigenstor 10.0 kWh (LFP, módulo inteligente AI)
+  - Cargador EV SigEnergy 7kW Tethered (con cable integrado)
+- **Desglose de Costes Finales (Neto tras SEAI grants):**
+  - Solar PV (7.52 kWp) + Batería 10kWh: €12,100 bruto − €1,800 SEAI = **€10,300 neto**
+  - Cargador EV Tethered: €1,250 bruto − €300 SEAI = **€950 neto** *(Negociado el 09/09)*
+  - **TOTAL INSTALADO TREACY SOLAR:** **€11,250 NETO** 🏆
+- **Estado:** ✅ **INSTALADO Y OPERATIVO**
 
 ### 9. EnergyWise Ireland (One-Stop-Shop — limitado)
 - **Contacto:** Shauna Dalton (sdalton@energywiseireland.ie)
@@ -161,7 +163,7 @@ ecoenergy.engineering@outlook.ie, philiposullivanplumbing@gmail.com, heattechltd
 |---------|---------------|----------------|------------|--------|
 | Activ8 | incluido | incluido | **€23,800** | One-Stop-Shop |
 | OHK Energy | €12,190 | €9,050 | **€21,240** | One-Stop-Shop |
-| **Treacy + Horgan** ⭐ | **€10,300** | **€4,250** (inc. 4 rads) | **€14,550** | Instaladores Seleccionados |
+| **Treacy + Horgan** 🏆 | **€11,250** (7.52kWp+10kWh+EV) | **€4,250** (inc. 4 rads) | **€15,500** | ✅ **INSTALADO 10/09/2026** |
 | Emmet (DIY) | ~€5,650 | - | **~€5,650** (solo solar) | Independiente |
 | Abhaile (web) | €9,950 | - | €9,950 (solo solar) | Instalador |
 | **Objetivo Victor** | ~€6,000 | ~€3,000-5,000 | **€9,000-11,000** | DIY Supervisado |
