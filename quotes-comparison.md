@@ -1,22 +1,21 @@
 # Solar PV Quotes — Detailed Comparison
 
-**Last updated:** 26 May 2026  
+**Last updated:** 17 August 2026  
 **Property:** 115 Evanwood, Limerick, V94 FNC2  
 **MPRN:** 10306472089 | **BER:** A3
 
 ---
 
-## Quote 1: Treacy Solar
+## Quote 1: Treacy Solar ⭐ *(UPDATED OFFICIAL QUOTE 17 AUG 2026)*
 
 | Field | Detail |
 |-------|--------|
-| **Company** | Treacy Solar |
-| **Contact** | Daryl Moynihan — darylm@treacysolar.com |
-| **Quote Ref** | 20260520-084854638 |
-| **Date** | 20 May 2026 |
-| **Expires** | 18 August 2026 |
-| **Lead time** | 8 weeks |
-| **Visit** | 21 May 2026 @ 12:00 |
+| **Company** | Treacy Solar (Pepti Limerick Ltd) |
+| **Contact / Advisor** | Eddie Cooney — eddie@treacysolar.com |
+| **Quote Ref** | **20260817-110611511** *(Doc ID: 0f6becc24124f691cae25ae78c48aa36fcd0b3c5)* |
+| **Issue Date** | 17 August 2026 |
+| **Expires** | **15 November 2026** (3 months validity) |
+| **Lead time** | **6 weeks** *(with €10/day discount for any delay past 6 weeks)* |
 
 ### System Specification
 
@@ -24,7 +23,7 @@
 |-----------|------|
 | Panels | 16× TW 460W N-Type All Black (Tier 1) |
 | Total capacity | 7.36 kWp |
-| Inverter | Sigenergy Sigenstor Energy Controller 5.0kW Single Phase Hybrid |
+| Inverter | Sigenstor Energy Controller 5.0kW Single Phase Hybrid |
 | Battery | Sigenergy Sigenstor 10.0 Module with LED (10 kWh) |
 | Mounting | Solar Mount Pro All Black |
 | Monitoring | Sigenergy app + AI-driven battery management |
@@ -33,68 +32,61 @@
 
 ### Pricing
 
-| Item | Price |
-|------|-------|
-| 7.36kW Solar PV system (16 panels + inverter + mounting + all services) | €9,500 |
-| Sigenergy 10.0 battery module | €3,100 |
-| **Subtotal** | **€12,600** |
-| SEAI Solar PV Grant | -€1,800 |
-| **NET TOTAL** | **€10,800** |
+| Item | Unit Price | Discount | Net Price |
+|------|------------|----------|-----------|
+| 7.36kW Solar PV Installation (16 panels + inverter + mounting + services) | €9,500.00 | -€500.00 | **€9,000.00** |
+| Sigenergy Sigenstor Battery 10.0 Module | €3,100.00 | — | **€3,100.00** |
+| **Subtotal (Gross)** | | | **€12,100.00** |
+| Upfront SEAI Solar PV Grant | -€1,800.00 | — | **-€1,800.00** |
+| **NET TOTAL TO YOU** | | | **€10,300.00** 🏆 |
+
+> [!TIP]
+> **€500 Price Drop!** Treacy Solar applied a €500 direct unit discount to the 7.36kW Solar PV installation, bringing the gross price from €12,600 down to **€12,100**, and the net cost to **€10,300**!
 
 ### Payment Terms
 
-- 50% booking deposit on order sign-off: €5,400
-- 50% due on installation completion: €5,400
-- SEAI grant (€1,800) paid directly to Treacy by SEAI
+- 50% Booking Deposit on Order Sign-Off: **€5,150.00**
+- 50% Due on Installation Completion: **€5,150.00**
+- SEAI Grant (€1,800): Paid directly to Treacy Solar by SEAI on your behalf
+- **Guarantee clause:** If installation is delayed past the 6-week lead time, Treacy discounts **€10 per day** from your bill to cover electricity costs!
+- **Deposit protection:** If technical inspection discovers an issue preventing installation, deposit returned within 48 hours.
 
 ### Included Services
 
 - Full supply & structural roof mounting
 - All ancillary cabling & switch gear
-- AC/DC wiring
-- RECI electrical sign-off
-- BER assessment (to claim grant)
-- SEAI grant paperwork management
+- AC/DC wiring & RECI electrical sign-off
+- BER assessment (included to claim grant)
+- SEAI grant paperwork management (deducted upfront)
 - WiFi monitoring setup
-- Network pre-approval
+- Network pre-approval (NC6)
 - 24/7 private WhatsApp support
 - Regular performance & maximisation check-ins
 - Demonstration visit (teach operation of app & system)
-- Removal of existing 1kW PV system
 - 5-year no-questions-asked call-out guarantee
 - 10-year industry exclusive roofing works warranty
+- 10-year workmanship warranty
 
-### Available Extras
+### Terms & Optional Upgrades
 
-| Extra | Price |
-|-------|-------|
-| Additional Sigenergy 10.0 battery (10 kWh) | €3,100 |
-| Additional Sigenergy 6.0 battery (6 kWh) | €2,500 |
-| Sigenergy Automatic Off-Grid Gateway | €2,500–€2,700 |
-| Sigenergy 7kW EV AC Charger (after €300 grant) | €1,200 |
-| Sigenergy 12kW EV DC Charger (after €300 grant) | €1,950 |
-| Extra panels on the day (max 24 total) | €200 each |
-| Earth Rod (if not present) | €350 |
+| Service / Extra | Price | Notes |
+|-----------------|-------|-------|
+| Earth Rod Installation | €300 | If required by site electrical testing |
+| Switch Gear Replacement | €60 pp | In consumer unit if required for regs |
+| 4G Dongle | €150 | If house WiFi isn't stable at inverter location (+€25 top-up every 2 yrs) |
+| Additional Sigenergy 10.0 battery (10 kWh) | €3,100 | Modular expansion |
+| Sigenergy 7kW EV AC Charger | €1,200 | After €300 grant |
 
 ### Warranties
 
 | Component | Warranty |
 |-----------|----------|
-| Panels (TW) | Manufacturer standard (25yr performance) |
-| Inverter (Sigenergy) | Manufacturer warranty |
-| Battery (Sigenergy) | Manufacturer warranty |
+| Panels (TW 460W) | 25 years performance |
+| Inverter & Controller (Sigenergy) | 10 years manufacturer |
+| Battery (Sigenergy 10.0) | 10 years manufacturer |
+| Workmanship | 10 years (Treacy Solar) |
 | Roofing works | 10 years (Treacy exclusive) |
 | Call-out service | 5 years (no questions asked) |
-
-### Key Notes
-
-- **Price match promise** — will match any lower quote for equal/similar equipment
-- **Equipment flexibility** — can source from any major wholesaler if you have a preference
-- **Battery arbitrage:** Daryl states each 10kWh battery saves ~€700/yr using smart night tariff (charge at ~6c, discharge at 40c during day)
-- **Sigenergy AI** learns household patterns, auto-optimizes charge/discharge — claims up to 20% extra savings
-- **Outdoor mounting** — Sigenergy kit can be mounted outside, future-proofing against battery guideline changes
-- **Credentials:** Best Residential Installer 2025 (Sigenergy), Gold Installer Top 5 in Ireland
-- **Local experience:** Multiple installs in Evanwood estate already
 
 ---
 
@@ -104,40 +96,45 @@
 |-------|--------|
 | **Company** | David Hardiman Electrical |
 | **Contact** | David Hardiman |
-| **Date** | 20 May 2026 |
+| **Date** | 20 May 2026 *(Updated 17 Aug 2026)* |
 | **Expires** | Not stated |
-| **Lead time** | Not stated |
+| **Lead time** | Battery in September 2026 |
+
+> [!IMPORTANT]
+> **Price & Spec Correction (17 Aug 2026):**
+> Hardiman confirmed an administrative error in his original proposal. The €10,800 figure was **after grant aid** (Net price = €10,800, Gross price = €12,600), NOT before grant. 
+> Panels upgraded to 15× 470W Jinko Tiger Neo (7.05 kWp total) at no extra charge. Battery delivery delayed to **September 2026**. Hardiman will handle all SEAI completion paperwork.
 
 ### System Specification
 
 | Component | Spec |
 |-----------|------|
-| Panels | 15× Jinko Solar Tiger Neo JKM455N-48HL4M-DB (455W, Monocrystalline) |
-| Panel dimensions | 1,762 × 1,134 mm |
-| Total capacity | 6.825 kWp (DC STC) |
+| Panels | 15× Jinko Solar Tiger Neo 470W (N-Type Monocrystalline, upgraded) |
+| Panel dimensions | ~1,762 × 1,134 mm |
+| Total capacity | 7.05 kWp (DC STC) |
 | Inverter | Solis S5-EH1P5K-L (5.5kW, Single Phase, 97.1% max efficiency) |
-| Battery | Green Solutions Inc E10 (12.8 kWh nominal / 12.1 kWh usable) |
+| Battery | Green Solutions Inc E10 (12.8 kWh nominal / 12.1 kWh usable) — *Delayed to Sept 2026* |
 | Battery dimensions | 726 × 716 × 240 mm |
 | Battery DoD | 95% |
 | Round-trip efficiency | 95% |
 | System efficiency | 87% |
-| Estimated annual production | 5,143 kWh |
+| Estimated annual production | ~5,310 kWh |
 
 ### Panel Orientation
 
 | Array | Capacity | Tilt | Azimuth | Direction |
 |-------|----------|------|---------|-----------|
-| Array 1 | 2.275 kW | 30° | 136° | SE facing |
-| Array 2 | 4.550 kW | 30° | 315° | NW facing |
+| Array 1 | 2.35 kW | 30° | 136° | SE facing |
+| Array 2 | 4.70 kW | 30° | 315° | NW facing |
 
 ### Pricing
 
 | Item | Price |
 |------|-------|
-| 6.825kW Solar system with 12.8kWh battery (all-inclusive) | €10,800 |
-| **Subtotal** | **€10,800** |
+| 7.05kW Solar system with 12.8kWh battery (all-inclusive) | €12,600 |
+| **Subtotal (Gross)** | **€12,600** |
 | SEAI Solar PV Grant | -€1,800 |
-| **NET TOTAL** | **€9,000** |
+| **NET TOTAL** | **€10,800** |
 
 ### Included Services
 
@@ -146,7 +143,7 @@
 - Balance of system
 - Network pre-approval
 - Installation & labour
-- (No specific mention of BER, RECI, ongoing support, or removal of existing panels)
+- SEAI grant completion paperwork (confirmed by Hardiman)
 
 ### Available Extras
 
@@ -166,7 +163,8 @@ Not listed in proposal.
   - They assumed monthly bill of €250 (actual: ~€58)
   - They assumed annual bill of €3,000 (actual: ~€698)
   - Their "5-6 year payback" is based on wrong data
-  - Real payback with correct consumption: ~15.3 years (solar only)
+  - Real payback with correct consumption: ~18.8 years (solar only, without smart AI battery management)
+- **Battery delivery delayed until September 2026.**
 - Self-consumption rate assumed: 40%
 - PV degradation: 99% year 1, then -0.4%/year to year 30
 - System lifetime: 20 years
@@ -179,93 +177,89 @@ Not listed in proposal.
 
 ### System Specifications
 
-| | Treacy Solar | David Hardiman | Winner |
+| | Treacy Solar ⭐ | David Hardiman | Winner |
 |---|---|---|---|
-| **Panels** | 16× TW 460W | 15× Jinko 455W | 🏆 Treacy (more panels, higher Wp) |
-| **Total kWp** | 7.36 kWp | 6.825 kWp | 🏆 Treacy (+8%) |
-| **Est. annual generation** | ~6,000 kWh | 5,143 kWh | 🏆 Treacy (+17%) |
-| **Inverter** | Sigenergy 5.0kW Hybrid | Solis 5.5kW | ⚖️ Draw (different tier) |
-| **Inverter max efficiency** | N/A (premium tier) | 97.1% | — |
-| **Battery capacity** | 10 kWh | 12.8 kWh (12.1 usable) | 🏆 Hardiman (+21%) |
-| **Battery brand** | Sigenergy (premium) | Green Solutions (budget) | 🏆 Treacy (brand quality) |
-| **Smart management** | AI-driven (learns patterns) | Standard | 🏆 Treacy |
+| **Panels** | 16× TW 460W | 15× Jinko 470W | 🏆 Treacy (16 vs 15 panels, higher total capacity) |
+| **Total kWp** | **7.36 kWp** | 7.05 kWp | 🏆 Treacy (+4.4%) |
+| **Est. annual generation** | **~6,000 kWh** | ~5,310 kWh | 🏆 Treacy (+13%) |
+| **Inverter** | Sigenergy 5.0kW Hybrid (10yr) | Solis 5.5kW (5yr) | 🏆 Treacy (Premium AI vs Budget) |
+| **Battery capacity** | 10 kWh | 12.8 kWh (12.1 usable) | 🏆 Hardiman (+21% capacity) |
+| **Battery brand & tech** | Sigenergy (premium) | Green Solutions (budget) | 🏆 Treacy (brand quality & AI) |
+| **Battery availability** | **Immediate (6 wks)** | Delayed to Sept 2026 | 🏆 Treacy |
+| **Smart management** | AI-driven (learns patterns & tariffs) | Standard | 🏆 Treacy |
 | **Outdoor mounting** | Yes (future-proof) | Not specified | 🏆 Treacy |
-| **Panel type** | N-Type All Black | N-Type Monocrystalline | ⚖️ Draw |
 
 ### Pricing
 
-| | Treacy Solar | David Hardiman | Winner |
+| | Treacy Solar ⭐ | David Hardiman | Winner |
 |---|---|---|---|
-| **Gross price** | €12,600 | €10,800 | 🏆 Hardiman (-€1,800) |
-| **Net after SEAI** | €10,800 | €9,000 | 🏆 Hardiman (-€1,800) |
-| **Price per kWp (gross)** | €1,712/kWp | €1,582/kWp | 🏆 Hardiman |
-| **Price per kWh generated** | €2.10/kWh | €2.10/kWh | ⚖️ Draw |
-| **Cost per kWh battery** | €310/kWh | €844/kWh (incl. in price) | ⚖️ N/A (bundled) |
-| **Extra battery option** | €3,100 per 10kWh | Not offered | 🏆 Treacy (expandable) |
-| **EV charger option** | €1,200–€1,950 | Not offered | 🏆 Treacy |
-| **Price match** | Yes (guaranteed) | No mention | 🏆 Treacy |
+| **Gross price** | **€12,100** | €12,600 | 🏆 Treacy (€500 cheaper!) |
+| **Net after SEAI** | **€10,300** | €10,800 | 🏆 Treacy (€500 cheaper!) |
+| **Price per kWp (gross)** | **€1,644/kWp** | €1,787/kWp | 🏆 Treacy (cheaper per kWp!) |
+| **Price per kWh generated** | **€2.01/kWh** | €2.37/kWh | 🏆 Treacy |
+| **Delay guarantee** | **€10/day past 6 wks** | None | 🏆 Treacy |
 
 ### Warranties & Service
 
-| | Treacy Solar | David Hardiman | Winner |
+| | Treacy Solar ⭐ | David Hardiman | Winner |
 |---|---|---|---|
-| **Panel warranty** | 25yr (standard TW) | 25yr product + 30yr perf | 🏆 Hardiman |
-| **Inverter warranty** | Sigenergy (TBC) | 5 years (Solis) | 🏆 Treacy (premium brand) |
-| **Battery warranty** | Sigenergy (TBC) | 10 years | ⚖️ Need to confirm Treacy |
+| **Panel warranty** | 25yr performance | 25yr product + 30yr perf | 🏆 Hardiman |
+| **Inverter warranty** | Sigenergy (10 years) | 5 years (Solis) | 🏆 Treacy |
+| **Battery warranty** | Sigenergy (10 years) | 10 years (Green Solutions) | 🏆 Treacy |
 | **Roofing warranty** | 10 years | Not mentioned | 🏆 Treacy |
 | **Call-out guarantee** | 5 years (no questions) | Not mentioned | 🏆 Treacy |
 | **Ongoing support** | 24/7 WhatsApp + check-ins | Not mentioned | 🏆 Treacy |
-| **Demo/training** | Included | Not mentioned | 🏆 Treacy |
 | **BER assessment** | Included | Not mentioned | 🏆 Treacy |
-| **SEAI paperwork** | Included | Not mentioned (likely included) | 🏆 Treacy |
+| **SEAI paperwork** | Included | Included | ⚖️ Draw |
 
-### ROI Comparison (Solar Only, with real consumption 1,742 kWh/yr)
+### ROI Comparison (Solar Only, real consumption 1,742 kWh/yr)
 
-| | Treacy Solar | David Hardiman |
+| | Treacy Solar ⭐ | David Hardiman |
 |---|---|---|
-| Net investment | €10,800 | €9,000 |
-| Annual generation | ~6,000 kWh | 5,143 kWh |
-| Self-consumption savings | ~€558 | ~€480 |
-| CEG export income | ~€100 | ~€80 |
-| **Total annual savings** | **€658** | **€560** |
-| **Payback (solar only)** | **16.4 years** | **16.1 years** |
-| 25-year profit | +€5,650 | +€5,000 |
-| **With battery arbitrage (smart tariff)** | **€1,358/yr → 8.0 yr** | N/A (no AI management) |
+| Net investment | **€10,300** | €10,800 |
+| Annual generation | ~6,000 kWh | ~5,310 kWh |
+| Self-consumption savings | ~€558 | ~€495 |
+| CEG export income | ~€100 | ~€85 |
+| **Total annual savings** | **€658** | **€580** |
+| **Payback (solar only)** | **15.6 years** | 18.6 years |
+| **With battery arbitrage (smart tariff)** | **€1,358/yr → ~7.6 yr payback** | N/A (no AI tariff management) |
 
 ### Overall Assessment
 
 | Category | Winner | Reasoning |
 |----------|--------|-----------|
-| **Price** | 🏆 Hardiman | €1,800 cheaper net |
-| **Equipment quality** | 🏆 Treacy | Sigenergy premium vs Solis/Green Solutions budget |
-| **Generation capacity** | 🏆 Treacy | 17% more annual output |
-| **Battery size** | 🏆 Hardiman | 12.1 vs 10 kWh usable |
-| **Smart features** | 🏆 Treacy | AI battery management, outdoor mounting |
-| **Expandability** | 🏆 Treacy | Extra batteries, EV charger, gateway |
-| **Service & support** | 🏆 Treacy | 24/7 support, demo visit, check-ins |
-| **Warranties** | ⚖️ Draw | Hardiman panels better, Treacy service better |
-| **Long-term value** | 🏆 Treacy | AI arbitrage + expandability + premium components |
-| **Value for money** | 🏆 Hardiman | Comparable system for €1,800 less |
+| **Price** | 🏆 Treacy | **€500 cheaper net** (€10,300 vs €10,800) |
+| **Equipment quality** | 🏆 Treacy | Premium Sigenergy ecosystem vs budget Solis/Green Solutions |
+| **Generation capacity** | 🏆 Treacy | 7.36 kWp vs 7.05 kWp (+13% annual output) |
+| **Battery availability** | 🏆 Treacy | 6 weeks (with €10/day delay protection) vs Sept 2026 |
+| **Smart features** | 🏆 Treacy | AI battery management & automated tariff arbitrage |
+| **Service & support** | 🏆 Treacy | 10yr roof warranty, 5yr call-out guarantee, 24/7 WhatsApp |
+| **Value for money** | 🏆 Treacy | **Undisputed winner:** Cheaper, larger, better hardware & service |
 
 ### Verdict
 
-**If budget is priority:** David Hardiman at €9,000 net — solid Tier 1 panels (Jinko), bigger battery, €1,800 saved. Acceptable for a straightforward solar install.
+🏆 **UNDISPUTED WINNER: Treacy Solar at €10,300 Net.**
 
-**If quality/future-proofing is priority:** Treacy Solar at €10,800 net — premium Sigenergy ecosystem with AI management, expandable batteries, local experience in Evanwood, superior after-sales support. The €700/yr battery arbitrage claim (if verified with smart tariff) alone could justify the premium within 3 years.
+With Treacy Solar's official updated quote offering a **€500 discount** (bringing net cost down to **€10,300**), Treacy is now:
+1. **€500 CHEAPER NET** than David Hardiman (€10,300 vs €10,800).
+2. **Larger capacity** (7.36 kWp vs 7.05 kWp).
+3. **Superior hardware** (Sigenergy AI ecosystem vs Solis budget tier).
+4. **Fast delivery** (6 weeks with a €10/day delay penalty clause vs Sept battery delay).
+5. **Full peace of mind** (10-year roof warranty, 5-year call-out guarantee, 24/7 WhatsApp support).
 
-**Key question to resolve:** Does Treacy's price-match promise apply here? If so, ask Treacy to match Hardiman's €10,800 gross for Sigenergy equipment → that would give you premium kit at the budget price.
+**Decision:** Proceed with **Treacy Solar**.
 
 ---
 
-## Quote 3: Donal Horgan (Heat Pump Only)
+## Quote 3: Donal Horgan (Heat Pump Only) ⭐
 
 | Field | Detail |
 |-------|--------|
 | **Company** | Horgan Renewables |
-| **Contact** | Donal Horgan — 087-2053864 — Office: 069-62795 |
+| **Contact** | Donal Horgan — 087-2053864 — Office: 069-62795 — `horganrenewables@gmail.com` |
 | **Address** | Ashgrove, Newcastle West, Co. Limerick, V42FD26 |
-| **Date** | 20 May 2026 |
-| **Type** | Budget estimate |
+| **Date** | 20 May 2026 *(Updated 28 May 2026)* |
+| **Type** | Budget estimate + radiator quote |
 
 ### System Specification
 
@@ -274,55 +268,54 @@ Not listed in proposal.
 | Heat Pump | Mitsubishi Electric Ecodan 8kW Monobloc Air-to-Water |
 | Hot Water Tank | Integrated 200L cylinder |
 | Type | Monobloc (outdoor unit only, no indoor unit) |
+| Radiators | 4 single radiators upgraded to doubles (optional/recommended) |
 
-### Pricing
+### Pricing Breakdown
 
 | Item | Price |
 |------|-------|
-| HP system + installation + SEAI paperwork + heating controls | €14,850 |
-| SEAI Heat Pump Grant (includes controls) | -€6,500 |
-| SEAI Fossil Fuel Boiler Replacement | -€4,000 |
-| SEAI Central Heating Upgrade (radiators/pipework) | -€2,000 ⚠️ |
-| **Total SEAI Grants (best case)** | **-€12,500** |
-| **NET TOTAL (best case)** | **€2,350** |
-| **NET TOTAL (without radiator grant)** | **€4,350** |
+| Base HP system + installation + SEAI paperwork + heating controls | €14,850 |
+| **Option A: Without Radiator Upgrade** | |
+| Gross System Cost | €14,850 |
+| SEAI Grants (HP €6,500 + Fossil Fuel Bonus €4,000) | -€10,500 |
+| **NET TOTAL OUT-OF-POCKET (no new radiators)** | **€4,350** |
+| | |
+| **Option B: With 4 Radiators Upgraded (Confirmed 28 May)** | |
+| Base HP system | €14,850 |
+| Replace 4 single radiators with doubles (Horgan quote 28/05) | +€1,900 |
+| **Gross Total (System + Radiators)** | **€16,750** |
+| SEAI Grants (HP €6,500 + Fossil Fuel Bonus €4,000 + Heating Upgrade €2,000) | -€12,500 |
+| **NET TOTAL OUT-OF-POCKET (with 4 new radiators)** 🏆 | **€4,250** |
 
-⚠️ The €2,000 central heating grant is **only** available if radiators/pipework need upgrading. Horgan has reviewed photos and thinks some single radiators may need upgrading to doubles. DEAP assessment needed to confirm.
+> [!TIP]
+> **Key Finding (28 May 2026):** Donal confirmed replacing 4 single radiators costs **€1,900**. Doing this unlocks the **€2,000 Central Heating Upgrade grant**, meaning you get 4 brand-new double radiators AND end up paying **€100 LESS out-of-pocket** (€4,250 net vs €4,350 net)!
 
-### Included
+### Grant Clarification (Confirmed 20–28 May)
+
+| Grant | Amount | Applies? | Notes |
+|-------|--------|----------|-------|
+| Heat Pump System (includes controls) | €6,500 | ✅ Yes | Heating controls are included in this grant |
+| Fossil Fuel Boiler Replacement | €4,000 | ✅ Yes | Decommissioning gas boiler |
+| Central Heating Upgrade (radiators/pipework) | €2,000 | ✅ Yes (if upgraded) | Unlocked by replacing 4 radiators for €1,900 |
+| **Total SEAI Grants (with radiators)** | **€12,500** | | |
+
+### Included Services
 
 - Mitsubishi Ecodan 8kW monobloc unit
 - Integrated 200L hot water cylinder
-- **Heating controls** (confirmed included in the €6,500 HP grant, not the separate €2,000)
-- Installation & labour
-- SEAI paperwork (he handles the grant application)
-
-### NOT Included
-
-- **Replacing radiators** — may be needed; Horgan reviewed photos 20/05 and said "might need to change some single radiators to doubles"
-- DEAP assessment still needed to confirm radiator requirements
-
-### Grant Clarification (confirmed 20 May)
-
-| Grant | Amount | Applies? |
-|-------|--------|----------|
-| Heat Pump System (includes controls) | €6,500 | ✅ Yes |
-| Fossil Fuel Boiler Replacement | €4,000 | ✅ Yes (currently gas boiler) |
-| Central Heating Upgrade (radiators/pipework) | €2,000 | ⚠️ Only if radiators need replacing |
-
-**Important:** The heating controls are part of the €6,500 HP grant — NOT the €2,000. The €2,000 is exclusively for radiator/pipework upgrades.
+- Heating controls
+- Full hydraulic installation, system balancing & commissioning
+- SEAI grant paperwork management (deducted from bill)
+- Replacement of 4 radiators (€1,900 option)
 
 ### Key Notes
 
-- **Confirmed 20 May 2026:** €14,850 is gross (before SEAI grants). Includes heating controls.
-- **Horgan handles SEAI paperwork** — grant deducted from price
-- **Mitsubishi Ecodan** is one of the most established HP brands in Ireland (competitor to Daikin)
-- **Monobloc** = simpler installation (single outdoor unit, no indoor unit), less pipework
-- Integrated tank simplifies install vs split systems
-- €14,850 is very close to our estimated HP cost (€15,000) — validates our ROI calculations
-- **Photos sent 20/05:** Boiler, rooms, radiators via Google Drive
-- **Horgan's assessment:** "Might need to change some of the single radiators to doubles, would need to do the DEAP designer installer form to confirm"
-- **Next step:** Horgan to do DEAP assessment → confirms if radiators need upgrading → determines if €2,000 grant applies
+- **20 May 2026:** €14,850 base gross quote received. Includes heating controls.
+- **28 May 2026:** Donal confirmed **€1,900** to replace 4 radiators.
+- **Net out-of-pocket cost is €4,250** with full €12,500 SEAI grants.
+- **Horgan handles SEAI paperwork** — grants deducted upfront from price.
+- **Mitsubishi Ecodan** is Tier 1 premium hardware (competitor to Daikin).
+- **Monobloc** = simpler installation, high efficiency.
 
 ---
 
@@ -379,23 +372,25 @@ Not listed in proposal.
 
 | Provider | kWp | Battery | Gross | Net | €/kWp gross |
 |----------|-----|---------|-------|-----|-------------|
-| Hardiman | 6.75 | 12.8 kWh Pylon | €10,800 | €9,000 | €1,600 |
 | **Broderick** | **6.3** | **10.24 kWh Dyness** | **€12,450** | **€10,650** | **€1,976** |
+| Hardiman | 7.05 | 12.8 kWh Green Sol. | €12,600 | €10,800 | €1,787 |
 | Treacy | 7.36 | 10 kWh Sigenergy | €12,600 | €10,800 | €1,712 |
 
 ---
 
 ### Combined Scenario: Solar + HP (Horgan)
 
-| Combination | Solar Net | HP Net | Total Net | Payback |
-|-------------|-----------|--------|-----------|---------|
-| PV Gen (no bat.) + Horgan | €7,000 | €2,350 | **€9,350** | **8.9 years** |
-| Hardiman + Horgan | €9,000 | €2,350 | **€11,350** | **10.8 years** |
-| **Alt. Energy + Horgan** | **€9,600** | **€2,350** | **€11,950** | **~11.4 years** |
-| PV Gen (+ bat.) + Horgan | €10,000 | €2,350 | **€12,350** | **11.8 years** |
-| Broderick + Horgan | €10,650 | €2,350 | **€13,000** | **12.4 years** |
-| Treacy + Horgan | €10,800 | €2,350 | **€13,150** | **12.5 years** |
-| Treacy + Horgan + smart tariff arbitrage | €10,800 | €2,350 | **€13,150** | **~7.5 years** |
+| Combination | Solar Net | HP Net (inc. 4 rads) | Total Net | Payback |
+|-------------|-----------|----------------------|-----------|---------|
+| PV Gen (no bat.) + Horgan | €7,000 | €4,250 | **€11,250** | **~10.5 years** |
+| **Alt. Energy + Horgan** | **€9,600** | **€4,250** | **€13,850** | **~11.8 years** |
+| PV Gen (+ bat.) + Horgan | €10,000 | €4,250 | **€14,250** | **~12.2 years** |
+| **Treacy + Horgan** ⭐ | **€10,300** | **€4,250** | **€14,550** | **~12.4 years** |
+| **Treacy + Horgan + smart tariff arbitrage** 🏆 | **€10,300** | **€4,250** | **€14,550** | **~7.5 years** |
+| Broderick + Horgan | €10,650 | €4,250 | **€14,900** | **~12.7 years** |
+| Hardiman + Horgan | €10,800 | €4,250 | **€15,050** | **~12.8 years** |
+
+*Note: HP Net is €4,250 out-of-pocket when replacing 4 radiators (+€1,900 gross) and claiming €12,500 total SEAI grants. If no radiators are replaced, HP Net is €4,350 (Gross €14,850 − €10,500 grants).*
 
 ⚠️ **Note on PV Gen combos:** Their system has only 15% self-consumption without battery, so actual savings would be much lower than other options. The payback figures above assume similar savings ratios, which is misleading for PV Gen without battery.
 
@@ -496,12 +491,12 @@ The numbers speak for themselves:
 - For just €2,000 more net (Hardiman = €9,000), you get 63% more capacity AND a 12.8kWh battery
 - Their HP advice ignores €10,500 in free SEAI grants
 
-| What €7,000 buys at PV Gen | What €9,000 buys at Hardiman |
+| What €7,000 buys at PV Gen | What €10,800 buys at Hardiman |
 |---|---|
-| 9 panels, 4.14 kWp | 15 panels, 6.75 kWp |
-| No battery | 12.8 kWh Pylon battery |
+| 9 panels, 4.14 kWp | 15 panels, 7.05 kWp |
+| No battery | 12.8 kWh battery (Sept 2026) |
 | 15% self-consumption | ~70-80% self-consumption |
-| 15yr payback (their estimate) | ~8-11yr payback |
+| 15yr payback (their estimate) | ~18.8yr payback |
 | Export 85% at 20-29c | Store & use at 41c |
 
 ### Comparison Position
@@ -510,9 +505,9 @@ The numbers speak for themselves:
 |----------|-----|---------|-------|-----|-------------|-----------------|
 | **PV Gen** | **4.14** | **None** | **€8,800** | **€7,000** | **€2,126** | **15%** ⚠️ |
 | PV Gen (+ bat.) | 4.14 | TBD | €11,800 | €10,000 | €2,850 | ~70%? |
-| Hardiman | 6.75 | 12.8 kWh | €10,800 | €9,000 | €1,600 | ~70-80% |
+| **Treacy** ⭐ | **7.36** | **10 kWh** | **€12,100** | **€10,300** | **€1,644** | **~80%** |
 | Broderick | 6.3 | 10.24 kWh | €12,450 | €10,650 | €1,976 | ~70% |
-| Treacy | 7.36 | 10 kWh | €12,600 | €10,800 | €1,712 | ~80% |
+| Hardiman | 7.05 | 12.8 kWh | €12,600 | €10,800 | €1,787 | ~70-80% |
 
 ---
 
@@ -694,10 +689,10 @@ Off-peak charging hours: 12am–7am
 
 | Provider | kWp | Battery | Gross | Net | €/kWp gross |
 |----------|-----|---------|-------|-----|-------------|
-| Hardiman | 6.75 | 12.8 kWh Green Sol. | €10,800 | €9,000 | €1,600 |
+| **Treacy** ⭐ | **7.36** | **10 kWh Sigenergy** | **€12,100** | **€10,300** | **€1,644** |
 | Broderick | 6.3 | 10.24 kWh Dyness | €12,450 | €10,650 | €1,976 |
 | **Alt. Energy** | **7.99** | **10.2 kWh Solis** | **€11,400** | **€9,600** | **€1,427** |
-| Treacy | 7.36 | 10 kWh Sigenergy | €12,600 | €10,800 | €1,712 |
+| Hardiman | 7.05 | 12.8 kWh Green Sol. | €12,600 | €10,800 | €1,787 |
 
 **€/kWp: Best value of all quotes at €1,427/kWp gross.** For raw generation capacity per euro, Alternative Energy wins.
 

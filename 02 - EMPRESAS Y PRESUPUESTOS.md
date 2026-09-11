@@ -132,11 +132,26 @@
 
 ---
 
+## Presupuesto Aerotermia: Horgan Renewables ⭐
+- **Contacto:** Donal Horgan (`horganrenewables@gmail.com`) / Tel: 069-62795 / Cel: 087-2053864
+- **Dirección:** Ashgrove, Newcastle West, Co. Limerick, V42FD26
+- **Propuesta (20/05/2026, actualizada 28/05/2026):**
+  - Aerotermia: Mitsubishi Electric Ecodan 8kW Monobloc con depósito de 200L integrado + controles de calefacción + tramitación de subvención SEAI.
+  - Presupuesto base (sin radiadores): **€14,850 bruto**
+  - Sustitución de 4 radiadores simples por dobles: **+€1,900** (confirmado por Donal el 28/05)
+- **Análisis de Subvenciones SEAI:**
+  - Sin cambio de radiadores: Subvención HP + Controles €6,500 + Bonus gas €4,000 = **€10,500 en ayudas**. Neto out-of-pocket: €14,850 − €10,500 = **€4,350 neto**.
+  - Con cambio de 4 radiadores (+€1,900): Subvención HP + Controles €6,500 + Bonus gas €4,000 + Central Heating Upgrade €2,000 = **€12,500 en ayudas**. Neto out-of-pocket: (€14,850 + €1,900) − €12,500 = **€4,250 neto** 🏆.
+- **Efecto clave:** Cambiar los 4 radiadores por €1,900 desbloquea la subvención de €2,000, por lo que **renuevas 4 radiadores y terminas pagando €100 MENOS de tu bolsillo**.
+- **Estado:** ✅ PRESUPUESTO CONFIRMADO — Pendiente de visita/DEAP final.
+
+---
+
 ## Campaña Heat Pump (Fontaneros SEAI Limerick)
 **Mail masivo enviado a:**
 ecoenergy.engineering@outlook.ie, philiposullivanplumbing@gmail.com, heattechltd@yahoo.ie, obrienplumbers@gmail.com, paulcorcoranph@outlook.com, info@nbgas.ie, nmullane70@gmail.com, info@professionalplumbing.ie, horganrenewables@gmail.com, midwestecoenergy@gmail.com, leahymechanicalltd@gmail.com, davidgardiner75@gmail.com, johnjmulvihill@gmail.com, office@tpgasservices.ie, cleverenergysolutions@outlook.com, jbrowneplumber@gmail.com, mikeflaherty2013@hotmail.com
 
-**Estado:** Pendiente de respuestas
+**Estado:** Respondido por Donal Horgan (Horgan Renewables).
 
 ---
 
@@ -146,6 +161,7 @@ ecoenergy.engineering@outlook.ie, philiposullivanplumbing@gmail.com, heattechltd
 |---------|---------------|----------------|------------|--------|
 | Activ8 | incluido | incluido | **€23,800** | One-Stop-Shop |
 | OHK Energy | €12,190 | €9,050 | **€21,240** | One-Stop-Shop |
+| **Treacy + Horgan** ⭐ | **€10,300** | **€4,250** (inc. 4 rads) | **€14,550** | Instaladores Seleccionados |
 | Emmet (DIY) | ~€5,650 | - | **~€5,650** (solo solar) | Independiente |
 | Abhaile (web) | €9,950 | - | €9,950 (solo solar) | Instalador |
 | **Objetivo Victor** | ~€6,000 | ~€3,000-5,000 | **€9,000-11,000** | DIY Supervisado |

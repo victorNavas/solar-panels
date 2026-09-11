@@ -50,8 +50,15 @@
 ### Emmet Keeshan - Oferta transparente
 > "Solis S5/S6 inverter, Green Solution E10 12.8kWh battery, Longi 475W panels, K2 roof system. Roofer: €500/day, my rate: €650/day. SEAI docs: €1,000. Materials at cost +7%."
 
-### Sean McCarthy
-> "We use Jinko panels, Van der Valk mounting, Anker Solix or EcoFlow (15yr warranty). Send me your eircode for a proposal."
+### Donal Horgan (Horgan Renewables) — Cotización Aerotermia (17/05 - 28/05/2026)
+- **17/05 (Víctor):** Solicitó propuesta para sustitución de caldera de gas por aerotermia monobloc 6-8kW con depósito integrado 180-200L.
+- **20/05 (Donal):** Presupuesto estimado de **€14,850** para Mitsubishi Electric Ecodan 8kW monobloc con tanque de 200L. Incluye papeleo SEAI y controles de calefacción. Sustitución de radiadores no incluida inicialmente.
+- **20/05 (Donal):** Aclaró que los controles de calefacción están incluidos en la subvención base de €6,500 de la bomba de calor. El grant adicional de €2,000 para "Central Heating Upgrade" sólo aplica si se cambian radiadores/tuberías.
+- **20/05 (Donal):** Tras analizar fotos enviadas por Víctor de caldera y radiadores, indicó que podría hacer falta cambiar algunos radiadores simples por dobles.
+- **28/05 (Donal):** Confirmó el coste de cambiar radiadores: **"It would cost €1,900 to replace the 4 radiators, when this is done you would be able to claim the full €12,500.00"**.
+- **Resultado económico:**
+  - Sin radiadores nuevos: €14,850 bruto - €10,500 ayudas = **€4,350 neto**.
+  - Con 4 radiadores nuevos: €14,850 + €1,900 = €16,750 bruto - €12,500 ayudas = **€4,250 neto** *(¡€100 más barato de tu bolsillo teniendo 4 radiadores nuevos!)*.
 
 ---
 
@@ -87,4 +94,27 @@
 
 **Daryl (19:23):** "Let's chat in the morning? 👊 Thanks for the great info and making my life so simple. Glad to hear the good words!"
 
-**Próximo paso:** Esperar contacto de Daryl mañana 20/05
+---
+
+## Quote Oficial Recibida — Treacy Solar (17/08/2026)
+
+- **Vendedor:** Treacy Solar (Pepti Limerick Ltd)
+- **Asesor:** Eddie Cooney (`eddie@treacysolar.com`)
+- **Quote Ref:** `20260817-110611511` *(Doc ID: 0f6becc24124f691cae25ae78c48aa36fcd0b3c5)*
+- **Validez:** 15 Nov 2026 (3 meses)
+- **Detalle de Precio:**
+  - 7.36kW Solar PV (16x TW 460W N-Type All Black + Inversor Sigenstor 5kW + Montaje Solar Mount Pro): €9,500 - €500 descuento = **€9,000**
+  - Batería Sigenergy Sigenstor 10.0kWh con LED: **€3,100**
+  - **Subtotal Bruto:** **€12,100**
+  - **Subvención SEAI descontada por Treacy:** **-€1,800**
+  - **COSTE NETO TOTAL:** **€10,300** 🏆 *(€500 más barato que la estimación inicial de €10,800)*
+- **Condiciones de Pago:**
+  - 50% Depósito al firmar: €5,150
+  - 50% Al finalizar instalación: €5,150
+- **Garantías y Cláusulas:**
+  - Plazo instalación: **6 semanas**
+  - **Cláusula de retraso:** Si se retrasa pasadas 6 semanas, Treacy descuenta **€10/día** para cubrir la factura eléctrica.
+  - 10 años garantía de tejado (exclusivo Treacy)
+  - 10 años garantía de mano de obra
+  - 5 años garantía de asistencia sin preguntas
+  - Visita de demostración/formación (app Sigenergy) + BER incluido.
