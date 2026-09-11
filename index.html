@@ -651,7 +651,7 @@
                         <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;"><span data-es="Selecciona Proveedor:" data-en="Select Supplier:"></span></label>
                         <select id="roi-provider" onchange="autoToggles(); calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
                             <option value="emmet_solar" data-es="Emmet (Solar DIY) — €7,249" data-en="Emmet (Solar DIY) — €7,249">Emmet (Solar DIY) — €7,249</option>
-                            <option value="treacy_solar" data-es="Treacy Solar — €12,100 bruto / €10,300 neto (16 pan + 10kWh Sigenergy)" data-en="Treacy Solar — €12,100 gross / €10,300 net (16 pan + 10kWh Sigenergy)">Treacy Solar — €12,100 bruto / €10,300 neto (16 pan + 10kWh Sigenergy)</option>
+                            <option value="treacy_solar" selected data-es="🏆 Treacy Solar (INSTALADO) — €12,100 bruto / €10,300 neto" data-en="🏆 Treacy Solar (INSTALLED) — €12,100 gross / €10,300 net">🏆 Treacy Solar (INSTALADO) — €12,100 bruto / €10,300 neto</option>
                             <option value="hardiman_solar" data-es="David Hardiman — €12,600 bruto / €10,800 neto (15 Jinko 470W + 12.8kWh Sept)" data-en="David Hardiman — €12,600 gross / €10,800 net (15 Jinko 470W + 12.8kWh Sept)">David Hardiman — €12,600 bruto / €10,800 neto (15 Jinko 470W + 12.8kWh Sept)</option>
                             <option value="broderick_solar" data-es="Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)" data-en="Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)">Stephen Broderick — €12,450 (14 Jinko + 10.24kWh Dyness)</option>
                             <option value="altenergy_solar" data-es="Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)" data-en="Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)">Alternative Energy — €11,400 (17 Jinko 470W + 10.2kWh Solis)</option>
@@ -672,7 +672,7 @@
                             <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:5px;">☀️ <span data-es="Empresa Solar:" data-en="Solar Provider:"></span></label>
                             <select id="roi-solar-provider" onchange="autoToggles(); calcROI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #e5e7eb; font-size:0.9rem;">
                                 <option value="emmet_solar" data-es="Emmet (DIY) — €7,249" data-en="Emmet (DIY) — €7,249">Emmet (DIY) — €7,249</option>
-                                <option value="treacy_solar" data-es="Treacy Solar — €12,100 (€10,300 neto)" data-en="Treacy Solar — €12,100 (€10,300 net)">Treacy Solar — €12,100 (€10,300 neto)</option>
+                                <option value="treacy_solar" selected data-es="🏆 Treacy Solar — €12,100 (€10,300 neto)" data-en="🏆 Treacy Solar — €12,100 (€10,300 net)">🏆 Treacy Solar — €12,100 (€10,300 neto)</option>
                                 <option value="hardiman_solar" data-es="D. Hardiman — €12,600 (€10,800 neto)" data-en="D. Hardiman — €12,600 (€10,800 net)">D. Hardiman — €12,600 (€10,800 neto)</option>
                                 <option value="broderick_solar" data-es="S. Broderick — €12,450" data-en="S. Broderick — €12,450">S. Broderick — €12,450</option>
                                 <option value="altenergy_solar" data-es="Alt. Energy — €11,400" data-en="Alt. Energy — €11,400">Alt. Energy — €11,400</option>
@@ -1707,7 +1707,8 @@
             document.getElementById('roi-payback').innerHTML = net <= 0 
                 ? (currentLang === 'es' ? '✅ ¡Gratis!' : '✅ Free!') 
                 : payback.toFixed(1) + ' ' + (currentLang === 'es' ? 'años' : 'years');
-            document.getElementById('roi-profit25').textContent = '€' + profit25.toLocaleString();
+            const roundedProfit = Math.round(profit25);
+            document.getElementById('roi-profit25').textContent = roundedProfit < 0 ? '-€' + Math.abs(roundedProfit).toLocaleString() : '€' + roundedProfit.toLocaleString();
             
             document.getElementById('roi-bar').style.width = paybackPct + '%';
             document.getElementById('roi-bar-marker').style.left = paybackPct + '%';
