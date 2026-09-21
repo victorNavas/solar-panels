@@ -25,6 +25,15 @@
 3. Recibir SEAI Letter of Offer.
 4. Instalación hidráulica, retirada de caldera de gas, comisionado y BER post-obras.
 
+### FASE 4: Transición a Coche Eléctrico (EV) 🚗 (PRÓXIMO PASO)
+1. **Infraestructura ya Instalada:** Cargador **Sigenergy 7kW Tethered EV Charger** ya operativo en Fase 1 (€950 neto).
+2. **Subvención SEAI EV:** **€3,500 de descuento directo** en la compra de vehículo 100% eléctrico.
+3. **Estrategia de Recarga:**
+   - **Carga Super Nocturna (2:00 am - 5:00 am):** Tarifa a ~€0.08/kWh (equivale a conducir a ~€0.30/L diésel).
+   - **Modo Solar Pure:** Aprovechamiento automático de excedentes solares de los 16 paneles (7.52 kWp) durante horas diurnas.
+4. **Modelos en Evaluación:** Tesla Model 3 (€37,490 neto), Tesla Model Y (€41,490 neto), MG4 EV (€27,495 neto), Hyundai Ioniq 5 (€35,995 neto), VW ID.4 (€34,900 neto).
+5. **Impacto Económico:** Ahorro estimado de **~€1,526/año en combustible** (basado en 15,000 km/año).
+
 ---
 
 ## Proceso SEAI (Individual Grants) - Orden Crítico

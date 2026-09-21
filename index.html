@@ -69,14 +69,31 @@
         .timeline-item.done::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
         .timeline-item.pending::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
         a { color: var(--blue); }
-        /* Sidebar navigation */
+        /* Sidebar navigation & accordions */
         .page-wrap { display: flex; min-height: 100vh; }
-        .sidebar { position: sticky; top: 0; height: 100vh; width: 220px; min-width: 220px; background: white; border-right: 1px solid #e5e7eb; padding: 15px 0; overflow-y: auto; z-index: 100; }
+        .sidebar { position: sticky; top: 0; height: 100vh; width: 240px; min-width: 240px; background: white; border-right: 1px solid #e5e7eb; padding: 15px 0; overflow-y: auto; z-index: 100; }
         .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
-        .sidebar a { display: block; padding: 8px 16px; font-size: 0.78rem; color: var(--gray); text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .sidebar details { margin-bottom: 4px; border-bottom: 1px solid #f1f5f9; }
+        .sidebar details:last-child { border-bottom: none; }
+        .sidebar summary { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 10px 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background 0.15s; }
+        .sidebar summary:hover { background: var(--gray-light); color: var(--dark); }
+        .sidebar details[open] summary { color: var(--dark); font-weight: 800; background: #f8fafc; }
+        .sidebar a { display: flex; justify-content: space-between; align-items: center; padding: 7px 16px 7px 22px; font-size: 0.78rem; color: var(--gray); text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .sidebar a:hover { color: var(--dark); background: var(--gray-light); }
         .sidebar a.active { color: var(--blue); border-left-color: var(--blue); background: var(--blue-light); font-weight: 600; }
-        .sidebar .nav-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 12px 16px 4px; font-weight: 700; }
+        .nav-badge { font-size: 0.63rem; padding: 2px 6px; border-radius: 10px; font-weight: 600; text-transform: none; letter-spacing: 0; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-yellow { background: #fef3c7; color: #92400e; }
+        .badge-red { background: #fee2e2; color: #991b1b; }
+        .badge-purple { background: #f3e8ff; color: #6b21a8; }
+        
+        /* Top nav filter bar */
+        .top-nav-filters { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .top-nav-filters .filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid #e5e7eb; background: #f8fafc; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.2s; color: var(--dark); }
+        .top-nav-filters .filter-btn:hover { background: #e2e8f0; }
+        .top-nav-filters .filter-btn.active { background: var(--blue); color: white; border-color: var(--blue); font-weight: 600; }
+
         .main-content { flex: 1; min-width: 0; }
         /* Mobile: hide sidebar, show hamburger */
         .mobile-nav-toggle { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 200; width: 48px; height: 48px; border-radius: 50%; background: var(--blue); color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
@@ -85,7 +102,7 @@
             .container { padding: 10px; }
             .header { padding: 20px; }
             .lang-toggle { top: 10px; right: 10px; }
-            .sidebar { position: fixed; left: -260px; width: 250px; min-width: 250px; top: 0; height: 100vh; transition: left 0.3s; box-shadow: 2px 0 12px rgba(0,0,0,0.15); }
+            .sidebar { position: fixed; left: -270px; width: 260px; min-width: 260px; top: 0; height: 100vh; transition: left 0.3s; box-shadow: 2px 0 12px rgba(0,0,0,0.15); }
             .sidebar.open { left: 0; }
             .mobile-nav-toggle { display: block; }
             .page-wrap { display: block; }
@@ -96,39 +113,72 @@
     <div class="page-wrap">
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
-            <div class="nav-title"><span data-es="Navegación" data-en="Navigation"></span></div>
-            <nav>
-                <a href="#sec-kpis" data-es="📊 KPIs" data-en="📊 KPIs">📊 KPIs</a>
-                <a href="#sec-aerotermia" data-es="🔥 Aerotermia (Opciones)" data-en="🔥 Aerothermal (Options)" style="font-weight:700; color:var(--blue);">🔥 Aerotermia (Opciones)</a>
-                <a href="#sec-hp-tech" data-es="🧠 Anotaciones Técnicas" data-en="🧠 Tech Insights">🧠 Anotaciones Técnicas</a>
-                <a href="#sec-empresas" data-es="📋 Empresas" data-en="📋 Companies">📋 Empresas</a>
-                <a href="#sec-consumo" data-es="⚡ Consumo Real" data-en="⚡ Consumption">⚡ Consumo Real</a>
-                <a href="#sec-precios" data-es="📊 Comparativa Precios" data-en="📊 Price Comparison">📊 Comparativa Precios</a>
-                <a href="#sec-materiales" data-es="🔧 Materiales" data-en="🔧 Equipment">🔧 Materiales</a>
-                <a href="#sec-roi" data-es="📈 Calculadora ROI" data-en="📈 ROI Calculator">📈 Calculadora ROI</a>
-                <a href="#sec-donothing" data-es="💸 Coste No Hacer Nada" data-en="💸 Cost of Inaction">💸 Coste No Hacer Nada</a>
-                <a href="#sec-margen" data-es="🔍 Márgenes" data-en="🔍 Markups">🔍 Márgenes</a>
-                <a href="#sec-seai" data-es="💰 SEAI Grants" data-en="💰 SEAI Grants">💰 SEAI Grants</a>
-                <a href="#sec-specs" data-es="🔧 Especificaciones" data-en="🔧 Specs">🔧 Especificaciones</a>
-                <a href="#sec-hardware" data-es="🛒 Hardware" data-en="🛒 Hardware">🛒 Hardware</a>
-                <a href="#sec-vecinos" data-es="🏘️ Vecinos" data-en="🏘️ Neighbours">🏘️ Vecinos</a>
-                <a href="#sec-plan" data-es="🎯 Plan Acción" data-en="🎯 Action Plan">🎯 Plan Acción</a>
-                <a href="#sec-todo" data-es="✅ Pendientes" data-en="✅ To-Do">✅ Pendientes</a>
-            </nav>
-            <div class="nav-title"><span data-es="Presupuestos Aerotermia" data-en="Heat Pump Quotes"></span></div>
-            <nav>
-                <a href="#sec-prov-horgan" data-es="🌡️ Horgan Renewables" data-en="🌡️ Horgan Renewables">🌡️ Horgan Renewables</a>
-                <a href="#sec-prov-morningstar" data-es="🌡️ Morning Star (James)" data-en="🌡️ Morning Star (James)">🌡️ Morning Star (James)</a>
-                <a href="#sec-prov-ecoheat" data-es="🌡️ Ecoheat (Craig)" data-en="🌡️ Ecoheat (Craig)">🌡️ Ecoheat (Craig)</a>
-                <a href="#sec-prov-tpgas" data-es="🌡️ TP Gas Services" data-en="🌡️ TP Gas Services">🌡️ TP Gas Services</a>
-            </nav>
-            <div class="nav-title"><span data-es="Presupuestos Solar" data-en="Solar Quotes"></span></div>
-            <nav>
-                <a href="#sec-prov-treacy" data-es="☀️ Treacy (INSTALADO ✅)" data-en="☀️ Treacy (INSTALLED ✅)">☀️ Treacy (INSTALADO ✅)</a>
-                <a href="#sec-prov-hardiman" data-es="☀️ Hardiman" data-en="☀️ Hardiman">☀️ Hardiman</a>
-                <a href="#sec-prov-broderick" data-es="☀️ Broderick" data-en="☀️ Broderick">☀️ Broderick</a>
-                <a href="#sec-prov-pvgen" data-es="☀️ PV Gen" data-en="☀️ PV Gen">☀️ PV Gen</a>
-            </nav>
+            <!-- CAT 1: VISION GENERAL -->
+            <details open id="nav-cat-general">
+                <summary>📊 <span data-es="1. Visión General" data-en="1. Overview"></span></summary>
+                <nav>
+                    <a href="#sec-kpis"><span>📊 <span data-es="KPIs & Resumen" data-en="KPIs & Summary"></span></span></a>
+                    <a href="#sec-consumo"><span>⚡ <span data-es="Consumo Real" data-en="Real Consumption"></span></span></a>
+                    <a href="#sec-plan"><span>🎯 <span data-es="Plan de Acción" data-en="Action Plan"></span></span></a>
+                    <a href="#sec-todo"><span>✅ <span data-es="Pendientes" data-en="To-Do"></span></span></a>
+                </nav>
+            </details>
+
+            <!-- CAT 2: AEROTERMIA -->
+            <details open id="nav-cat-aerotermia">
+                <summary>🔥 <span data-es="2. Aerotermia HP" data-en="2. Heat Pump"></span> <span class="nav-badge badge-blue">EN CURSO</span></summary>
+                <nav>
+                    <a href="#sec-aerotermia"><span>🔥 <span data-es="Opciones Aerotermia" data-en="Heat Pump Options"></span></span></a>
+                    <a href="#sec-hp-tech"><span>🧠 <span data-es="Anotaciones Técnicas" data-en="Tech Insights"></span></span></a>
+                    <a href="#sec-prov-horgan"><span>🌡️ Horgan Renewables</span> <span class="nav-badge badge-green">Fuerte</span></a>
+                    <a href="#sec-prov-morningstar"><span>🌡️ Morning Star (James)</span> <span class="nav-badge badge-blue">R290</span></a>
+                    <a href="#sec-prov-ecoheat"><span>🌡️ Ecoheat (Craig)</span> <span class="nav-badge badge-yellow">5-6kW</span></a>
+                    <a href="#sec-prov-tpgas"><span>🌡️ TP Gas Services</span> <span class="nav-badge badge-red">❌</span></a>
+                </nav>
+            </details>
+
+            <!-- CAT 3: SOLAR PV -->
+            <details id="nav-cat-solar">
+                <summary>☀️ <span data-es="3. Solar PV & Baterías" data-en="3. Solar PV"></span> <span class="nav-badge badge-green">INSTALADO</span></summary>
+                <nav>
+                    <a href="#sec-prov-treacy"><span>☀️ Treacy Solar</span> <span class="nav-badge badge-green">✅</span></a>
+                    <a href="#sec-empresas"><span>📋 <span data-es="Empresas Solar" data-en="Solar Companies"></span></span></a>
+                    <a href="#sec-precios"><span>📊 <span data-es="Comparativa Precios" data-en="Price Matrix"></span></span></a>
+                    <a href="#sec-prov-hardiman"><span>☀️ Hardiman</span></a>
+                    <a href="#sec-prov-broderick"><span>☀️ Broderick</span></a>
+                    <a href="#sec-prov-pvgen"><span>☀️ PV Gen</span></a>
+                </nav>
+            </details>
+
+            <!-- CAT 4: COCHE ELECTRICO (EV) -->
+            <details open id="nav-cat-ev">
+                <summary>🚗 <span data-es="4. Coche Eléctrico (EV)" data-en="4. Electric Vehicle"></span> <span class="nav-badge badge-purple">NUEVO</span></summary>
+                <nav>
+                    <a href="#sec-ev"><span>🚗 <span data-es="Comparativa & Ahorro" data-en="EV & Savings"></span></span> <span class="nav-badge badge-purple">7kW</span></a>
+                </nav>
+            </details>
+
+            <!-- CAT 5: FINANZAS & ROI -->
+            <details id="nav-cat-finanzas">
+                <summary>📈 <span data-es="5. Finanzas & ROI" data-en="5. Finance & ROI"></span></summary>
+                <nav>
+                    <a href="#sec-roi"><span>📈 <span data-es="Calculadora ROI" data-en="ROI Calculator"></span></span></a>
+                    <a href="#sec-donothing"><span>💸 <span data-es="Coste No Hacer Nada" data-en="Cost of Inaction"></span></span></a>
+                    <a href="#sec-margen"><span>🔍 <span data-es="Márgenes" data-en="Markups"></span></span></a>
+                    <a href="#sec-seai"><span>💰 <span data-es="Subvenciones SEAI" data-en="SEAI Grants"></span></span></a>
+                </nav>
+            </details>
+
+            <!-- CAT 6: TECNICO & COMUNIDAD -->
+            <details id="nav-cat-specs">
+                <summary>🔧 <span data-es="6. Datos Técnicos" data-en="6. Tech Specs"></span></summary>
+                <nav>
+                    <a href="#sec-materiales"><span>🔧 <span data-es="Materiales" data-en="Equipment"></span></span></a>
+                    <a href="#sec-specs"><span>🔧 <span data-es="Especificaciones" data-en="Specs"></span></span></a>
+                    <a href="#sec-hardware"><span>🛒 <span data-es="Hardware" data-en="Hardware"></span></span></a>
+                    <a href="#sec-vecinos"><span>🏘️ <span data-es="Vecinos" data-en="Neighbours"></span></span></a>
+                </nav>
+            </details>
         </aside>
 
         <!-- Mobile nav button -->
@@ -137,6 +187,16 @@
         <!-- Main content -->
         <div class="main-content">
     <div class="container">
+        <!-- Top Category Filter Pills Bar -->
+        <div class="top-nav-filters">
+            <button class="filter-btn active" data-cat="all" onclick="filterCategory('all')">🌐 <span data-es="Visión Global" data-en="All Sections"></span></button>
+            <button class="filter-btn" data-cat="aerotermia" onclick="filterCategory('aerotermia')">🔥 <span data-es="Aerotermia" data-en="Heat Pump"></span></button>
+            <button class="filter-btn" data-cat="solar" onclick="filterCategory('solar')">☀️ <span data-es="Solar PV" data-en="Solar PV"></span></button>
+            <button class="filter-btn" data-cat="ev" onclick="filterCategory('ev')">🚗 <span data-es="Coche Eléctrico (EV)" data-en="EV Module"></span></button>
+            <button class="filter-btn" data-cat="finanzas" onclick="filterCategory('finanzas')">📈 <span data-es="Finanzas & ROI" data-en="Finance & ROI"></span></button>
+            <button class="filter-btn" data-cat="specs" onclick="filterCategory('specs')">🔧 <span data-es="Especificaciones" data-en="Tech Specs"></span></button>
+        </div>
+
         <div class="header">
             <div class="lang-toggle">
                 <div class="lang-btn active" onclick="setLang('es')">ES</div>
@@ -797,6 +857,169 @@
                         <tr><td style="font-weight:600;"><span data-es="Mejor relación global" data-en="Best overall value"></span></td><td style="color:var(--green); font-weight:700;">Treacy Solar (€10,300 neto, Sigenergy AI + 7.36kWp)</td></tr>
                     </table>
                     <p style="font-size:0.7rem; color:var(--gray); margin-top:8px;"><span data-es="Con el descuento de €500 en la nueva quote de 17/08 (€10,300 neto), Treacy Solar ofrece la mejor relación calidad/precio global (€500 más barato que Hardiman, mayor kWp, kit premium Sigenergy con IA y garantía de tejado de 10 años)." data-en="With the €500 discount in the new quote from 17/08 (€10,300 net), Treacy Solar offers the best overall value (€500 cheaper than Hardiman, higher kWp, premium Sigenergy kit with AI and 10yr roof warranty)."></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COCHE ELECTRICO (EV) -->
+        <div class="section" id="sec-ev">
+            <h2>🚗 <span data-es="Coche Eléctrico (EV) — Análisis de Impacto Económico" data-en="Electric Vehicle (EV) — Economic Impact Analysis"></span></h2>
+            <div style="background:white; padding:25px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                
+                <!-- Status Cards -->
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:15px; margin-bottom:25px;">
+                    <div class="card blue">
+                        <div class="label"><span data-es="Cargador EV Instalado" data-en="Installed EV Charger"></span></div>
+                        <div class="value" style="font-size:1.1rem;">Sigenergy 7kW</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Incluido en Fase 1 (€950 neto)" data-en="Included in Phase 1 (€950 net)"></span></div>
+                    </div>
+                    <div class="card green">
+                        <div class="label"><span data-es="Subvención Coche EV (SEAI)" data-en="EV Car SEAI Grant"></span></div>
+                        <div class="value">€3,500</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Descuento en concesionario" data-en="Dealer discount"></span></div>
+                    </div>
+                    <div class="card yellow">
+                        <div class="label"><span data-es="Carga Super Nocturna" data-en="Super Night Charge"></span></div>
+                        <div class="value">~€0.08 / kWh</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="vs €1.75/L Diésel (equiv. €0.30/L)" data-en="vs €1.75/L Diesel (equiv €0.30/L)"></span></div>
+                    </div>
+                    <div class="card green">
+                        <div class="label"><span data-es="Ahorro Estimado" data-en="Est. Fuel Savings"></span></div>
+                        <div class="value" id="ev-annual-savings-card" style="color:#166534;">~€1,526 / año</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Basado en 15,000 km/año" data-en="Based on 15,000 km/yr"></span></div>
+                    </div>
+                </div>
+
+                <!-- EV Models Table -->
+                <h3 style="margin-top:20px; margin-bottom:12px; font-size:1.05rem;">📊 <span data-es="Comparativa de Modelos EV Destacados en Irlanda" data-en="Popular EV Models Comparison in Ireland"></span></h3>
+                <div style="overflow-x:auto; margin-bottom:25px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span data-es="Modelo" data-en="Model"></span></th>
+                                <th><span data-es="Batería" data-en="Battery"></span></th>
+                                <th><span data-es="Consumo" data-en="Consumption"></span></th>
+                                <th><span data-es="Autonomía (WLTP)" data-en="Range (WLTP)"></span></th>
+                                <th><span data-es="Precio Bruto" data-en="Gross Price"></span></th>
+                                <th><span data-es="SEAI Grant" data-en="SEAI Grant"></span></th>
+                                <th><span data-es="Precio Neto" data-en="Net Price"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tesla Model 3 Rear-Wheel Drive</strong> ⭐</td>
+                                <td>60 kWh LFP</td>
+                                <td>13.2 kWh/100km</td>
+                                <td>513 km</td>
+                                <td>€40,990</td>
+                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
+                                <td><strong>€37,490</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tesla Model Y Rear-Wheel Drive</strong></td>
+                                <td>60 kWh LFP</td>
+                                <td>15.7 kWh/100km</td>
+                                <td>455 km</td>
+                                <td>€44,990</td>
+                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
+                                <td><strong>€41,490</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MG MG4 EV (51kWh Standard)</strong></td>
+                                <td>51 kWh LFP</td>
+                                <td>17.0 kWh/100km</td>
+                                <td>350 km</td>
+                                <td>€30,995</td>
+                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
+                                <td><strong>€27,495</strong> <small style="color:var(--gray);">(Opción Económica)</small></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hyundai Ioniq 5 (58kWh)</strong></td>
+                                <td>58 kWh NCM</td>
+                                <td>16.7 kWh/100km</td>
+                                <td>384 km</td>
+                                <td>€39,495</td>
+                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
+                                <td><strong>€35,995</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Volkswagen ID.4 Pure (52kWh)</strong></td>
+                                <td>52 kWh NCM</td>
+                                <td>16.8 kWh/100km</td>
+                                <td>360 km</td>
+                                <td>€38,400</td>
+                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
+                                <td><strong>€34,900</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Custom Fuel Savings Calculator -->
+                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🧮 <span data-es="Calculadora de Ahorro Diésel/Gasolina vs Carga Eléctrica" data-en="Fuel vs Electric Charging Savings Calculator"></span></h3>
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px;">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:15px;">
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                🛣️ <span data-es="Km Anuales:" data-en="Annual Km:"></span>
+                            </label>
+                            <input type="number" id="ev-calc-km" value="15000" step="1000" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                ⛽ <span data-es="Consumo Coche Actual (L/100km):" data-en="Current Car (L/100km):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-fuel-eff" value="6.5" step="0.1" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                💶 <span data-es="Precio Gasolina/Diésel (€/L):" data-en="Fuel Price (€/L):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-fuel-price" value="1.75" step="0.05" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                ⚡ <span data-es="Consumo EV (kWh/100km):" data-en="EV Usage (kWh/100km):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-ev-eff" value="15.0" step="0.5" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                🌙 <span data-es="Tarifa Carga EV (€/kWh):" data-en="EV Tariff (€/kWh):"></span>
+                            </label>
+                            <select id="ev-calc-rate-preset" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" onchange="updateEvCalculator()">
+                                <option value="0.08">🌙 Super Nocturna (2am-5am) (€0.08/kWh)</option>
+                                <option value="0.12">🌃 Nocturna Estándar (€0.12/kWh)</option>
+                                <option value="0.00">☀️ Excedente Solar Puro (€0.00/kWh)</option>
+                                <option value="0.28">⚡ Tarifa Día Estándar (€0.28/kWh)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Grid -->
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:15px; margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--red);">
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Combustible" data-en="Annual Fuel Cost"></span></div>
+                            <div style="font-size:1.2rem; font-weight:700; color:#991b1b;" id="ev-res-fuel-cost">€1,706 / año</div>
+                        </div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Carga EV" data-en="Annual EV Charge Cost"></span></div>
+                            <div style="font-size:1.2rem; font-weight:700; color:var(--blue);" id="ev-res-ev-cost">€180 / año</div>
+                        </div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro Anual Neto" data-en="Net Annual Savings"></span></div>
+                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-annual-savings">€1,526 / año</div>
+                        </div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro a 5 Años" data-en="5-Year Savings"></span></div>
+                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-5yr-savings">€7,631</div>
+                        </div>
+                    </div>
+
+                    <div class="note" style="margin-top:15px; background:#eff6ff; border-left-color:var(--blue);">
+                        <strong>💡 <span data-es="Sinergia Sigenergy 7kW EV + Batería 10kWh:" data-en="Sigenergy 7kW EV + 10kWh Battery Synergy:"></span></strong>
+                        <span data-es="El cargador inteligente Sigenergy de 7kW ya instalado permite la carga dinámica coordinada con la batería de 10kWh. Puedes programar la carga automática en las horas nocturnas super reducidas (2:00 a 5:00 am) o activar el modo 'Solar Pure' para aprovechar los excedentes de los 16 paneles solares (7.52 kWp)." data-en="The installed Sigenergy 7kW smart charger coordinates dynamic charging with the 10kWh battery. You can schedule automatic night charging (2:00-5:00 am) or enable 'Solar Pure' mode to leverage surplus from your 16 solar panels (7.52 kWp)."></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2038,29 +2261,108 @@
             });
         }
 
-        // Restore saved language & init calculator
+        // EV Calculator Logic
+        function updateEvCalculator() {
+            const km = parseFloat(document.getElementById('ev-calc-km').value) || 15000;
+            const fuelEff = parseFloat(document.getElementById('ev-calc-fuel-eff').value) || 6.5;
+            const fuelPrice = parseFloat(document.getElementById('ev-calc-fuel-price').value) || 1.75;
+            const evEff = parseFloat(document.getElementById('ev-calc-ev-eff').value) || 15.0;
+            const evRate = parseFloat(document.getElementById('ev-calc-rate-preset').value) || 0.08;
+
+            const fuelLitersAnnual = (km / 100) * fuelEff;
+            const fuelCostAnnual = fuelLitersAnnual * fuelPrice;
+
+            const evKwhAnnual = (km / 100) * evEff;
+            const evCostAnnual = evKwhAnnual * evRate;
+
+            const netSavings = fuelCostAnnual - evCostAnnual;
+            const fiveYrSavings = netSavings * 5;
+
+            const fmt = num => '€' + Math.round(num).toLocaleString();
+
+            const fuelCostEl = document.getElementById('ev-res-fuel-cost');
+            if (fuelCostEl) fuelCostEl.textContent = fmt(fuelCostAnnual) + ' / año';
+            const evCostEl = document.getElementById('ev-res-ev-cost');
+            if (evCostEl) evCostEl.textContent = fmt(evCostAnnual) + ' / año';
+            const annSavingsEl = document.getElementById('ev-res-annual-savings');
+            if (annSavingsEl) annSavingsEl.textContent = fmt(netSavings) + ' / año';
+            const fiveYrSavingsEl = document.getElementById('ev-res-5yr-savings');
+            if (fiveYrSavingsEl) fiveYrSavingsEl.textContent = fmt(fiveYrSavings);
+
+            const cardSavings = document.getElementById('ev-annual-savings-card');
+            if (cardSavings) cardSavings.textContent = '~' + fmt(netSavings) + ' / año';
+        }
+
+        // Category Filter for Top Navigation Bar
+        const categorySectionsMap = {
+            'all': null,
+            'aerotermia': ['sec-aerotermia', 'sec-hp-tech', 'sec-prov-horgan', 'sec-prov-morningstar', 'sec-prov-ecoheat', 'sec-prov-tpgas'],
+            'solar': ['sec-prov-treacy', 'sec-empresas', 'sec-precios', 'sec-prov-hardiman', 'sec-prov-broderick', 'sec-prov-pvgen'],
+            'ev': ['sec-ev'],
+            'finanzas': ['sec-roi', 'sec-donothing', 'sec-margen', 'sec-seai'],
+            'specs': ['sec-specs', 'sec-hardware', 'sec-materiales', 'sec-vecinos']
+        };
+
+        function filterCategory(cat) {
+            document.querySelectorAll('.top-nav-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
+            const targetBtn = document.querySelector(`.top-nav-filters .filter-btn[data-cat="${cat}"]`);
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (cat === 'all') {
+                const savedSec = localStorage.getItem('dashSection') || 'sec-kpis';
+                showSection(savedSec);
+                return;
+            }
+
+            const validIds = categorySectionsMap[cat] || [];
+            document.querySelectorAll('.section').forEach(s => {
+                if (validIds.includes(s.id)) {
+                    s.classList.add('visible');
+                } else {
+                    s.classList.remove('visible');
+                }
+            });
+
+            const detailsIdMap = {
+                'aerotermia': 'nav-cat-aerotermia',
+                'solar': 'nav-cat-solar',
+                'ev': 'nav-cat-ev',
+                'finanzas': 'nav-cat-finanzas',
+                'specs': 'nav-cat-specs'
+            };
+            if (detailsIdMap[cat]) {
+                const det = document.getElementById(detailsIdMap[cat]);
+                if (det) det.open = true;
+            }
+
+            if (validIds.length > 0) {
+                const firstEl = document.getElementById(validIds[0]);
+                if (firstEl) firstEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Restore saved language & init calculators
         const saved = localStorage.getItem('dashLang');
         if (saved) setLang(saved); else setLang('es');
         setSystem('hp');
+        updateEvCalculator();
 
         // SPA navigation: show only selected section
         function showSection(id) {
-            // Hide all sections
             document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
-            // Show target section (sec-kpis is always visible, so clicking it just clears others)
             const target = document.getElementById(id);
             if (target && target.classList.contains('section')) {
                 target.classList.add('visible');
             }
-            // Update active nav link
             document.querySelectorAll('.sidebar a[href^="#"]').forEach(l => l.classList.remove('active'));
             const activeLink = document.querySelector('.sidebar a[href="#' + id + '"]');
-            if (activeLink) activeLink.classList.add('active');
-            // Close mobile sidebar
+            if (activeLink) {
+                activeLink.classList.add('active');
+                const parentDetails = activeLink.closest('details');
+                if (parentDetails) parentDetails.open = true;
+            }
             document.getElementById('sidebar').classList.remove('open');
-            // Scroll to top of main content
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            // Save state
             localStorage.setItem('dashSection', id);
         }
 
