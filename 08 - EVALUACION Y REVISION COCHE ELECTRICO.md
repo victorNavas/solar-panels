@@ -3,12 +3,19 @@
 ## 1. Contexto del Comprador & Ecuación Financiera Base
 
 - **Kilometraje Anual Proyectado:** ~7.000 km / año.
-- **Infraestructura de Carga:** Paneles solares en domicilio (7.52 kWp + Inversor Híbrido Sigenergy 5kW + Cargador Sigenergy 7kW Tethered EV Charger) → Carga a coste cero / tarifa nocturna super reducida (~€0.08/kWh, equivale a ~€80/año de electricidad en movilidad).
+- **Carburante Actual:** **Diésel** (Precio medio nacional actual en Irlanda: **~€1.96/L**, alcanzando **€2.11–€2.26/L** en estaciones de autopista/horas pico).
+- **Proyección de Subida Anual de Diésel:** **+3.5% / año** de inflación en combustibles fósiles e impuestos CO₂.
+- **Diferencial de Mantenimiento:** 
+  - **VW Golf 2013 (Diésel):** **~€450 / año** (cambios de aceite/filtros, correa distribución, DPF, discos/pastillas, preparación para inspección NCT).
+  - **VW ID.3 (Eléctrico):** **~€150 / año** (neumáticos, filtro habitáculo, escobillas; sin aceite ni correa ni DPF).
+  - **Ahorro Neto en Mantenimiento:** **€300 / año**.
+- **Infraestructura de Carga:** Paneles solares en domicilio (7.52 kWp + Inversor Híbrido Sigenergy 5kW + Cargador Sigenergy 7kW Tethered EV Charger) → Carga a coste casi cero / tarifa super nocturna (~€0.08/kWh, solo **~€84/año** de electricidad en movilidad).
 - **Situación Personal & Apalancamiento:** Reciente nacimiento de tu hija. Prioridad absoluta en minimizar logística, evitar desplazamientos fuera de Limerick y cerrar transacciones rápidas sin fricción.
 - **Venta del Coche Actual:**
-  - **Modelo:** Volkswagen Golf 2013 (NCT vigente, control de crucero).
+  - **Modelo:** Volkswagen Golf 2013 (Diésel, NCT vigente, control de crucero).
   - **Precio Objetivo de Venta:** €5.000 – €5.500.
   - **Impacto en Liquidez:** Al vender el Golf por ~€5.000, la compra de un EV de ~€13.500 supondrá un desembolso neto de liquidez de solo **~€8.500**.
+  - **Retorno Total Combinado:** Ahorro total de **~€1,108 / año** en el Año 1 (Combustible + Mantenimiento) y **~€5,860 acumulados a 5 años**.
 
 ---
 

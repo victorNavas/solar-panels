@@ -1030,8 +1030,8 @@
                     </table>
                 </div>
 
-                <!-- Custom Fuel Savings Calculator -->
-                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🧮 <span data-es="Calculadora Personalizada de Ahorro e Impacto en Liquidez" data-en="Personalized Savings & Liquidity Outlay Calculator"></span></h3>
+                <!-- Custom Fuel & Maintenance Savings Calculator -->
+                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🧮 <span data-es="Calculadora Personalizada: Diésel vs EV + Mantenimiento & Inflación" data-en="Personalized Calculator: Diesel vs EV + Maintenance & Inflation"></span></h3>
                 <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-bottom:25px;">
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:15px;">
                         <div>
@@ -1042,21 +1042,39 @@
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                🚗 <span data-es="Precio Venta Golf (€):" data-en="Golf Trade-in (€):"></span>
+                                🚗 <span data-es="Venta Golf 2013 (€):" data-en="Golf 2013 Trade-in (€):"></span>
                             </label>
                             <input type="number" id="ev-calc-golf-trade" value="5000" step="250" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                ⛽ <span data-es="Consumo Golf Actual (L/100km):" data-en="Current Golf (L/100km):"></span>
+                                ⛽ <span data-es="Consumo Golf Diésel (L/100km):" data-en="Golf Diesel (L/100km):"></span>
                             </label>
                             <input type="number" id="ev-calc-fuel-eff" value="6.5" step="0.1" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                💶 <span data-es="Precio Gasolina/Diésel (€/L):" data-en="Fuel Price (€/L):"></span>
+                                💶 <span data-es="Precio Diésel Actual (€/L):" data-en="Current Diesel (€/L):"></span>
                             </label>
-                            <input type="number" id="ev-calc-fuel-price" value="1.75" step="0.05" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                            <input type="number" id="ev-calc-fuel-price" value="1.96" step="0.02" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                📈 <span data-es="Subida Anual Diésel (%):" data-en="Annual Fuel Infl (%):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-fuel-esc" value="3.5" step="0.5" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                🛠️ <span data-es="Mantenimiento Golf (€/año):" data-en="Golf Maint (€/yr):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-golf-maint" value="450" step="50" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                ⚡ <span data-es="Mantenimiento EV (€/año):" data-en="EV Maint (€/yr):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-ev-maint" value="150" step="25" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
@@ -1071,22 +1089,30 @@
                     </div>
 
                     <!-- Output Grid -->
-                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:15px; margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:15px; margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--red);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Combustible Golf" data-en="Annual Golf Fuel Cost"></span></div>
-                            <div style="font-size:1.2rem; font-weight:700; color:#991b1b;" id="ev-res-fuel-cost">€796 / año</div>
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Gasto Diésel Golf (Año 1)" data-en="Golf Fuel Cost (Yr 1)"></span></div>
+                            <div style="font-size:1.15rem; font-weight:700; color:#991b1b;" id="ev-res-fuel-cost">€892 / año</div>
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Carga EV" data-en="Annual EV Charge Cost"></span></div>
-                            <div style="font-size:1.2rem; font-weight:700; color:var(--blue);" id="ev-res-ev-cost">€84 / año</div>
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Gasto Carga EV Anual" data-en="Annual EV Charge Cost"></span></div>
+                            <div style="font-size:1.15rem; font-weight:700; color:var(--blue);" id="ev-res-ev-cost">€84 / año</div>
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro Anual Combustible" data-en="Net Fuel Savings"></span></div>
-                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-annual-savings">€712 / año</div>
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Ahorro Mantenimiento" data-en="Maint. Savings"></span></div>
+                            <div style="font-size:1.15rem; font-weight:700; color:#166534;" id="ev-res-maint-savings">€300 / año</div>
+                        </div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Ahorro Total Combinado (Año 1)" data-en="Total Savings (Yr 1)"></span></div>
+                            <div style="font-size:1.2rem; font-weight:800; color:#166534;" id="ev-res-annual-savings">€1,108 / año</div>
+                        </div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Ahorro a 5 Años (con Subida)" data-en="5-Yr Savings (inc. Infl)"></span></div>
+                            <div style="font-size:1.2rem; font-weight:800; color:#166534;" id="ev-res-5yr-savings">€5,862</div>
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Desembolso Neto en Efectivo" data-en="Net Cash Outlay"></span></div>
-                            <div style="font-size:1.3rem; font-weight:800; color:var(--blue);" id="ev-res-net-outlay">€8,500</div>
+                            <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Desembolso Neto Efectivo" data-en="Net Cash Outlay"></span></div>
+                            <div style="font-size:1.2rem; font-weight:800; color:var(--blue);" id="ev-res-net-outlay">€8,500</div>
                         </div>
                     </div>
                 </div>
