@@ -40,8 +40,8 @@
         .card .value { font-size: 1.8rem; font-weight: 700; color: var(--dark); }
         .card .label { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
         table { width: 100%; border-collapse: collapse; margin: 10px 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem; }
-        th { background: var(--gray-light); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3px; }
+        th { background: var(--gray-light); color: var(--dark); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3px; }
+        tr.dark-header th, thead.dark-header th, th.dark-header { background: #1e3a5f !important; color: white !important; }
         tr:last-child td { border-bottom: none; }
         .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
         .badge-green { background: var(--green-light); color: #166534; }
@@ -416,13 +416,13 @@
 
             <div style="overflow-x:auto;">
             <table style="font-size:0.85rem;">
-                <thead>
-                    <tr style="background:#1e3a5f; color:white;">
-                        <th><span data-es="Aspecto / Instalador" data-en="Aspect / Installer"></span></th>
-                        <th><span data-es="1. Horgan Renewables" data-en="1. Horgan Renewables"></span> ⭐</th>
-                        <th><span data-es="2. Morning Star Projects" data-en="2. Morning Star Projects"></span> (James Murphy)</th>
-                        <th><span data-es="3. Ecoheat Ireland" data-en="3. Ecoheat Ireland"></span> (Craig Kelly)</th>
-                        <th><span data-es="4. TP Gas Services" data-en="4. TP Gas Services"></span> (Mark Payne)</th>
+                <thead class="dark-header">
+                    <tr class="dark-header" style="background:#1e3a5f; color:white;">
+                        <th class="dark-header" style="background:#1e3a5f; color:white;"><span data-es="Aspecto / Instalador" data-en="Aspect / Installer"></span></th>
+                        <th class="dark-header" style="background:#1e3a5f; color:white;"><span data-es="1. Horgan Renewables" data-en="1. Horgan Renewables"></span> ⭐</th>
+                        <th class="dark-header" style="background:#1e3a5f; color:white;"><span data-es="2. Morning Star Projects" data-en="2. Morning Star Projects"></span> (James Murphy)</th>
+                        <th class="dark-header" style="background:#1e3a5f; color:white;"><span data-es="3. Ecoheat Ireland" data-en="3. Ecoheat Ireland"></span> (Craig Kelly)</th>
+                        <th class="dark-header" style="background:#1e3a5f; color:white;"><span data-es="4. TP Gas Services" data-en="4. TP Gas Services"></span> (Mark Payne)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -2338,7 +2338,7 @@
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
             document.querySelectorAll('[data-es]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
+                el.innerHTML = el.getAttribute(`data-${lang}`);
             });
             // Update select options language
             document.querySelectorAll('#roi-provider option, #roi-solar-provider option, #roi-hp-provider option').forEach(opt => {
