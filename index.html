@@ -863,111 +863,192 @@
 
         <!-- COCHE ELECTRICO (EV) -->
         <div class="section" id="sec-ev">
-            <h2>🚗 <span data-es="Coche Eléctrico (EV) — Análisis de Impacto Económico" data-en="Electric Vehicle (EV) — Economic Impact Analysis"></span></h2>
+            <h2>🚗 <span data-es="Coche Eléctrico (EV) — Selección & Impacto Económico" data-en="Electric Vehicle (EV) — Selection & Economic Impact"></span></h2>
             <div style="background:white; padding:25px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
                 
-                <!-- Status Cards -->
+                <!-- Status & Trade-in Summary Cards -->
                 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:15px; margin-bottom:25px;">
                     <div class="card blue">
-                        <div class="label"><span data-es="Cargador EV Instalado" data-en="Installed EV Charger"></span></div>
-                        <div class="value" style="font-size:1.1rem;">Sigenergy 7kW</div>
-                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Incluido en Fase 1 (€950 neto)" data-en="Included in Phase 1 (€950 net)"></span></div>
+                        <div class="label"><span data-es="Venta Coche Actual (Golf 2013)" data-en="Current Car Trade-in (Golf 2013)"></span></div>
+                        <div class="value" style="font-size:1.15rem; color:var(--blue);">€5,000 – €5,500</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="NCT vigente · Control crucero" data-en="Valid NCT · Cruise control"></span></div>
                     </div>
                     <div class="card green">
-                        <div class="label"><span data-es="Subvención Coche EV (SEAI)" data-en="EV Car SEAI Grant"></span></div>
-                        <div class="value">€3,500</div>
-                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Descuento en concesionario" data-en="Dealer discount"></span></div>
+                        <div class="label"><span data-es="Desembolso Neto Estimado" data-en="Net Cash Outflow"></span></div>
+                        <div class="value" style="font-size:1.2rem; color:#166534;">~€8,500 neto</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Para EV de ~€13.5k tras venta Golf" data-en="For ~€13.5k EV after Golf sale"></span></div>
                     </div>
                     <div class="card yellow">
-                        <div class="label"><span data-es="Carga Super Nocturna" data-en="Super Night Charge"></span></div>
-                        <div class="value">~€0.08 / kWh</div>
-                        <div class="subtext" style="font-size:0.75rem;"><span data-es="vs €1.75/L Diésel (equiv. €0.30/L)" data-en="vs €1.75/L Diesel (equiv €0.30/L)"></span></div>
+                        <div class="label"><span data-es="Carga Anual Solar / Nocturna" data-en="Annual Solar/Night Elec Cost"></span></div>
+                        <div class="value" style="font-size:1.2rem;">~€80 / año</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="7,000 km/año · Carga Solar + €0.08" data-en="7,000 km/yr · Solar + €0.08 rate"></span></div>
                     </div>
                     <div class="card green">
-                        <div class="label"><span data-es="Ahorro Estimado" data-en="Est. Fuel Savings"></span></div>
-                        <div class="value" id="ev-annual-savings-card" style="color:#166534;">~€1,526 / año</div>
-                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Basado en 15,000 km/año" data-en="Based on 15,000 km/yr"></span></div>
+                        <div class="label"><span data-es="Ahorro Combustible Estimado" data-en="Est. Fuel Savings"></span></div>
+                        <div class="value" id="ev-annual-savings-card" style="color:#166534;">~€715 / año</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="vs €1.75/L Diésel a 7,000 km/año" data-en="vs €1.75/L Diesel at 7,000 km/yr"></span></div>
                     </div>
                 </div>
 
-                <!-- EV Models Table -->
-                <h3 style="margin-top:20px; margin-bottom:12px; font-size:1.05rem;">📊 <span data-es="Comparativa de Modelos EV Destacados en Irlanda" data-en="Popular EV Models Comparison in Ireland"></span></h3>
+                <!-- Strategic Priority Alert -->
+                <div class="note" style="margin-bottom:25px; background:#f0fdf4; border-left-color:var(--green);">
+                    <strong>👶 <span data-es="Estrategia de Apalancamiento Local (Limerick):" data-en="Local Leverage Strategy (Limerick):"></span></strong>
+                    <span data-es="Prioridad absoluta en minimizar logística y evitar viajes fuera de Limerick (reciente nacimiento de tu hija). El objetivo es cerrar una venta rápida en efectivo cerca de Castletroy (coste de oportunidad €0 en desplazamientos)." data-en="Top priority to minimize logistics and avoid trips outside Limerick (recent newborn daughter). Goal is a quick, hassle-free cash purchase near Castletroy zero travel friction."></span>
+                </div>
+
+                <!-- Database of Analyzed Vehicles -->
+                <h3 style="margin-top:20px; margin-bottom:12px; font-size:1.05rem;">📊 <span data-es="Base de Datos de Vehículos EV Analizados" data-en="Analyzed EV Candidates Database"></span></h3>
                 <div style="overflow-x:auto; margin-bottom:25px;">
                     <table>
                         <thead>
                             <tr>
-                                <th><span data-es="Modelo" data-en="Model"></span></th>
-                                <th><span data-es="Batería" data-en="Battery"></span></th>
-                                <th><span data-es="Consumo" data-en="Consumption"></span></th>
-                                <th><span data-es="Autonomía (WLTP)" data-en="Range (WLTP)"></span></th>
-                                <th><span data-es="Precio Bruto" data-en="Gross Price"></span></th>
-                                <th><span data-es="SEAI Grant" data-en="SEAI Grant"></span></th>
-                                <th><span data-es="Precio Neto" data-en="Net Price"></span></th>
+                                <th><span data-es="Modelo & Año" data-en="Model & Year"></span></th>
+                                <th><span data-es="Vendedor & Ubicación" data-en="Seller & Location"></span></th>
+                                <th><span data-es="Km" data-en="Mileage"></span></th>
+                                <th><span data-es="Precio Lista" data-en="Asking Price"></span></th>
+                                <th><span data-es="Oferta Objetivo" data-en="Target Offer"></span></th>
+                                <th><span data-es="Estado / Veredicto" data-en="Status / Verdict"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background:#f0fdf4;">
+                                <td><strong>VW ID.3 Base (2020)</strong></td>
+                                <td>Particular · <strong>Castletroy, Limerick</strong></td>
+                                <td>~125,000 km</td>
+                                <td>~€13.5k–14k</td>
+                                <td><strong style="color:var(--blue);">€12,800 – €13,200</strong></td>
+                                <td><span class="nav-badge badge-green">⭐ ACTIVO (LOCAL)</span> <small style="display:block; color:var(--gray);">NCT Sep 2026. Prioridad 1.</small></td>
+                            </tr>
+                            <tr style="background:#eff6ff;">
+                                <td><strong>VW ID.3 Style 204HP 58kWh</strong></td>
+                                <td>Particular · <strong>Castletroy, Limerick</strong></td>
+                                <td><em>Pendiente</em></td>
+                                <td><em>Pendiente</em></td>
+                                <td><strong>&lt; €14,500</strong></td>
+                                <td><span class="nav-badge badge-blue">🎯 PENDIENTE DATOS</span> <small style="display:block; color:var(--gray);">Definitivo si &lt; €14.5k (DoneDeal 42980039)</small></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nissan Leaf SV 40kWh (2021)</strong></td>
+                                <td>Limerick</td>
+                                <td>220 km (?)</td>
+                                <td>€6,950</td>
+                                <td>Confirmar</td>
+                                <td><span class="nav-badge badge-yellow">⚠️ ALERTA / CUIDADO</span> <small style="display:block; color:var(--gray);">Posible error en km o write-off</small></td>
+                            </tr>
+                            <tr style="opacity:0.65;">
+                                <td>VW ID.3 Pro Style (2021)</td>
+                                <td>Eddie Dempsey · Portarlington</td>
+                                <td>102,000 km</td>
+                                <td>€14,399</td>
+                                <td>€13,500</td>
+                                <td><span class="nav-badge badge-red">❌ Vendido</span> <small style="display:block; color:var(--gray);">Descartado por venta</small></td>
+                            </tr>
+                            <tr style="opacity:0.65;">
+                                <td>VW ID.3 Facelift (2024)</td>
+                                <td>Emma · Dublín</td>
+                                <td>28,000 km</td>
+                                <td>€22,500</td>
+                                <td>—</td>
+                                <td><span class="nav-badge badge-red">❌ Descartado</span> <small style="display:block; color:var(--gray);">Alta liquidez + viaje</small></td>
+                            </tr>
+                            <tr style="opacity:0.65;">
+                                <td>VW ID.3 1st Edition (2020)</td>
+                                <td>Roman</td>
+                                <td>~100,000 km</td>
+                                <td>€15,000</td>
+                                <td>—</td>
+                                <td><span class="nav-badge badge-red">❌ Descartado</span> <small style="display:block; color:var(--gray);">Precio inflado</small></td>
+                            </tr>
+                            <tr style="opacity:0.65;">
+                                <td>VW ID.3 (2020)</td>
+                                <td>Dealer · Limerick</td>
+                                <td>160,197 km</td>
+                                <td>€15,880</td>
+                                <td>—</td>
+                                <td><span class="nav-badge badge-red">❌ Riesgo Batería</span> <small style="display:block; color:var(--gray);">Garantía 160k km expirada</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TCO 3-Year Comparison Table -->
+                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">📈 <span data-es="Análisis Económico Consolidado (TCO a 3 Años - 7,000 km/año)" data-en="Consolidated TCO Analysis (3 Years - 7,000 km/yr)"></span></h3>
+                <div style="overflow-x:auto; margin-bottom:25px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span data-es="Parámetro" data-en="Parameter"></span></th>
+                                <th><span data-es="ID.3 (2020 Local Castletroy)" data-en="ID.3 (2020 Local Castletroy)"></span> ⭐</th>
+                                <th><span data-es="ID.3 (2021 Style)" data-en="ID.3 (2021 Style)"></span></th>
+                                <th><span data-es="ID.3 Facelift (2024)" data-en="ID.3 Facelift (2024)"></span></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Tesla Model 3 Rear-Wheel Drive</strong> ⭐</td>
-                                <td>60 kWh LFP</td>
-                                <td>13.2 kWh/100km</td>
-                                <td>513 km</td>
-                                <td>€40,990</td>
-                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
-                                <td><strong>€37,490</strong></td>
+                                <td><strong>Precio Compra Objetivo</strong></td>
+                                <td><strong>€13,000 – €13,500</strong></td>
+                                <td>€13,800</td>
+                                <td>€22,500</td>
                             </tr>
                             <tr>
-                                <td><strong>Tesla Model Y Rear-Wheel Drive</strong></td>
-                                <td>60 kWh LFP</td>
-                                <td>15.7 kWh/100km</td>
-                                <td>455 km</td>
-                                <td>€44,990</td>
-                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
-                                <td><strong>€41,490</strong></td>
+                                <td><strong>Flujo Neto (Tras Venta Golf €5k)</strong></td>
+                                <td style="color:#166534; font-weight:700;">- €8,000 a - €8,500</td>
+                                <td>- €8,800</td>
+                                <td>- €17,500</td>
                             </tr>
                             <tr>
-                                <td><strong>MG MG4 EV (51kWh Standard)</strong></td>
-                                <td>51 kWh LFP</td>
-                                <td>17.0 kWh/100km</td>
-                                <td>350 km</td>
-                                <td>€30,995</td>
-                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
-                                <td><strong>€27,495</strong> <small style="color:var(--gray);">(Opción Económica)</small></td>
+                                <td><strong>Depreciación Anual Est.</strong></td>
+                                <td>~€1,200 / año</td>
+                                <td>~€1,100 / año</td>
+                                <td>~€1,950 / año</td>
                             </tr>
                             <tr>
-                                <td><strong>Hyundai Ioniq 5 (58kWh)</strong></td>
-                                <td>58 kWh NCM</td>
-                                <td>16.7 kWh/100km</td>
-                                <td>384 km</td>
-                                <td>€39,495</td>
-                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
-                                <td><strong>€35,995</strong></td>
+                                <td><strong>Coste Eléctrico Anual (Solar/Night)</strong></td>
+                                <td style="color:var(--green); font-weight:600;">~€80 / año ⭐</td>
+                                <td>~€80 / año</td>
+                                <td>~€80 / año</td>
                             </tr>
                             <tr>
-                                <td><strong>Volkswagen ID.4 Pure (52kWh)</strong></td>
-                                <td>52 kWh NCM</td>
-                                <td>16.8 kWh/100km</td>
-                                <td>360 km</td>
-                                <td>€38,400</td>
-                                <td style="color:var(--green); font-weight:600;">-€3,500</td>
-                                <td><strong>€34,900</strong></td>
+                                <td><strong>Mantenimiento y Neumáticos</strong></td>
+                                <td>~€350 / año</td>
+                                <td>~€300 / año</td>
+                                <td>~€150 / año</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Seguro e Impuestos (Tax €120)</strong></td>
+                                <td>~€650 / año</td>
+                                <td>~€620 / año</td>
+                                <td>~€550 / año</td>
+                            </tr>
+                            <tr style="background:#f0fdf4;">
+                                <td><strong>Coste Real Total Anual (TCO)</strong></td>
+                                <td style="color:#166534; font-weight:800; font-size:1.05rem;">~€2,280 / año ⭐</td>
+                                <td style="font-weight:700;">~€2,100 / año</td>
+                                <td style="color:#991b1b; font-weight:700;">~€2,730 / año</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Custom Fuel Savings Calculator -->
-                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🧮 <span data-es="Calculadora de Ahorro Diésel/Gasolina vs Carga Eléctrica" data-en="Fuel vs Electric Charging Savings Calculator"></span></h3>
-                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px;">
-                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:15px;">
+                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🧮 <span data-es="Calculadora Personalizada de Ahorro e Impacto en Liquidez" data-en="Personalized Savings & Liquidity Outlay Calculator"></span></h3>
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-bottom:25px;">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:15px;">
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                🛣️ <span data-es="Km Anuales:" data-en="Annual Km:"></span>
+                                🛣️ <span data-es="Km Anuales Proyectados:" data-en="Annual Projected Km:"></span>
                             </label>
-                            <input type="number" id="ev-calc-km" value="15000" step="1000" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                            <input type="number" id="ev-calc-km" value="7000" step="500" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                ⛽ <span data-es="Consumo Coche Actual (L/100km):" data-en="Current Car (L/100km):"></span>
+                                🚗 <span data-es="Precio Venta Golf (€):" data-en="Golf Trade-in (€):"></span>
+                            </label>
+                            <input type="number" id="ev-calc-golf-trade" value="5000" step="250" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
+                                ⛽ <span data-es="Consumo Golf Actual (L/100km):" data-en="Current Golf (L/100km):"></span>
                             </label>
                             <input type="number" id="ev-calc-fuel-eff" value="6.5" step="0.1" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
                         </div>
@@ -979,19 +1060,12 @@
                         </div>
                         <div>
                             <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
-                                ⚡ <span data-es="Consumo EV (kWh/100km):" data-en="EV Usage (kWh/100km):"></span>
-                            </label>
-                            <input type="number" id="ev-calc-ev-eff" value="15.0" step="0.5" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" oninput="updateEvCalculator()">
-                        </div>
-                        <div>
-                            <label style="font-size:0.78rem; font-weight:600; display:block; margin-bottom:5px;">
                                 🌙 <span data-es="Tarifa Carga EV (€/kWh):" data-en="EV Tariff (€/kWh):"></span>
                             </label>
                             <select id="ev-calc-rate-preset" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem;" onchange="updateEvCalculator()">
-                                <option value="0.08">🌙 Super Nocturna (2am-5am) (€0.08/kWh)</option>
-                                <option value="0.12">🌃 Nocturna Estándar (€0.12/kWh)</option>
+                                <option value="0.08">🌙 Solar + Super Nocturna (€0.08/kWh)</option>
                                 <option value="0.00">☀️ Excedente Solar Puro (€0.00/kWh)</option>
-                                <option value="0.28">⚡ Tarifa Día Estándar (€0.28/kWh)</option>
+                                <option value="0.12">🌃 Nocturna Estándar (€0.12/kWh)</option>
                             </select>
                         </div>
                     </div>
@@ -999,28 +1073,53 @@
                     <!-- Output Grid -->
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap:15px; margin-top:20px; padding-top:20px; border-top:1px solid #e2e8f0;">
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--red);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Combustible" data-en="Annual Fuel Cost"></span></div>
-                            <div style="font-size:1.2rem; font-weight:700; color:#991b1b;" id="ev-res-fuel-cost">€1,706 / año</div>
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Combustible Golf" data-en="Annual Golf Fuel Cost"></span></div>
+                            <div style="font-size:1.2rem; font-weight:700; color:#991b1b;" id="ev-res-fuel-cost">€796 / año</div>
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
                             <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Gasto Anual Carga EV" data-en="Annual EV Charge Cost"></span></div>
-                            <div style="font-size:1.2rem; font-weight:700; color:var(--blue);" id="ev-res-ev-cost">€180 / año</div>
+                            <div style="font-size:1.2rem; font-weight:700; color:var(--blue);" id="ev-res-ev-cost">€84 / año</div>
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro Anual Neto" data-en="Net Annual Savings"></span></div>
-                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-annual-savings">€1,526 / año</div>
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro Anual Combustible" data-en="Net Fuel Savings"></span></div>
+                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-annual-savings">€712 / año</div>
                         </div>
-                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--green);">
-                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Ahorro a 5 Años" data-en="5-Year Savings"></span></div>
-                            <div style="font-size:1.3rem; font-weight:800; color:#166534;" id="ev-res-5yr-savings">€7,631</div>
+                        <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
+                            <div style="font-size:0.75rem; color:var(--gray);"><span data-es="Desembolso Neto en Efectivo" data-en="Net Cash Outlay"></span></div>
+                            <div style="font-size:1.3rem; font-weight:800; color:var(--blue);" id="ev-res-net-outlay">€8,500</div>
                         </div>
-                    </div>
-
-                    <div class="note" style="margin-top:15px; background:#eff6ff; border-left-color:var(--blue);">
-                        <strong>💡 <span data-es="Sinergia Sigenergy 7kW EV + Batería 10kWh:" data-en="Sigenergy 7kW EV + 10kWh Battery Synergy:"></span></strong>
-                        <span data-es="El cargador inteligente Sigenergy de 7kW ya instalado permite la carga dinámica coordinada con la batería de 10kWh. Puedes programar la carga automática en las horas nocturnas super reducidas (2:00 a 5:00 am) o activar el modo 'Solar Pure' para aprovechar los excedentes de los 16 paneles solares (7.52 kWp)." data-en="The installed Sigenergy 7kW smart charger coordinates dynamic charging with the 10kWh battery. You can schedule automatic night charging (2:00-5:00 am) or enable 'Solar Pure' mode to leverage surplus from your 16 solar panels (7.52 kWp)."></span>
                     </div>
                 </div>
+
+                <!-- Negotiation Arguments Box -->
+                <h3 style="margin-top:25px; margin-bottom:12px; font-size:1.05rem;">🗣️ <span data-es="Biblioteca de Argumentos de Negociación (Scripts en Inglés)" data-en="Negotiation Arguments Library (English Scripts)"></span></h3>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:15px;">
+                    <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:15px;">
+                        <h4 style="margin:0 0 8px; font-size:0.85rem; color:var(--blue);">1. La Carta Local & El Recién Nacido 👶</h4>
+                        <p style="font-size:0.8rem; font-style:italic; margin:0; color:#334155;">
+                            "My baby daughter was just born on Saturday. I live nearby in Castletroy and can view the car immediately. I’m looking for a hassle-free, fast cash sale."
+                        </p>
+                    </div>
+                    <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:15px;">
+                        <h4 style="margin:0 0 8px; font-size:0.85rem; color:var(--blue);">2. Transferencia de Riesgo (Garantía Batería) 🔋</h4>
+                        <p style="font-size:0.8rem; font-style:italic; margin:0; color:#334155;">
+                            "As the car has 125,000 km, there is only a small buffer left on the 160,000 km official battery warranty, which affects its residual value."
+                        </p>
+                    </div>
+                    <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:15px;">
+                        <h4 style="margin:0 0 8px; font-size:0.85rem; color:var(--blue);">3. Referencias Comprobables de Mercado 📊</h4>
+                        <p style="font-size:0.8rem; font-style:italic; margin:0; color:#334155;">
+                            "2021 Style models with lower mileage, panoramic roofs, and Matrix LEDs have recently sold around €14,000, so my ceiling for a base 2020 model is €13,200."
+                        </p>
+                    </div>
+                    <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:15px;">
+                        <h4 style="margin:0 0 8px; font-size:0.85rem; color:var(--blue);">4. Desgaste Oculto (Neumáticos/Suspensión) 🛞</h4>
+                        <p style="font-size:0.8rem; font-style:italic; margin:0; color:#334155;">
+                            "EVs are heavy and go through tires and suspension quickly. Given the wear on the tires (under 4mm) and bushings, I'll need to spend €500 right away."
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -2263,10 +2362,11 @@
 
         // EV Calculator Logic
         function updateEvCalculator() {
-            const km = parseFloat(document.getElementById('ev-calc-km').value) || 15000;
+            const km = parseFloat(document.getElementById('ev-calc-km').value) || 7000;
+            const golfTrade = parseFloat(document.getElementById('ev-calc-golf-trade')?.value) || 5000;
             const fuelEff = parseFloat(document.getElementById('ev-calc-fuel-eff').value) || 6.5;
             const fuelPrice = parseFloat(document.getElementById('ev-calc-fuel-price').value) || 1.75;
-            const evEff = parseFloat(document.getElementById('ev-calc-ev-eff').value) || 15.0;
+            const evEff = 15.0; // kWh/100km
             const evRate = parseFloat(document.getElementById('ev-calc-rate-preset').value) || 0.08;
 
             const fuelLitersAnnual = (km / 100) * fuelEff;
@@ -2276,7 +2376,8 @@
             const evCostAnnual = evKwhAnnual * evRate;
 
             const netSavings = fuelCostAnnual - evCostAnnual;
-            const fiveYrSavings = netSavings * 5;
+            const targetEvPrice = 13500;
+            const netCashOutlay = targetEvPrice - golfTrade;
 
             const fmt = num => '€' + Math.round(num).toLocaleString();
 
@@ -2286,8 +2387,8 @@
             if (evCostEl) evCostEl.textContent = fmt(evCostAnnual) + ' / año';
             const annSavingsEl = document.getElementById('ev-res-annual-savings');
             if (annSavingsEl) annSavingsEl.textContent = fmt(netSavings) + ' / año';
-            const fiveYrSavingsEl = document.getElementById('ev-res-5yr-savings');
-            if (fiveYrSavingsEl) fiveYrSavingsEl.textContent = fmt(fiveYrSavings);
+            const netOutlayEl = document.getElementById('ev-res-net-outlay');
+            if (netOutlayEl) netOutlayEl.textContent = fmt(netCashOutlay);
 
             const cardSavings = document.getElementById('ev-annual-savings-card');
             if (cardSavings) cardSavings.textContent = '~' + fmt(netSavings) + ' / año';
