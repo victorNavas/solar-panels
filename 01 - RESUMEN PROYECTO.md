@@ -46,6 +46,6 @@ Retrofit completo: **Solar PV (6.6-7 kW) + Batería (10 kWh) + Aerotermia (8-10 
 - Buscar electricistas/fontaneros SEAI que cobren solo mano de obra + certificación
 
 ## Estado Actual
-- Vecinos de Evanwood contactados vía WhatsApp (compra agregada)
-- Múltiples presupuestos recibidos (ver documento de empresas)
-- Búsqueda activa de instaladores independientes para plan DIY supervisado
+- **Fase 1 (Solar PV + Batería):** ✅ **INSTALADO (10/09/2026)** con Treacy Solar (7.52 kWp Jinko + 10kWh Sigenergy + Cargador EV — €11,250 neto).
+- **Fase 2 (Aerotermia):** 🔄 **EN EVALUACIÓN Y SELECCIÓN DE INSTALADOR**. Presupuesto firme de Donal Horgan (€4,250 neto inc. 4 radiadores), visitas técnicas en sitio esta semana con James Murphy (Morning Star — Vaillant R290 8kW) y propuesta HLI de Craig Kelly (Ecoheat Ireland — 5-6kW Monobloc).
+

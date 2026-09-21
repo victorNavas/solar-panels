@@ -2,32 +2,28 @@
 
 ## Estrategia: Dividir y Vencerás (Gestión Independiente)
 
-### FASE 1: Solar PV + Batería (Prioritaria)
+### FASE 1: Solar PV + Batería (¡INSTALADO 10/09/2026!) ✅
+- **Instalador:** Treacy Solar (Kieron Bolt & equipo)
+- **Equipamiento:** 16 x Jinko Solar 470W All Black (7.52 kWp) + Inversor Híbrido Sigenergy 5kW AI + Batería Sigenergy 10kWh + Cargador EV SigEnergy 7kW Tethered
+- **Coste Neto:** €11,250 neto pagado
+- **Estado:** ✅ **INSTALADO, COMISIONADO Y OPERATIVO**
 
-#### Opción A: DIY Supervisado con Emmet ⭐
-1. Confirmar con Emmet el precio del hardware (materiales a coste +7%)
-2. Victor monta raíles y paneles (o contrata roofer por €500/día)
-3. Emmet hace cableado DC/AC, commissioning, NC6, papeleo SEAI (€650/día + €1,000)
-4. Solicitar SEAI Solar PV Grant (€1,800) → formulario online con MPRN
+### FASE 2: Selección y Evaluación Técnica de Aerotermia (EN CURSO) 🔄
+1. **Opciones e Instaladores en evaluación:**
+   - **Horgan Renewables (Donal Horgan):** Presupuesto firme de **€16,750 bruto / €4,250 neto** (Mitsubishi Ecodan 8kW Monobloc, incluye cambio de 4 radiadores simples por dobles, grant at source).
+   - **Morning Star Projects (James Murphy):** **Visita técnica en sitio esta semana**. Oferta Vaillant aroTHERM Plus 8kW Monobloc con **R290 Propano** (hasta 75 °C impulsión, Quiet Mark).
+   - **Ecoheat Ireland (Craig Kelly):** **Calculando HLI oficial**. Propone equipo de **5kW - 6kW Monobloc** para evitar *short cycling* (demanda térmica estimada 5.8 kW para 105 m² BER A3). Exige pago 100% por adelantado.
+   - **TP Gas Services (Mark Payne):** €25,000 bruto / €12,500 neto — **Descartado por fuera de rango**.
+2. **Decisiones clave en curso:**
+   - Sizing óptimo: 5-6 kW (Ecoheat) vs 8 kW (Horgan / Morning Star).
+   - Refrigerante: R290 Propano (Vaillant) vs R32 (Mitsubishi Ecodan).
+   - Cambio de radiadores: cambiar 4 radiadores desbloquea €2,000 SEAI Central Heating Upgrade (Horgan cobra €1,900 por 4 radiadores → ahorras €100 neto).
 
-#### Opción B: Sean McCarthy (Premium)
-- Esperar su propuesta desktop con Anker Solix/EcoFlow (15 años garantía)
-- Hardware premium pero posiblemente más caro
-
-#### Opción C: H&A Solar (Especialista puro)
-- Esperar su presupuesto para comparar con Emmet
-
-### FASE 2: Technical Assessment (Para Heat Pump)
-1. Buscar **Technical Advisor independiente** en Limerick (SEAI registered)
-2. Coste: €300-500 (SEAI devuelve €200)
-3. Objetivo: confirmar que los radiadores Tipo 22 valen (HLI < 2.0 W/K/m²)
-4. Esto desbloquea la ayuda de €12,500 para la Heat Pump
-
-### FASE 3: Aerotermia (Heat Pump)
-1. Esperar respuestas de la campaña de emails a fontaneros SEAI
-2. Con el assessment en mano, negociar solo mano de obra + certificación
-3. Posibilidad de comprar la Daikin Altherma 3 directamente (~€5,400)
-4. Fontanero hace: instalación hidráulica, F-Gas, balanceo, SEAI sign-off
+### FASE 3: Instalación de Aerotermia & Subvención SEAI (€12,500)
+1. Elegir instalador final tras visita técnica y propuesta formal.
+2. Solicitar SEAI Heat Pump Grant (€6,500 HP + €4,000 Fossil Fuel Bonus + €2,000 Central Heating = €12,500 totales).
+3. Recibir SEAI Letter of Offer.
+4. Instalación hidráulica, retirada de caldera de gas, comisionado y BER post-obras.
 
 ---
 

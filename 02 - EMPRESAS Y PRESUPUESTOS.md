@@ -157,13 +157,51 @@ ecoenergy.engineering@outlook.ie, philiposullivanplumbing@gmail.com, heattechltd
 
 ---
 
-## Comparativa Resumen
+## Comparativa de Opciones y Presupuestos de Aerotermia
 
-| Empresa | Solar+Bat Neto | Heat Pump Neto | Total Neto | Modelo |
+Vivienda de 105 m², construida en 2017 con BER A3 en Castletroy, Limerick.
+
+| Aspecto / Instalador | **1. Horgan Renewables** ⭐ | **2. Morning Star Projects** (James Murphy) | **3. Ecoheat Ireland** (Craig Kelly) | **4. TP Gas Services** (Mark Payne) |
+| --- | --- | --- | --- | --- |
+| **Modelo ofertado** | Mitsubishi Ecodan 8kW Monobloc | Vaillant aroTHERM Plus 8kW Monobloc | 5kW - 6kW Monobloc (Modelo por confirmar) | Sin definir |
+| **Gas refrigerante** | R32 (Sintético) | **R290 - Propano** (Natural) | R290 / R32 (Pendiente de propuesta) | Sin definir |
+| **Temp. máx. impulsión** | ~60 °C | **Hasta 75 °C** | N/A | N/A |
+| **Cambio de radiadores** | Incluye cambio de 4 radiadores | En evaluación tras visita técnica | Sugiere evaluar según HLI / demanda | Exige mediciones y plano propio |
+| **Gestión de subvención** | Descuento directo en origen (*Grant at source*) | Descuento en origen pendiente de desglose | **Pago 100% por adelantado** (Reembolso posterior SEAI) | N/A |
+| **Precio Bruto Est.** | ~€16,750 | Pendiente de desglose tras visita | Pendiente de presupuesto formal | €25,000 Inc. VAT |
+| **Coste Neto Final** | **€4,250** (Tras €12,500 SEAI) | Pendiente (estimado algo superior a Mitsubishi) | Pendiente (dependerá de radiadores cambiados) | **€12,500** (Tras €12,500 SEAI) |
+| **Estado actual** | Presupuesto firme recibido | **Visita técnica en sitio** esta semana | Calculando HLI oficial para propuesta | **Descartado / En reserva** (Precio fuera de rango) |
+
+---
+
+## Anotaciones Técnicas Clave para la Decisión
+
+1. **Dimensionamiento del equipo (5-6 kW vs 8 kW):**
+   - **Craig Kelly (Ecoheat)** señala acertadamente que para una vivienda de 105 m² construida en 2017 con BER A3, la pérdida de calor (HLI) estará entre 1.8 y 2.0. Esto sitúa la necesidad térmica en unos **5.8 kW**.
+   - Un equipo de **5 kW o 6 kW** es idóneo para evitar el *short cycling* (picos de encendido/apagado continuos que desgastan la máquina y disparan el consumo de luz).
+
+2. **R290 (Propano) vs R32:**
+   - La **Vaillant (R290)** es una máquina de última generación, súper silenciosa (*Quiet Mark*) y permite impulsar agua a alta temperatura (hasta 75 °C) si fuera necesario.
+   - La **Mitsubishi (R32)** es un estándar muy probado en Irlanda pero trabaja mejor a temperaturas de agua medias/bajas (~60 °C).
+
+3. **Estrategia de radiadores y temperatura de impulsión:**
+   - **Objetivo de eficiencia:** Mantener la bomba trabajando a bajas temperaturas (40 °C - 45 °C) permite alcanzar un **COP cercano a 4.5–4.8**.
+   - Para trabajar a esa temperatura con el menor gasto de luz, es preferible mantener o ampliar la superficie de emisión (radiadores) antes que sobredimensionar la potencia de la bomba de calor.
+
+4. **Reglas de la Subvención SEAI (€12,500 totales):**
+   - Exige HLI $< 2.30\text{ W/m}^2\text{K}$ (tu vivienda lo cumple holgadamente).
+   - **No requiere retirar la cocina de gas:** Puedes conservarla o adaptarla a bombona de butano/propano de forma independiente.
+   - **Tramo de Radiadores (€2,000):** Se cobra en función de la factura real aportada. Si el cambio/mejora de radiadores cuesta €1,900, la subvención reembolsa €1,900 de esa partida.
+
+---
+
+## Comparativa Resumen Global
+
+| Empresa | Solar+Bat Neto | Heat Pump Neto | Total Neto | Estado |
 |---------|---------------|----------------|------------|--------|
-| Activ8 | incluido | incluido | **€23,800** | One-Stop-Shop |
-| OHK Energy | €12,190 | €9,050 | **€21,240** | One-Stop-Shop |
-| **Treacy + Horgan** 🏆 | **€11,250** (7.52kWp+10kWh+EV) | **€4,250** (inc. 4 rads) | **€15,500** | ✅ **INSTALADO 10/09/2026** |
-| Emmet (DIY) | ~€5,650 | - | **~€5,650** (solo solar) | Independiente |
-| Abhaile (web) | €9,950 | - | €9,950 (solo solar) | Instalador |
-| **Objetivo Victor** | ~€6,000 | ~€3,000-5,000 | **€9,000-11,000** | DIY Supervisado |
+| Treacy Solar | **€11,250** (7.52kWp+10kWh+EV) | - | **€11,250** | ✅ **INSTALADO 10/09/2026** |
+| Horgan Renewables | - | **€4,250** (inc. 4 rads) | - | ✅ Presupuesto firme |
+| Morning Star Projects | - | Pendiente (~ >Mitsubishi) | - | 🔄 Visita técnica esta semana |
+| Ecoheat Ireland | - | Pendiente (según rads) | - | 📋 Calculando HLI oficial |
+| TP Gas Services | - | €12,500 | - | ❌ Descartado (Fuera de rango) |
+
