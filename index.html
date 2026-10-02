@@ -874,9 +874,9 @@
                         <div class="subtext" style="font-size:0.75rem;"><span data-es="NCT vigente · Control crucero" data-en="Valid NCT · Cruise control"></span></div>
                     </div>
                     <div class="card green">
-                        <div class="label"><span data-es="Desembolso Neto Estimado" data-en="Net Cash Outflow"></span></div>
-                        <div class="value" style="font-size:1.2rem; color:#166534;">~€8,500 neto</div>
-                        <div class="subtext" style="font-size:0.75rem;"><span data-es="Para EV de ~€13.5k tras venta Golf" data-en="For ~€13.5k EV after Golf sale"></span></div>
+                        <div class="label"><span data-es="Desembolso Neto Real" data-en="Actual Net Cash Outflow"></span></div>
+                        <div class="value" style="font-size:1.2rem; color:#166534;">~€10,000 neto</div>
+                        <div class="subtext" style="font-size:0.75rem;"><span data-es="VW ID.3 1st Edition de €15k tras venta Golf" data-en="€15k VW ID.3 1st Edition after Golf sale"></span></div>
                     </div>
                     <div class="card yellow">
                         <div class="label"><span data-es="Carga Anual Solar / Nocturna" data-en="Annual Solar/Night Elec Cost"></span></div>
@@ -951,13 +951,13 @@
                                 <td>—</td>
                                 <td><span class="nav-badge badge-red">❌ Descartado</span> <small style="display:block; color:var(--gray);">Alta liquidez + viaje</small></td>
                             </tr>
-                            <tr style="opacity:0.65;">
-                                <td>VW ID.3 1st Edition (2020)</td>
+                            <tr style="background:#f0fdf4;">
+                                <td><strong>VW ID.3 1st Edition (2020)</strong></td>
                                 <td>Roman</td>
                                 <td>~100,000 km</td>
+                                <td><strong>€15,000</strong></td>
                                 <td>€15,000</td>
-                                <td>—</td>
-                                <td><span class="nav-badge badge-red">❌ Descartado</span> <small style="display:block; color:var(--gray);">Precio inflado</small></td>
+                                <td><span class="nav-badge badge-green">✅ COMPRADO</span> <small style="display:block; color:var(--gray);">Compra confirmada</small></td>
                             </tr>
                             <tr style="opacity:0.65;">
                                 <td>VW ID.3 (2020)</td>
@@ -978,7 +978,7 @@
                         <thead>
                             <tr>
                                 <th><span data-es="Parámetro" data-en="Parameter"></span></th>
-                                <th><span data-es="ID.3 (2020 Local Castletroy)" data-en="ID.3 (2020 Local Castletroy)"></span> ⭐</th>
+                                <th><span data-es="ID.3 1st Edition (2020) — Roman" data-en="ID.3 1st Edition (2020) — Roman"></span> ⭐</th>
                                 <th><span data-es="ID.3 (2021 Style)" data-en="ID.3 (2021 Style)"></span></th>
                                 <th><span data-es="ID.3 Facelift (2024)" data-en="ID.3 Facelift (2024)"></span></th>
                             </tr>
@@ -986,13 +986,13 @@
                         <tbody>
                             <tr>
                                 <td><strong>Precio Compra Objetivo</strong></td>
-                                <td><strong>€13,000 – €13,500</strong></td>
+                                <td><strong>€15,000</strong></td>
                                 <td>€13,800</td>
                                 <td>€22,500</td>
                             </tr>
                             <tr>
                                 <td><strong>Flujo Neto (Tras Venta Golf €5k)</strong></td>
-                                <td style="color:#166534; font-weight:700;">- €8,000 a - €8,500</td>
+                                <td style="color:#166534; font-weight:700;">- €10,000</td>
                                 <td>- €8,800</td>
                                 <td>- €17,500</td>
                             </tr>
@@ -1112,7 +1112,7 @@
                         </div>
                         <div style="background:white; padding:15px; border-radius:8px; border-left:4px solid var(--blue);">
                             <div style="font-size:0.72rem; color:var(--gray);"><span data-es="Desembolso Neto Efectivo" data-en="Net Cash Outlay"></span></div>
-                            <div style="font-size:1.2rem; font-weight:800; color:var(--blue);" id="ev-res-net-outlay">€8,500</div>
+                            <div style="font-size:1.2rem; font-weight:800; color:var(--blue);" id="ev-res-net-outlay">€10,000</div>
                         </div>
                     </div>
                 </div>
@@ -1156,7 +1156,6 @@
                 <!-- System type selector -->
                 <div style="display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;">
                     <button onclick="setSystem('solar')" id="sys-solar" class="sys-btn" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #e5e7eb; background:white; font-weight:600; cursor:pointer; font-size:0.85rem;">☀️ <span data-es="Solo Solar" data-en="Solar Only"></span></button>
-                    <button onclick="setSystem('hp')" id="sys-hp" class="sys-btn sys-active" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #6366f1; background:#eef2ff; font-weight:600; cursor:pointer; font-size:0.85rem;">🌡️ <span data-es="Solo Aerotermia" data-en="Heat Pump Only"></span></button>
                     <button onclick="setSystem('both')" id="sys-both" class="sys-btn" style="flex:1; min-width:100px; padding:10px 14px; border-radius:8px; border:2px solid #e5e7eb; background:white; font-weight:600; cursor:pointer; font-size:0.85rem;">☀️🌡️ <span data-es="Ambas" data-en="Both"></span></button>
                 </div>
                 <div id="system-info" style="background:#eef2ff; border:1px solid #c7d2fe; border-radius:8px; padding:10px 14px; margin-bottom:18px; font-size:0.8rem; color:#3730a3;"></div>
@@ -1250,7 +1249,7 @@
                             <span data-es="Smart tariff (arbitraje batería ~€450/año)" data-en="Smart tariff (battery arbitrage ~€450/yr)"></span>
                         </label>
                         <label style="font-size:0.75rem; display:flex; align-items:center; gap:4px; cursor:pointer;">
-                            <input type="checkbox" id="ev-toggle" onchange="toggleEVInfo(); calcROI()" style="cursor:pointer;">
+                            <input type="checkbox" id="ev-toggle" checked onchange="toggleEVInfo(); calcROI()" style="cursor:pointer;">
                             <span data-es="🚗 Coche eléctrico" data-en="🚗 Electric vehicle"></span>
                         </label>
                     </div>
@@ -1280,6 +1279,20 @@
                     <!-- EV explanation (hidden by default) -->
                     <div id="ev-info" style="display:none; margin-top:10px; background:white; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px; font-size:0.75rem;">
                         <p style="font-weight:600; margin-bottom:6px;">🚗 <span data-es="¿Cuánto ahorras con coche eléctrico?" data-en="How much do you save with an EV?"></span></p>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:12px; padding:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px;">
+                            <label style="font-weight:600;">🚗 <span data-es="Precio ID.3 (€):" data-en="ID.3 price (€):"></span>
+                                <input type="number" id="roi-ev-price" value="15000" min="0" step="500" oninput="calcROI()" style="width:100%; margin-top:4px; padding:6px; border:1px solid #cbd5e1; border-radius:4px;">
+                            </label>
+                            <label style="font-weight:600;">↩️ <span data-es="Venta Golf (€):" data-en="Golf sale (€):"></span>
+                                <input type="number" id="roi-golf-sale" value="5000" min="0" step="250" oninput="calcROI()" style="width:100%; margin-top:4px; padding:6px; border:1px solid #cbd5e1; border-radius:4px;">
+                            </label>
+                            <label style="font-weight:600;">⛽ <span data-es="Diésel actual:" data-en="Current diesel:"></span> <output id="roi-diesel-price-label">€2.10/L</output>
+                                <input type="range" id="roi-diesel-price" min="1.50" max="3.50" value="2.10" step="0.05" oninput="updateRoiEvLabels(); calcROI()" style="width:100%; margin-top:8px;">
+                            </label>
+                            <label style="font-weight:600;">📈 <span data-es="Subida anual diésel:" data-en="Annual diesel rise:"></span> <output id="roi-diesel-escalation-label">3.5%</output>
+                                <input type="range" id="roi-diesel-escalation" min="0" max="10" value="3.5" step="0.5" oninput="updateRoiEvLabels(); calcROI()" style="width:100%; margin-top:8px;">
+                            </label>
+                        </div>
                         <table style="box-shadow:none; background:transparent; font-size:0.75rem; margin:0;">
                             <tr><td><span data-es="Km/año medio Irlanda" data-en="Avg km/year Ireland"></span></td><td style="text-align:right;"><strong>17,000 km</strong></td></tr>
                             <tr><td><span data-es="Coste gasolina (~€0.14/km)" data-en="Petrol cost (~€0.14/km)"></span></td><td style="text-align:right;">€2,380/<span data-es="año" data-en="yr"></span></td></tr>
@@ -1298,14 +1311,17 @@
                     <div style="text-align:center; padding:15px; background:var(--gray-light); border-radius:8px;">
                         <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Inversión Bruta" data-en="Gross Investment"></span></div>
                         <div id="roi-gross" style="font-size:1.4rem; font-weight:700;">€7,249</div>
+                        <div id="roi-gross-breakdown" style="font-size:0.72rem; line-height:1.45; color:var(--gray); margin-top:5px;">Solar: €7,249</div>
                     </div>
                     <div style="text-align:center; padding:15px; background:var(--green-light); border-radius:8px;">
                         <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="SEAI Grants" data-en="SEAI Grants"></span></div>
                         <div id="roi-grants" style="font-size:1.4rem; font-weight:700; color:#166534;">-€1,800</div>
+                        <div id="roi-grants-breakdown" style="font-size:0.72rem; line-height:1.45; color:var(--gray); margin-top:5px;">Solar: -€1,800</div>
                     </div>
                     <div style="text-align:center; padding:15px; background:var(--blue-light); border-radius:8px;">
                         <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Neto a Pagar" data-en="Net to Pay"></span></div>
                         <div id="roi-net" style="font-size:1.4rem; font-weight:700; color:#1e40af;">€5,449</div>
+                        <div id="roi-net-breakdown" style="font-size:0.72rem; line-height:1.45; color:var(--gray); margin-top:5px;">Solar neto: €5,449</div>
                     </div>
                     <div style="text-align:center; padding:15px; background:var(--orange-light); border-radius:8px;">
                         <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Ahorro Anual" data-en="Annual Savings"></span></div>
@@ -1318,6 +1334,15 @@
                     <div style="text-align:center; padding:15px; background:white; border:2px solid var(--green); border-radius:8px;">
                         <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Beneficio 25 años" data-en="25-Year Profit"></span></div>
                         <div id="roi-profit25" style="font-size:1.4rem; font-weight:700; color:var(--green);">€12,001</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Coste neto coche" data-en="Net car cost"></span></div>
+                        <div id="roi-ev-cost" style="font-size:1.25rem; font-weight:700; color:var(--blue);">—</div>
+                        <div id="roi-ev-cost-breakdown" style="font-size:0.72rem; line-height:1.45; color:var(--gray); margin-top:5px;">€15,000 - Golf €5,000</div>
+                    </div>
+                    <div style="text-align:center; padding:15px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px;">
+                        <div style="font-size:0.75rem; color:var(--gray); text-transform:uppercase;"><span data-es="Ahorro diésel Año 1" data-en="Year 1 diesel savings"></span></div>
+                        <div id="roi-ev-savings" style="font-size:1.25rem; font-weight:700; color:var(--green);">—</div>
                     </div>
                 </div>
 
@@ -1992,7 +2017,7 @@
         // Provider data: price, type, label, kWp, batteryKWh, supportsArbitrage
         const providers = {
             emmet_solar:    { price: 7249,  type: 'solar', label: 'Emmet (Solar DIY)', kWp: 7.25, battery: 10, arbitrage: false },
-            treacy_solar:   { price: 13350, type: 'solar', label: 'Treacy Solar', kWp: 7.52, battery: 10, arbitrage: true },
+            treacy_solar:   { price: 13350, type: 'solar', label: 'Treacy Solar', kWp: 7.52, battery: 10, arbitrage: true, chargerGrant: true },
             hardiman_solar: { price: 12600, type: 'solar', label: 'David Hardiman', kWp: 7.05, battery: 12.8, arbitrage: false },
             broderick_solar:{ price: 12450, type: 'solar', label: 'Stephen Broderick', kWp: 6.3, battery: 10.24, arbitrage: false },
             altenergy_solar:{ price: 11400, type: 'solar', label: 'Alternative Energy', kWp: 7.99, battery: 10.2, arbitrage: false },
@@ -2021,6 +2046,7 @@
         const BATTERY_ARBITRAGE = 450;      // €/year net add-on for smart tariff battery arbitrage (seasonal adjustment, avoiding summer double-counting)
         const EV_SAVINGS_SOLAR = 600;       // €/year conservative EV savings with solar (~30% solar charge + partial petrol offset)
         const SEAI_SOLAR = 1800;
+        const SEAI_EV_CHARGER = 300;
         const SEAI_HP = 6500;
         const SEAI_FOSSIL = 4000;
         const SEAI_HEATING = 2000;
@@ -2033,6 +2059,13 @@
         function updateElecEscalationLabel() {
             const val = document.getElementById('elec-escalation').value;
             document.getElementById('elec-escalation-label').textContent = val + '%';
+        }
+
+        function updateRoiEvLabels() {
+            const dieselPrice = parseFloat(document.getElementById('roi-diesel-price').value);
+            const dieselEscalation = parseFloat(document.getElementById('roi-diesel-escalation').value);
+            document.getElementById('roi-diesel-price-label').textContent = '€' + dieselPrice.toFixed(2) + '/L';
+            document.getElementById('roi-diesel-escalation-label').textContent = dieselEscalation.toFixed(1) + '%';
         }
 
         function toggleArbitrageInfo() {
@@ -2221,31 +2254,53 @@
                 grants = SEAI_SOLAR + SEAI_HP + SEAI_FOSSIL + SEAI_HEATING;
             }
 
-            const net = gross - grants;
             const gasEscalation = parseFloat(document.getElementById('gas-escalation').value) / 100;
             const elecEscalation = parseFloat(document.getElementById('elec-escalation').value) / 100;
             const smartTariff = document.getElementById('smart-tariff-toggle').checked;
             const cegEnabled = document.getElementById('ceg-toggle').checked;
             const evEnabled = document.getElementById('ev-toggle').checked;
+            const evPrice = parseFloat(document.getElementById('roi-ev-price').value) || 15000;
+            const golfSale = parseFloat(document.getElementById('roi-golf-sale').value) || 5000;
+            const dieselPrice = parseFloat(document.getElementById('roi-diesel-price').value) || 2.10;
+            const dieselEscalation = parseFloat(document.getElementById('roi-diesel-escalation').value) / 100;
+            const evKm = parseFloat(document.getElementById('ev-calc-km')?.value) || 7000;
+            const golfFuelEff = parseFloat(document.getElementById('ev-calc-fuel-eff')?.value) || 6.5;
+            const evEff = 15;
+            const evRate = parseFloat(document.getElementById('ev-calc-rate-preset')?.value) || 0.08;
+            const evFuelCost = (evKm / 100) * golfFuelEff * dieselPrice;
+            const evChargeCost = (evKm / 100) * evEff * evRate;
+            const evDieselSavings = Math.max(0, evFuelCost - evChargeCost);
+            const evMaintenanceSavings = 300;
+            const evFuelSavings = evDieselSavings + evMaintenanceSavings;
+            const evNetCost = Math.max(0, evPrice - golfSale);
             const solar = getActiveSolarProvider();
+            const chargerGrant = evEnabled && solar && solar.chargerGrant ? SEAI_EV_CHARGER : 0;
+            grants += chargerGrant;
+            const net = gross - grants;
             const dynamicCEG = calcCEG(solar);
             const arbitrageBonus = smartTariff ? BATTERY_ARBITRAGE : 0;
             const cegBonus = cegEnabled ? dynamicCEG : 0;
-            const evBonus = evEnabled ? EV_SAVINGS_SOLAR : 0;
+
+            if (evEnabled) {
+                gross += evNetCost;
+                document.getElementById('roi-gross').textContent = '€' + gross.toLocaleString();
+            }
 
             // Calculate payback with escalating gas prices (NPV approach)
             // Year 1 savings are base; gas component grows each year
-            let baseSolarSavings = 0, baseGasSavings = 0;
+            let baseSolarSavings = 0, baseGasSavings = 0, baseEvDieselSavings = 0, baseEvMaintenanceSavings = 0;
             if (currentSystem === 'solar') {
-                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus + evBonus;
+                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus;
                 baseGasSavings = 0;
             } else if (currentSystem === 'hp') {
-                baseSolarSavings = evBonus;
+                baseSolarSavings = 0;
                 baseGasSavings = ANNUAL_GAS_COST_FULL - HP_ELEC_COST_GRID;
             } else {
-                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus + evBonus;
+                baseSolarSavings = SOLAR_SAVINGS + cegBonus + arbitrageBonus;
                 baseGasSavings = ANNUAL_GAS_COST_FULL - HP_ELEC_COST_SOLAR;
             }
+            baseEvDieselSavings = evEnabled ? evDieselSavings : 0;
+            baseEvMaintenanceSavings = evEnabled ? evMaintenanceSavings : 0;
 
             // Find payback year (cumulative savings >= net cost) with annual PV/battery degradation (-0.5%/yr),
             // maintenance reserve (-€120/yr), and mid-life inverter/battery replacement reserve (-€2,500 at Year 13)
@@ -2259,9 +2314,11 @@
                 const degradationFactor = Math.pow(1 - 0.005, y - 1); // 0.5%/year panel & battery degradation
                 const gasSavingsThisYear = baseGasSavings * Math.pow(1 + gasEscalation, y - 1);
                 const elecSavingsThisYear = baseSolarSavings * Math.pow(1 + elecEscalation, y - 1) * degradationFactor;
+                const evDieselSavingsThisYear = baseEvDieselSavings * Math.pow(1 + dieselEscalation, y - 1);
+                const evMaintenanceSavingsThisYear = baseEvMaintenanceSavings * Math.pow(1 + elecEscalation, y - 1);
                 
                 // Deduct maintenance reserve
-                let netSavingsThisYear = (elecSavingsThisYear + gasSavingsThisYear) - ANNUAL_MAINTENANCE;
+                let netSavingsThisYear = (elecSavingsThisYear + gasSavingsThisYear + evDieselSavingsThisYear + evMaintenanceSavingsThisYear) - ANNUAL_MAINTENANCE;
                 
                 // Deduct mid-life equipment replacement at Year 13
                 if (y === 13) {
@@ -2279,11 +2336,20 @@
             profit25 = cumulative - net;
             if (net <= 0) payback = 0;
 
-            const annualSavings = baseSolarSavings + baseGasSavings; // Year 1 for display
+            const annualSavings = baseSolarSavings + baseGasSavings + baseEvDieselSavings + baseEvMaintenanceSavings; // Year 1 for display
             const paybackPct = Math.min((payback / 25) * 100, 100);
 
             document.getElementById('roi-grants').textContent = '-€' + grants.toLocaleString();
             document.getElementById('roi-net').textContent = net > 0 ? '€' + net.toLocaleString() : '-€' + Math.abs(net).toLocaleString();
+            const breakdownParts = [];
+            const systemGross = gross - (evEnabled ? evNetCost : 0);
+            const systemLabel = currentSystem === 'solar' ? 'Solar' : currentSystem === 'hp' ? 'HP' : 'Solar + HP';
+            document.getElementById('roi-gross-breakdown').innerHTML = systemLabel + ': €' + systemGross.toLocaleString() + (evEnabled ? '<br>' + (currentLang === 'es' ? 'Coche' : 'Car') + ': €' + evNetCost.toLocaleString() : '');
+            const grantParts = [systemLabel + ': -€' + (grants - chargerGrant).toLocaleString()];
+            if (chargerGrant) grantParts.push((currentLang === 'es' ? 'Cargador' : 'Charger') + ': -€' + chargerGrant.toLocaleString());
+            document.getElementById('roi-grants-breakdown').innerHTML = grantParts.join('<br>');
+            const systemNet = systemGross - grants;
+            document.getElementById('roi-net-breakdown').innerHTML = systemLabel + ': €' + systemNet.toLocaleString() + (evEnabled ? '<br>' + (currentLang === 'es' ? 'Coche' : 'Car') + ': +€' + evNetCost.toLocaleString() : '');
 
             // Update CEG toggle label with dynamic value
             const cegLabel = document.querySelector('#ceg-toggle').closest('label').querySelector('span');
@@ -2314,6 +2380,11 @@
             profitEl.style.color = profit25 > 0 ? 'var(--green)' : 'var(--red)';
             const netEl = document.getElementById('roi-net');
             netEl.style.color = net <= 0 ? 'var(--green)' : '';
+            document.getElementById('roi-ev-cost').textContent = evEnabled ? '€' + evNetCost.toLocaleString() : '—';
+            document.getElementById('roi-ev-cost-breakdown').textContent = evEnabled
+                ? '€' + evPrice.toLocaleString() + ' - Golf €' + golfSale.toLocaleString()
+                : '—';
+            document.getElementById('roi-ev-savings').textContent = evEnabled ? '€' + Math.round(evFuelSavings).toLocaleString() + '/año' : '—';
 
             const summaryEl = document.getElementById('roi-summary');
             const escNote = (gasEscalation > 0 && baseGasSavings > 0) || elecEscalation > 0
@@ -2328,7 +2399,7 @@
                 ? (currentLang === 'es' ? ' + CEG 22c' : ' + CEG 22c')
                 : '';
             const evNote = evEnabled
-                ? (currentLang === 'es' ? ' + EV' : ' + EV')
+                ? (currentLang === 'es' ? ` + EV (diésel €${dieselPrice.toFixed(2)}/L, +${(dieselEscalation * 100).toFixed(1)}%/año)` : ` + EV (diesel €${dieselPrice.toFixed(2)}/L, +${(dieselEscalation * 100).toFixed(1)}%/yr)`)
                 : '';
             if (net <= 0) {
                 if (currentLang === 'es') {
@@ -2352,6 +2423,12 @@
             document.getElementById('roi-savings').textContent = '—';
             document.getElementById('roi-payback').textContent = '—';
             document.getElementById('roi-profit25').textContent = '—';
+            document.getElementById('roi-gross-breakdown').textContent = '—';
+            document.getElementById('roi-grants-breakdown').textContent = '—';
+            document.getElementById('roi-net-breakdown').textContent = '—';
+            document.getElementById('roi-ev-cost-breakdown').textContent = '—';
+            document.getElementById('roi-ev-cost').textContent = '—';
+            document.getElementById('roi-ev-savings').textContent = '—';
             document.getElementById('roi-summary').textContent = currentLang === 'es' 
                 ? '⏳ Esperando quote de este proveedor' 
                 : '⏳ Awaiting quote from this supplier';
@@ -2402,7 +2479,7 @@
             const evCostAnnual = evKwhAnnual * evRate;
 
             const netSavings = fuelCostAnnual - evCostAnnual;
-            const targetEvPrice = 13500;
+            const targetEvPrice = 15000;
             const netCashOutlay = targetEvPrice - golfTrade;
 
             const fmt = num => '€' + Math.round(num).toLocaleString();
@@ -2471,7 +2548,8 @@
         // Restore saved language & init calculators
         const saved = localStorage.getItem('dashLang');
         if (saved) setLang(saved); else setLang('es');
-        setSystem('hp');
+        setSystem('solar');
+        toggleEVInfo();
         updateEvCalculator();
 
         // SPA navigation: show only selected section
