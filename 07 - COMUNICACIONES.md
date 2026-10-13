@@ -59,6 +59,7 @@
 - **Resultado económico:**
   - Sin radiadores nuevos: €14,850 bruto - €10,500 ayudas = **€4,350 neto**.
   - Con 4 radiadores nuevos: €14,850 + €1,900 = €16,750 bruto - €12,500 ayudas = **€4,250 neto** *(¡€100 más barato de tu bolsillo teniendo 4 radiadores nuevos!)*.
+- **29/09/2026 (Actualización Oficial SEAI):** Con el nuevo **€2,000 Boiler Scrappage Grant** del Gobierno, las ayudas totales de este presupuesto aumentan a **€14,400** (€10,500 HP + €2,000 Scrappage + €1,900 Radiadores). El coste neto out-of-pocket de Donal Horgan baja a **€2,350 neto** (ahorro directo de €1,900 adicionales).
 
 ---
 

@@ -252,27 +252,29 @@ With Treacy Solar's official updated quote offering a **€500 discount** (bring
 | Base HP system + installation + SEAI paperwork + heating controls | €14,850 |
 | **Option A: Without Radiator Upgrade** | |
 | Gross System Cost | €14,850 |
-| SEAI Grants (HP €6,500 + Fossil Fuel Bonus €4,000) | -€10,500 |
-| **NET TOTAL OUT-OF-POCKET (no new radiators)** | **€4,350** |
+| SEAI Grants (HP Unit €10,500 + Boiler Scrappage €2,000) | -€12,500 |
+| **NET TOTAL OUT-OF-POCKET (no new radiators)** | **€2,350** |
 | | |
-| **Option B: With 4 Radiators Upgraded (Confirmed 28 May)** | |
+| **Option B: With 4 Radiators Upgraded (Revisado tras anuncio SEAI 29/09/2026)** | |
 | Base HP system | €14,850 |
-| Replace 4 single radiators with doubles (Horgan quote 28/05) | +€1,900 |
+| Replace 4 single radiators with doubles (Horgan quote) | +€1,900 |
 | **Gross Total (System + Radiators)** | **€16,750** |
-| SEAI Grants (HP €6,500 + Fossil Fuel Bonus €4,000 + Heating Upgrade €2,000) | -€12,500 |
-| **NET TOTAL OUT-OF-POCKET (with 4 new radiators)** 🏆 | **€4,250** |
+| SEAI Grants (HP Unit €10,500 + Boiler Scrappage €2,000 + Heating Upgrade €1,900) | -€14,400 |
+| **NET TOTAL OUT-OF-POCKET (with 4 new radiators)** 🏆 | **€2,350** |
 
 > [!TIP]
-> **Key Finding (28 May 2026):** Donal confirmed replacing 4 single radiators costs **€1,900**. Doing this unlocks the **€2,000 Central Heating Upgrade grant**, meaning you get 4 brand-new double radiators AND end up paying **€100 LESS out-of-pocket** (€4,250 net vs €4,350 net)!
+> **Key Finding (Actualizado 29 Sept 2026):** Con el nuevo **€2,000 Boiler Scrappage Grant** del Gobierno anunciado el 29 de septiembre de 2026, el paquete total de ayudas sube hasta **€14,500**. Reemplazar 4 radiadores simples por dobles cuesta €1,900 y está cubierto por la ayuda de Central Heating Upgrade (€1,900 reclamados de hasta €2,000). Resultado: obtienes 4 radiadores nuevos de alta emisión y el coste neto se reduce de €4,250 a solo **€2,350 neto de tu bolsillo**!
 
-### Grant Clarification (Confirmed 20–28 May)
+### Grant Clarification (Actualizado tras anuncio SEAI 29 Sept 2026)
 
 | Grant | Amount | Applies? | Notes |
 |-------|--------|----------|-------|
-| Heat Pump System (includes controls) | €6,500 | ✅ Yes | Heating controls are included in this grant |
-| Fossil Fuel Boiler Replacement | €4,000 | ✅ Yes | Decommissioning gas boiler |
-| Central Heating Upgrade (radiators/pipework) | €2,000 | ✅ Yes (if upgraded) | Unlocked by replacing 4 radiators for €1,900 |
-| **Total SEAI Grants (with radiators)** | **€12,500** | | |
+| Heat Pump System (Air to Water) | €10,500 | ✅ Yes | Unidad de aerotermia y controles incluidos |
+| Boiler Scrappage Grant | €2,000 | ✅ Yes | **Nuevo bono (29/09/2026)** por retirar caldera de gas fósil |
+| Central Heating Upgrade (radiators/pipework) | Up to €2,000 | ✅ Yes (if upgraded) | Cubre €1,900 por sustituir 4 radiadores |
+| **Total SEAI Grants (with radiators)** | **€14,400 - €14,500** | | |
+
+*Note: Technical Assessment (€200) is NOT required for homes built from 2007 onwards (Evanwood: 2017). Handled directly via Self-Declaration Form.*
 
 ### Included Services
 
@@ -280,16 +282,17 @@ With Treacy Solar's official updated quote offering a **€500 discount** (bring
 - Integrated 200L hot water cylinder
 - Heating controls
 - Full hydraulic installation, system balancing & commissioning
-- SEAI grant paperwork management (deducted from bill)
+- SEAI grant paperwork management (deducted from bill / grant-at-source)
 - Replacement of 4 radiators (€1,900 option)
 
 ### Key Notes
 
 - **20 May 2026:** €14,850 base gross quote received. Includes heating controls.
 - **28 May 2026:** Donal confirmed **€1,900** to replace 4 radiators.
-- **Net out-of-pocket cost is €4,250** with full €12,500 SEAI grants.
+- **29 Sept 2026:** El Gobierno aprueba el nuevo **€2,000 Boiler Scrappage Grant**, elevando las ayudas máximas a €14,500.
+- **Net out-of-pocket cost is now €2,350** with the full updated SEAI grants.
 - **Horgan handles SEAI paperwork** — grants deducted upfront from price.
-- **Mitsubishi Ecodan** is Tier 1 premium hardware (competitor to Daikin).
+- **Mitsubishi Ecodan** is Tier 1 premium hardware.
 - **Monobloc** = simpler installation, high efficiency.
 
 ---
@@ -357,15 +360,15 @@ With Treacy Solar's official updated quote offering a **€500 discount** (bring
 
 | Combination | Solar Net | HP Net (inc. 4 rads) | Total Net | Payback |
 |-------------|-----------|----------------------|-----------|---------|
-| PV Gen (no bat.) + Horgan | €7,000 | €4,250 | **€11,250** | **~10.5 years** |
-| **Alt. Energy + Horgan** | **€9,600** | **€4,250** | **€13,850** | **~11.8 years** |
-| PV Gen (+ bat.) + Horgan | €10,000 | €4,250 | **€14,250** | **~12.2 years** |
-| **Treacy + Horgan** ⭐ | **€10,300** | **€4,250** | **€14,550** | **~12.4 years** |
-| **Treacy + Horgan + smart tariff arbitrage** 🏆 | **€10,300** | **€4,250** | **€14,550** | **~7.5 years** |
-| Broderick + Horgan | €10,650 | €4,250 | **€14,900** | **~12.7 years** |
-| Hardiman + Horgan | €10,800 | €4,250 | **€15,050** | **~12.8 years** |
+| PV Gen (no bat.) + Horgan | €7,000 | €2,350 | **€9,350** | **~8.8 years** |
+| **Alt. Energy + Horgan** | **€9,600** | **€2,350** | **€11,950** | **~10.2 years** |
+| PV Gen (+ bat.) + Horgan | €10,000 | €2,350 | **€12,350** | **~10.5 years** |
+| **Treacy + Horgan** ⭐ | **€10,300** | **€2,350** | **€12,650** | **~10.8 years** |
+| **Treacy + Horgan + smart tariff arbitrage** 🏆 | **€10,300** | **€2,350** | **€12,650** | **~6.5 years** |
+| Broderick + Horgan | €10,650 | €2,350 | **€13,000** | **~11.1 years** |
+| Hardiman + Horgan | €10,800 | €2,350 | **€13,150** | **~11.2 years** |
 
-*Note: HP Net is €4,250 out-of-pocket when replacing 4 radiators (+€1,900 gross) and claiming €12,500 total SEAI grants. If no radiators are replaced, HP Net is €4,350 (Gross €14,850 − €10,500 grants).*
+*Note: HP Net is €2,350 out-of-pocket when replacing 4 radiators (+€1,900 gross) and claiming €14,400 total SEAI grants (expanded after 29/09/2026 announcement). If no radiators are replaced, HP Net is also €2,350 (Gross €14,850 − €12,500 grants).*
 
 ⚠️ **Note on PV Gen combos:** Their system has only 15% self-consumption without battery, so actual savings would be much lower than other options. The payback figures above assume similar savings ratios, which is misleading for PV Gen without battery.
 

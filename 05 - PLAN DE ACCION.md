@@ -10,20 +10,25 @@
 
 ### FASE 2: Selección y Evaluación Técnica de Aerotermia (EN CURSO) 🔄
 1. **Opciones e Instaladores en evaluación:**
-   - **Horgan Renewables (Donal Horgan):** Presupuesto firme de **€16,750 bruto / €4,250 neto** (Mitsubishi Ecodan 8kW Monobloc, incluye cambio de 4 radiadores simples por dobles, grant at source).
-   - **Morning Star Projects (James Murphy):** **Visita técnica en sitio esta semana**. Oferta Vaillant aroTHERM Plus 8kW Monobloc con **R290 Propano** (hasta 75 °C impulsión, Quiet Mark).
-   - **Ecoheat Ireland (Craig Kelly):** **Calculando HLI oficial**. Propone equipo de **5kW - 6kW Monobloc** para evitar *short cycling* (demanda térmica estimada 5.8 kW para 105 m² BER A3). Exige pago 100% por adelantado.
-   - **TP Gas Services (Mark Payne):** €25,000 bruto / €12,500 neto — **Descartado por fuera de rango**.
+   - **Horgan Renewables (Donal Horgan):** Presupuesto firme de **€16,750 bruto / €2,350 neto** (Mitsubishi Ecodan 8kW Monobloc, incluye 4 radiadores dobles; con las nuevas ayudas de €14,400 el coste baja de €4,250 a €2,350 neto).
+   - **Morning Star Projects (James Murphy):** Presupuesto formal recibido (02/10/2026) de **€20,595.33 bruto / €6,095.33 neto** (Vaillant aroTHERM Plus R290 Propano, ayuda oficial confirmada de €14,500).
+   - **Ecoheat Ireland (Craig Kelly):** **Calculando HLI oficial**. Propone equipo de **5kW - 6kW Monobloc** para evitar *short cycling*. Exige pago 100% por adelantado sin descuento en origen.
+   - **TP Gas Services (Mark Payne):** €25,000 bruto / €10,500 neto — **Descartado por fuera de rango**.
 2. **Decisiones clave en curso:**
-   - Sizing óptimo: 5-6 kW (Ecoheat) vs 8 kW (Horgan / Morning Star).
+   - Sizing óptimo: 3.5 kW (Morning Star) vs 5-6 kW (Ecoheat) vs 8 kW (Horgan).
    - Refrigerante: R290 Propano (Vaillant) vs R32 (Mitsubishi Ecodan).
-   - Cambio de radiadores: cambiar 4 radiadores desbloquea €2,000 SEAI Central Heating Upgrade (Horgan cobra €1,900 por 4 radiadores → ahorras €100 neto).
+   - Cambio de radiadores: cambiar 4 radiadores con Horgan cuesta €1,900 y desbloquea subvención de hasta €2,000 en Central Heating Upgrade.
 
-### FASE 3: Instalación de Aerotermia & Subvención SEAI (€12,500)
-1. Elegir instalador final tras visita técnica y propuesta formal.
-2. Solicitar SEAI Heat Pump Grant (€6,500 HP + €4,000 Fossil Fuel Bonus + €2,000 Central Heating = €12,500 totales).
-3. Recibir SEAI Letter of Offer.
-4. Instalación hidráulica, retirada de caldera de gas, comisionado y BER post-obras.
+### FASE 3: Instalación de Aerotermia & Subvención SEAI (hasta €14,500)
+1. Elegir instalador final tras comparar dimensionamiento técnico.
+2. Solicitar SEAI Heat Pump Grant bundle a través del portal BEH:
+   - **€10,500** Heat Pump System Grant (unidad).
+   - **€2,000** Boiler Scrappage Grant (retirada de caldera de gas, nuevo bono 29/09/2026).
+   - **€2,000** Central Heating Grant (si se sustituyen radiadores como en Horgan).
+   - **Total bundle:** Hasta **€14,500**.
+3. Cumplimentar **Self-Declaration Form** (al ser vivienda de 2017, NO se necesita Technical Assessment ni pagar técnico previo).
+4. Recibir SEAI Letter of Offer.
+5. Instalación hidráulica, retirada de caldera de gas, comisionado y BER post-obras.
 
 ### FASE 4: Transición a Coche Eléctrico (EV) 🚗 (PRÓXIMO PASO)
 1. **Infraestructura ya Instalada:** Cargador **Sigenergy 7kW Tethered EV Charger** ya operativo en Fase 1 (€950 neto).
@@ -48,31 +53,29 @@
 5. Instalador sube docs al portal SEAI
 6. Pago en 4-6 semanas a tu cuenta
 
-### Para Heat Pump:
-1. Contratar Technical Advisor → assessment de la casa
-2. Solicitar grant online con resultado del assessment
-3. Recibir "Letter of Offer"  
-4. Contratar instalador SEAI → instalación
-5. BER post-obras obligatorio
-6. Subir documentación → pago
+### Para Heat Pump (Actualizado tras reglas SEAI 2026):
+1. **NO se requiere Technical Assessment:** Viviendas construidas desde 2007 (Evanwood es de 2017) están exentas de assessment previo. Se usa el **Self-Declaration Form**.
+2. Solicitar el bundle de Heat Pump en el portal online BEH adjuntando el Self-Declaration Form.
+3. Recibir "Letter of Offer" del SEAI.
+4. Ejecución con instalador registrado SEAI → retirada de caldera de gas e instalación de bomba de calor.
+5. BER post-obras obligatorio.
+6. Subir documentación (Declaration of Works) → pago/descuento de la subvención (hasta €14,500).
 
 ### Requisitos:
-- Casa construida y habitada antes de diciembre 2020 ✅
-- Instalador registrado SEAI ✅ (Emmet, Sean, etc.)
+- Casa construida y habitada antes de 2021 (Evanwood: 2017) ✅
+- Instalador registrado SEAI ✅
 - BER post-instalación obligatorio
-- Formulario NC6 (ESB Networks) para exportar y cobrar excedentes
+- Formulario NC6 (ESB Networks) para exportar y cobrar excedentes (hecho en Fase 1)
 
 ---
 
 ## Puntos Clave a Resolver
 
-- [ ] ¿Responde algún vecino del grupo WhatsApp?
-- [ ] ¿Emmet confirma precio de materiales?
-- [ ] ¿Sean envía propuesta desktop?
-- [ ] ¿H&A Solar envía presupuesto?
-- [ ] ¿Algún fontanero de la campaña masiva responde?
-- [ ] Buscar Technical Advisor independiente en Limerick
-- [ ] Confirmar con un vecino si los radiadores Tipo 22 valen para HP
+- [ ] Comparar dimensionamiento térmico: carga de 3.155 kW de Morning Star vs propuesta HLI de Ecoheat
+- [ ] Decidir entre Horgan (€2,350 neto con Ecodan 8kW) vs Morning Star (€6,095 neto con Vaillant R290)
+- [ ] Confirmar con Ecoheat su presupuesto formal y condiciones de pago
+- [x] Technical Assessment SEAI: **NO NECESARIO** (exento por ser vivienda post-2007; se tramita con Self-Declaration Form)
+- [x] Confirmar radiadores: Radiadores Tipo 22 son aptos; Horgan incluye 4 radiadores nuevos cubiertos por la ayuda de €2,000
 
 ---
 

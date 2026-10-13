@@ -137,15 +137,19 @@
 ## Presupuesto Aerotermia: Horgan Renewables ⭐
 - **Contacto:** Donal Horgan (`horganrenewables@gmail.com`) / Tel: 069-62795 / Cel: 087-2053864
 - **Dirección:** Ashgrove, Newcastle West, Co. Limerick, V42FD26
-- **Propuesta (20/05/2026, actualizada 28/05/2026):**
+## Presupuesto Aerotermia: Horgan Renewables ⭐
+- **Contacto:** Donal Horgan (`horganrenewables@gmail.com`) / Tel: 069-62795 / Cel: 087-2053864
+- **Dirección:** Ashgrove, Newcastle West, Co. Limerick, V42FD26
+- **Propuesta (20/05/2026, actualizada 28/05/2026 & revisada tras anuncio SEAI 29/09/2026):**
   - Aerotermia: Mitsubishi Electric Ecodan 8kW Monobloc con depósito de 200L integrado + controles de calefacción + tramitación de subvención SEAI.
   - Presupuesto base (sin radiadores): **€14,850 bruto**
   - Sustitución de 4 radiadores simples por dobles: **+€1,900** (confirmado por Donal el 28/05)
-- **Análisis de Subvenciones SEAI:**
-  - Sin cambio de radiadores: Subvención HP + Controles €6,500 + Bonus gas €4,000 = **€10,500 en ayudas**. Neto out-of-pocket: €14,850 − €10,500 = **€4,350 neto**.
-  - Con cambio de 4 radiadores (+€1,900): Subvención HP + Controles €6,500 + Bonus gas €4,000 + Central Heating Upgrade €2,000 = **€12,500 en ayudas**. Neto out-of-pocket: (€14,850 + €1,900) − €12,500 = **€4,250 neto** 🏆.
-- **Efecto clave:** Cambiar los 4 radiadores por €1,900 desbloquea la subvención de €2,000, por lo que **renuevas 4 radiadores y terminas pagando €100 MENOS de tu bolsillo**.
-- **Estado:** ✅ PRESUPUESTO CONFIRMADO — Pendiente de visita/DEAP final.
+  - Total bruto con radiadores: **€16,750**
+- **Análisis de Subvenciones SEAI (Nuevo paquete anunciado 29/09/2026):**
+  - Con 4 radiadores (+€1,900): Subvención HP €10,500 + Boiler Scrappage Grant €2,000 + Central Heating Upgrade €1,900 = **€14,400 en ayudas**. Neto out-of-pocket: €16,750 − €14,400 = **€2,350 neto** 🏆 *(¡baja €1,900 respecto al cálculo anterior de €4,250!)*.
+  - Sin cambio de radiadores: Subvención HP €10,500 + Boiler Scrappage €2,000 = **€12,500 en ayudas**. Neto out-of-pocket: €14,850 − €12,500 = **€2,350 neto**.
+- **Efecto clave:** Con el nuevo Boiler Scrappage Grant (€2,000) introducido el 29 de septiembre de 2026, instalar Aerotermia con 4 radiadores nuevos pasa de costar €4,250 netos a solo **€2,350 netos de tu bolsillo**.
+- **Estado:** ✅ PRESUPUESTO CONFIRMADO — Pendiente de decisión final vs Morning Star.
 
 ---
 
@@ -153,7 +157,7 @@
 **Mail masivo enviado a:**
 ecoenergy.engineering@outlook.ie, philiposullivanplumbing@gmail.com, heattechltd@yahoo.ie, obrienplumbers@gmail.com, paulcorcoranph@outlook.com, info@nbgas.ie, nmullane70@gmail.com, info@professionalplumbing.ie, horganrenewables@gmail.com, midwestecoenergy@gmail.com, leahymechanicalltd@gmail.com, davidgardiner75@gmail.com, johnjmulvihill@gmail.com, office@tpgasservices.ie, cleverenergysolutions@outlook.com, jbrowneplumber@gmail.com, mikeflaherty2013@hotmail.com
 
-**Estado:** Respondido por Donal Horgan (Horgan Renewables).
+**Estado:** Respondido por Donal Horgan (Horgan Renewables) y propuesta formal de Morning Star Projects.
 
 ---
 
@@ -163,35 +167,39 @@ Vivienda de 105 m², construida en 2017 con BER A3 en Castletroy, Limerick.
 
 | Aspecto / Instalador | **1. Horgan Renewables** ⭐ | **2. Morning Star Projects** (James Murphy) | **3. Ecoheat Ireland** (Craig Kelly) | **4. TP Gas Services** (Mark Payne) |
 | --- | --- | --- | --- | --- |
-| **Modelo ofertado** | Mitsubishi Ecodan 8kW Monobloc | Vaillant aroTHERM Plus 8kW Monobloc | 5kW - 6kW Monobloc (Modelo por confirmar) | Sin definir |
-| **Gas refrigerante** | R32 (Sintético) | **R290 - Propano** (Natural) | R290 / R32 (Pendiente de propuesta) | Sin definir |
-| **Temp. máx. impulsión** | ~60 °C | **Hasta 75 °C** | N/A | N/A |
-| **Cambio de radiadores** | Incluye cambio de 4 radiadores | En evaluación tras visita técnica | Sugiere evaluar según HLI / demanda | Exige mediciones y plano propio |
-| **Gestión de subvención** | Descuento directo en origen (*Grant at source*) | Descuento en origen pendiente de desglose | **Pago 100% por adelantado** (Reembolso posterior SEAI) | N/A |
-| **Precio Bruto Est.** | ~€16,750 | Pendiente de desglose tras visita | Pendiente de presupuesto formal | €25,000 Inc. VAT |
-| **Coste Neto Final** | **€4,250** (Tras €12,500 SEAI) | Pendiente (estimado algo superior a Mitsubishi) | Pendiente (dependerá de radiadores cambiados) | **€12,500** (Tras €12,500 SEAI) |
-| **Estado actual** | Presupuesto firme recibido | **Visita técnica en sitio** esta semana | Calculando HLI oficial para propuesta | **Descartado / En reserva** (Precio fuera de rango) |
+| **Modelo ofertado** | Mitsubishi Ecodan 8kW Monobloc | **Vaillant aroTHERM Plus 3.5kW Monobloc** | 5kW - 6kW Monobloc (Modelo por confirmar) | Sin definir |
+| **Gas refrigerante** | R32 (Sintético) | **R290 - Propano** (Natural) 🍃 | R290 / R32 (Pendiente de propuesta) | Sin definir |
+| **Temp. máx. impulsión** | ~60 °C | **Hasta 75 °C** (Diseño 46 °C/41 °C) | N/A | N/A |
+| **Cambio de radiadores** | Incluye cambio de 4 radiadores | 1 Stelrad K2 (baño arriba) | Sugiere evaluar según HLI / demanda | Exige mediciones y plano propio |
+| **Gestión de subvención** | Descuento directo en origen (*Grant at source*) | El cliente solicita €14,500; reembolso SEAI tras obras | **Pago 100% por adelantado** (Reembolso posterior SEAI) | N/A |
+| **Precio Bruto Est.** | €16,750 (inc. 4 rads) | **€20,595.33** | Pendiente de presupuesto formal | €25,000 Inc. VAT |
+| **Coste Neto Final** | **€2,350** (Tras €14,400 SEAI) | **€6,095.33** (Tras €14,500 SEAI) | Pendiente (dependerá de radiadores) | **€10,500** (Tras €14,500 SEAI) |
+| **Estado actual** | Presupuesto firme recibido | **Presupuesto firme recibido (02/10/2026)** | Calculando HLI oficial para propuesta | **Descartado / En reserva** (Precio fuera de rango) |
 
 ---
 
 ## Anotaciones Técnicas Clave para la Decisión
 
-1. **Dimensionamiento del equipo (5-6 kW vs 8 kW):**
-   - **Craig Kelly (Ecoheat)** señala acertadamente que para una vivienda de 105 m² construida en 2017 con BER A3, la pérdida de calor (HLI) estará entre 1.8 y 2.0. Esto sitúa la necesidad térmica en unos **5.8 kW**.
-   - Un equipo de **5 kW o 6 kW** es idóneo para evitar el *short cycling* (picos de encendido/apagado continuos que desgastan la máquina y disparan el consumo de luz).
+1. **Dimensionamiento del equipo (3.5 kW vs 5-6 kW vs 8 kW):**
+   - **Morning Star (James Murphy):** Calcula una carga de diseño de **3.155 kW** a -3 °C y propone unidad Vaillant de **3.5 kW**.
+   - **Craig Kelly (Ecoheat):** Señala necesidad de **5.8 kW** basada en HLI preliminar y recomienda 5-6 kW para evitar *short cycling*.
+   - **Horgan Renewables:** Propone estándar de **8 kW** (Mitsubishi).
 
 2. **R290 (Propano) vs R32:**
-   - La **Vaillant (R290)** es una máquina de última generación, súper silenciosa (*Quiet Mark*) y permite impulsar agua a alta temperatura (hasta 75 °C) si fuera necesario.
-   - La **Mitsubishi (R32)** es un estándar muy probado en Irlanda pero trabaja mejor a temperaturas de agua medias/bajas (~60 °C).
+   - La **Vaillant (R290)** es refrigerante natural, silenciosa (*Quiet Mark*) y trabaja con alta temperatura sin penalizar tanto el rendimiento.
+   - La **Mitsubishi (R32)** es un estándar muy fiable pero utiliza gas fluorado tradicional.
 
 3. **Estrategia de radiadores y temperatura de impulsión:**
-   - **Objetivo de eficiencia:** Mantener la bomba trabajando a bajas temperaturas (40 °C - 45 °C) permite alcanzar un **COP cercano a 4.5–4.8**.
-   - Para trabajar a esa temperatura con el menor gasto de luz, es preferible mantener o ampliar la superficie de emisión (radiadores) antes que sobredimensionar la potencia de la bomba de calor.
+   - Para un COP óptimo (>4.0), mantener bajas temperaturas (40 °C - 45 °C) aumentando superficie de emisión.
+   - Horgan cubre 4 radiadores nuevos por €1,900 que se financian prácticamente al 100% con la ayuda SEAI de Central Heating.
 
-4. **Reglas de la Subvención SEAI (€12,500 totales):**
-   - Exige HLI $< 2.30\text{ W/m}^2\text{K}$ (tu vivienda lo cumple holgadamente).
-   - **No requiere retirar la cocina de gas:** Puedes conservarla o adaptarla a bombona de butano/propano de forma independiente.
-   - **Tramo de Radiadores (€2,000):** Se cobra en función de la factura real aportada. Si el cambio/mejora de radiadores cuesta €1,900, la subvención reembolsa €1,900 de esa partida.
+4. **Reglas de la Subvención SEAI (Nuevo paquete €14,500 totales):**
+   - **Viviendas post-2007 (Evanwood 2017):** Exentas de Technical Assessment. Se tramita directamente con el **Self-Declaration Form**.
+   - **Desglose de ayudas:**
+     - Heat Pump System Grant: **€10,500**
+     - Boiler Scrappage Grant (Gobierno 29/09/2026): **€2,000** adicionales por retirar caldera de gas.
+     - Central Heating Upgrade (radiadores): hasta **€2,000**.
+   - **No requiere retirar la cocina de gas:** Se puede mantener o pasar a bombona independiente.
 
 ---
 
@@ -200,8 +208,8 @@ Vivienda de 105 m², construida en 2017 con BER A3 en Castletroy, Limerick.
 | Empresa | Solar+Bat Neto | Heat Pump Neto | Total Neto | Estado |
 |---------|---------------|----------------|------------|--------|
 | Treacy Solar | **€11,250** (7.52kWp+10kWh+EV) | - | **€11,250** | ✅ **INSTALADO 10/09/2026** |
-| Horgan Renewables | - | **€4,250** (inc. 4 rads) | - | ✅ Presupuesto firme |
-| Morning Star Projects | - | Pendiente (~ >Mitsubishi) | - | 🔄 Visita técnica esta semana |
+| Horgan Renewables | - | **€2,350** (inc. 4 rads) | - | ✅ Presupuesto firme (€2,350 neto con nuevo bono) |
+| Morning Star Projects | - | **€6,095.33** (Vaillant R290) | - | ✅ Presupuesto recibido (02/10/2026) |
 | Ecoheat Ireland | - | Pendiente (según rads) | - | 📋 Calculando HLI oficial |
-| TP Gas Services | - | €12,500 | - | ❌ Descartado (Fuera de rango) |
+| TP Gas Services | - | €10,500 | - | ❌ Descartado (Fuera de rango) |
 

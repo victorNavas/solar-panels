@@ -10,16 +10,20 @@
 | **Neto** | **€9,950** |
 
 ### Aerotermia (Heat Pump)
-| Concepto | Estimación IA |
-|----------|--------------|
-| Coste bruto instalación | €15,000 |
-| Subvención SEAI completa | -€12,500 |
-| **Neto** | **€2,500** |
+| Concepto | Estimación IA (Previa) | Realidad 2026 (Tras Anuncio SEAI 29/09) |
+|----------|------------------------|------------------------------------------|
+| Coste bruto instalación | €15,000 | €16,750 (Horgan inc. 4 rads) / €20,595 (Morning Star Vaillant R290) |
+| Subvención SEAI completa | -€12,500 | **-€14,500** (€10.5k HP + €2k Boiler Scrappage + €2k Radiadores) |
+| **Neto** | **€2,500** | **€2,350 neto (Horgan)** / **€6,095 neto (Morning Star)** |
 
-### Total Estimado IA
-- **€12,450 netos** por el retrofit completo (Solar + Batería + Heat Pump)
-- Amortización: ~5 años
-- Ahorro anual: ~€2,500
+### Total Estimado vs Realidad
+- **Estimado original:** ~€12,450 netos por retrofit completo (Solar + Batería + Heat Pump)
+- **Realidad contratada/ofertada:**
+  - Fase 1 (Solar 7.52kWp + Batería 10kWh + Cargador EV): **€11,250 neto pagado** con Treacy Solar
+  - Fase 2 (Aerotermia): **€2,350 neto** con Horgan (€16,750 − €14,400 ayudas)
+  - **Total Retrofit Real: ~€13,600 netos** (¡a tiro de piedra de la estimación original a pesar de instalar un sistema solar mucho más grande y añadir cargador EV!).
+- Amortización: ~5-6 años
+- Ahorro anual: ~€2,500 (incluyendo compensación de excedentes CEG y eliminación del gas)
 
 ---
 
